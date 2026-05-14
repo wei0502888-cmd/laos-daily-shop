@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>老撾日常屋｜台灣生活補給商城</title>
+    <meta
+      name="description"
+      content="老撾日常屋是在老撾的台灣人與華人生活補給商城，提供台灣泡麵、飲料、下飯料理、日常用品、廚房補給與人氣零食。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Taiwan Daily Supply in Laos</p>
+        <h1>老撾日常屋</h1>
+      </div>
+      <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車">
+        <span>購物車</span>
+        <strong data-cart-count>0</strong>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="品牌介紹">
+        <div class="hero-copy">
+          <p class="tagline">在老撾，也能買到熟悉的台灣味。</p>
+          <p>
+            泡麵、飲料、罐頭、廚房醬料與日常用品，一次整理成手機好逛的補貨清單。
+          </p>
+        </div>
+        <div class="supply-board" aria-hidden="true">
+          <span>泡麵</span>
+          <span>飲料</span>
+          <span>零食</span>
+          <span>醬料</span>
+        </div>
+      </section>
+
+      <section class="search-panel" aria-label="搜尋商品">
+        <label for="product-search">搜尋商品</label>
+        <input id="product-search" type="search" placeholder="輸入品名，例如：維力、麥香、沙茶醬" />
+      </section>
+
+      <section class="section-block" aria-labelledby="hot-title">
+        <div class="section-heading">
+          <p>Hot Restock</p>
+          <h2 id="hot-title">熱門補貨商品</h2>
+        </div>
+        <div class="product-row" data-hot-list></div>
+      </section>
+
+      <nav class="category-tabs" aria-label="商品分類" data-category-tabs></nav>
+
+      <section class="section-block" aria-labelledby="products-title">
+        <div class="section-heading">
+          <p>Categories</p>
+          <h2 id="products-title">商品分類</h2>
+        </div>
+        <div class="product-grid" data-product-grid></div>
+        <p class="empty-state" data-empty-state hidden>沒有找到符合的商品。</p>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
+      <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+          <h2 id="cart-title">購物車</h2>
+          <button type="button" data-close-cart aria-label="關閉購物車">關閉</button>
+        </div>
+        <div class="cart-items" data-cart-items></div>
+        <form class="checkout-form" data-order-form>
+          <h3>下單資料</h3>
+          <label>
+            姓名
+            <input name="name" required autocomplete="name" />
+          </label>
+          <label>
+            電話
+            <input name="phone" required autocomplete="tel" inputmode="tel" />
+          </label>
+          <label>
+            地址
+            <textarea name="address" required rows="3" autocomplete="street-address"></textarea>
+          </label>
+          <button class="primary-button" type="submit">送出 Telegram 訂單</button>
+          <p class="form-note">
+            此版本不含金流與會員系統，送出後會產生 Telegram 訂單訊息。
+          </p>
+        </form>
+      </div>
+    </aside>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
