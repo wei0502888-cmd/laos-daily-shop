@@ -52,6 +52,7 @@ const products = categories.flatMap((category) =>
     tone: category.tone,
     mark: iconMap[category.name],
     image: `./assets/products/${assetName(name)}.svg`,
+    fallbackImage: `./${assetName(name)}.svg`,
   })),
 );
 
@@ -80,7 +81,7 @@ function productCard(product) {
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="product-art">
-      <img src="${product.image}" alt="${product.name} 商品圖" loading="lazy" />
+      <img src="${product.image}" data-fallback="${product.fallbackImage}" alt="${product.name} 商品圖" loading="lazy" />
     </div>
     <div class="product-body">
       <p class="category-label">${product.category}</p>
@@ -88,6 +89,16 @@ function productCard(product) {
       <button class="add-button" type="button">加入購物車</button>
     </div>
   `;
+  const image = card.querySelector("img");
+  image.addEventListener(
+    "error",
+    () => {
+      if (image.dataset.fallback && image.src !== image.dataset.fallback) {
+        image.src = image.dataset.fallback;
+      }
+    },
+    { once: true },
+  );
   card.querySelector("button").addEventListener("click", () => addToCart(product.id));
   return card;
 }
