@@ -30,6 +30,7 @@ const cartDrawer = document.querySelector("[data-cart-drawer]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
 const form = document.querySelector("[data-order-form]");
+const orderSuccess = document.querySelector("[data-order-success]");
 
 function assetName(input) {
   return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
@@ -216,6 +217,10 @@ function renderCart() {
 function openCart() {
   cartDrawer.classList.add("is-open");
   cartDrawer.setAttribute("aria-hidden", "false");
+  if (state.cart.size > 0) {
+    form.hidden = false;
+    orderSuccess.hidden = true;
+  }
 }
 
 function closeCart() {
@@ -252,7 +257,6 @@ async function sendTelegramMessage(message) {
         message,
       }),
     });
-    alert("訂單已送出。");
     return;
   }
   alert("訂單通知尚未設定完成，請聯絡店家。");
@@ -303,13 +307,16 @@ form.addEventListener("submit", async (event) => {
     state.cart.clear();
     form.reset();
     renderCart();
-    closeCart();
+    form.hidden = true;
+    orderSuccess.hidden = false;
   } catch (error) {
     alert("訂單送出失敗，請稍後再試或直接聯絡店家。");
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "送出 Telegram 訂單";
+    submitButton.textContent = "送出訂單";
   }
 });
+
+document.querySelector("[data-success-close]").addEventListener("click", closeCart);
 
 loadShopData();

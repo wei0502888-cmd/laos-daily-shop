@@ -84,11 +84,16 @@
             地址
             <textarea name="address" required rows="3" autocomplete="street-address"></textarea>
           </label>
-          <button class="primary-button" type="submit">送出 Telegram 訂單</button>
+          <button class="primary-button" type="submit">送出訂單</button>
           <p class="form-note">
-            此版本不含金流與會員系統，送出後會產生 Telegram 訂單訊息。
+            此版本不含金流與會員系統，送出後會在本頁完成訂單，店家會收到通知。
           </p>
         </form>
+        <div class="order-success" data-order-success hidden>
+          <h3>下單完成</h3>
+          <p>訂單已送出，店家會透過電話或訊息與你確認商品與配送。</p>
+          <button class="primary-button" type="button" data-success-close>完成</button>
+        </div>
       </div>
     </aside>
 

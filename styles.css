@@ -441,7 +441,8 @@ main {
   margin-top: 18px;
 }
 
-.checkout-form h3 {
+.checkout-form h3,
+.order-success h3 {
   font-size: 18px;
 }
 
@@ -471,6 +472,26 @@ main {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.6;
+}
+
+.order-success {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(47, 104, 79, 0.18);
+  border-radius: 8px;
+  background: rgba(47, 104, 79, 0.08);
+}
+
+.order-success[hidden] {
+  display: none;
+}
+
+.order-success p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 @media (min-width: 680px) {
