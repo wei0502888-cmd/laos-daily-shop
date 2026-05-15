@@ -1,6 +1,6 @@
 const config = window.SHOP_CONFIG || {
   currencyLabel: "₭",
-  telegram: { mode: "share", orderEndpoint: "" },
+  telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
 const iconMap = {
@@ -244,18 +244,18 @@ function orderMessage(formData) {
 async function sendTelegramMessage(message) {
   const telegram = config.telegram || {};
   if (telegram.mode === "proxy" && telegram.orderEndpoint) {
-    const response = await fetch(telegram.orderEndpoint, {
+    await fetch(telegram.orderEndpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
         message,
       }),
     });
-    if (!response.ok) throw new Error("Order message failed");
     alert("訂單已送出。");
     return;
   }
-  window.open(`https://t.me/share/url?text=${encodeURIComponent(message)}`, "_blank");
+  alert("訂單通知尚未設定完成，請聯絡店家。");
 }
 
 async function loadShopData() {
@@ -294,8 +294,22 @@ form.addEventListener("submit", async (event) => {
     alert("請先加入至少一項商品。");
     return;
   }
-  const message = orderMessage(new FormData(form));
-  await sendTelegramMessage(message);
+  const submitButton = form.querySelector("button[type='submit']");
+  submitButton.disabled = true;
+  submitButton.textContent = "送出中...";
+  try {
+    const message = orderMessage(new FormData(form));
+    await sendTelegramMessage(message);
+    state.cart.clear();
+    form.reset();
+    renderCart();
+    closeCart();
+  } catch (error) {
+    alert("訂單送出失敗，請稍後再試或直接聯絡店家。");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "送出 Telegram 訂單";
+  }
 });
 
 loadShopData();
