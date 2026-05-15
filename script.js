@@ -1,35 +1,7 @@
-const categories = [
-  {
-    name: "台灣泡麵補給",
-    tone: "#f0b95a",
-    items: ["維力炸醬麵", "來一客", "統一肉燥麵", "一度讚", "大乾麵", "關廟麵"],
-  },
-  {
-    name: "台灣經典飲料",
-    tone: "#8fb8c8",
-    items: ["麥仔茶", "御茶園", "麥香紅茶／奶茶／綠茶", "茶裏王", "伯朗咖啡", "津津蘆筍汁", "貝納頌", "左岸奶茶"],
-  },
-  {
-    name: "台灣下飯料理",
-    tone: "#df9279",
-    items: ["麵筋", "脆瓜", "魚罐頭", "肉醬", "料理包", "筍子", "五星上醬"],
-  },
-  {
-    name: "台灣日常用品",
-    tone: "#a7bfa0",
-    items: ["沐浴乳", "洗髮乳", "洗面乳"],
-  },
-  {
-    name: "台灣廚房補給",
-    tone: "#d9c06d",
-    items: ["醬油膏", "沙茶醬", "豬油蔥醬", "雞粉", "高湯塊", "醬油", "維力炸醬", "胡椒粉", "胡椒鹽"],
-  },
-  {
-    name: "台灣人氣零食",
-    tone: "#c99ac0",
-    items: ["卡拉姆久", "可樂果", "蚵仔煎洋芋片", "乖乖", "波卡", "七七乳加"],
-  },
-];
+const config = window.SHOP_CONFIG || {
+  currencyLabel: "₭",
+  telegram: { mode: "share", orderEndpoint: "" },
+};
 
 const iconMap = {
   台灣泡麵補給: "麵",
@@ -40,26 +12,10 @@ const iconMap = {
   台灣人氣零食: "零",
 };
 
-function assetName(input) {
-  return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
-}
-
-const products = categories.flatMap((category) =>
-  category.items.map((name) => ({
-    id: `${category.name}-${name}`,
-    name,
-    category: category.name,
-    tone: category.tone,
-    mark: iconMap[category.name],
-    image: `./assets/products/${assetName(name)}.svg`,
-    fallbackImage: `./${assetName(name)}.svg`,
-  })),
-);
-
-const hotNames = ["維力炸醬麵", "麥香紅茶／奶茶／綠茶", "沙茶醬", "可樂果", "麵筋"];
-const hotProducts = hotNames.map((name) => products.find((product) => product.name === name));
-
 const state = {
+  categories: [],
+  products: [],
+  hotNames: [],
   category: "全部",
   query: "",
   cart: new Map(),
@@ -75,8 +31,37 @@ const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
 const form = document.querySelector("[data-order-form]");
 
+function assetName(input) {
+  return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
+}
+
+function formatPrice(product) {
+  if (typeof product.price === "number") {
+    return `${config.currencyLabel || ""}${product.price.toLocaleString("zh-TW")}`;
+  }
+  return product.priceText || "請詢價";
+}
+
+function productTotal(product, qty) {
+  return typeof product.price === "number" ? product.price * qty : null;
+}
+
+function normalizeProduct(product) {
+  const category = state.categories.find((item) => item.name === product.category);
+  return {
+    ...product,
+    id: `${product.category}-${product.name}`,
+    tone: category?.tone || "#f0b95a",
+    mark: iconMap[product.category] || "品",
+    stock: product.stock || "現貨",
+    image: product.image || `assets/products/${assetName(product.name)}.svg`,
+    fallbackImage: product.fallbackImage || `${assetName(product.name)}.svg`,
+  };
+}
+
 function productCard(product) {
   const card = document.createElement("article");
+  const disabled = product.stock === "缺貨";
   card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
@@ -86,14 +71,18 @@ function productCard(product) {
     <div class="product-body">
       <p class="category-label">${product.category}</p>
       <h3>${product.name}</h3>
-      <button class="add-button" type="button">加入購物車</button>
+      <div class="product-meta">
+        <strong>${formatPrice(product)}</strong>
+        <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
+      </div>
+      <button class="add-button" type="button" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : "加入購物車"}</button>
     </div>
   `;
   const image = card.querySelector("img");
   image.addEventListener(
     "error",
     () => {
-      if (image.dataset.fallback && image.src !== image.dataset.fallback) {
+      if (image.dataset.fallback && !image.src.endsWith(image.dataset.fallback)) {
         image.src = image.dataset.fallback;
       }
     },
@@ -104,7 +93,8 @@ function productCard(product) {
 }
 
 function renderTabs() {
-  ["全部", ...categories.map((category) => category.name)].forEach((name) => {
+  tabs.innerHTML = "";
+  ["全部", ...state.categories.map((category) => category.name)].forEach((name) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "tab-button";
@@ -126,10 +116,13 @@ function renderActiveTabs() {
 }
 
 function filteredProducts() {
-  return products.filter((product) => {
+  return state.products.filter((product) => {
     const matchCategory = state.category === "全部" || product.category === state.category;
     const matchQuery =
-      !state.query || product.name.includes(state.query) || product.category.includes(state.query);
+      !state.query ||
+      product.name.includes(state.query) ||
+      product.category.includes(state.query) ||
+      product.stock.includes(state.query);
     return matchCategory && matchQuery;
   });
 }
@@ -142,10 +135,16 @@ function renderProducts() {
 }
 
 function renderHotProducts() {
-  hotProducts.forEach((product) => hotList.append(productCard(product)));
+  hotList.innerHTML = "";
+  state.hotNames
+    .map((name) => state.products.find((product) => product.name === name))
+    .filter(Boolean)
+    .forEach((product) => hotList.append(productCard(product)));
 }
 
 function addToCart(id) {
+  const product = state.products.find((item) => item.id === id);
+  if (!product || product.stock === "缺貨") return;
   state.cart.set(id, (state.cart.get(id) || 0) + 1);
   renderCart();
 }
@@ -160,9 +159,22 @@ function changeQty(id, delta) {
   renderCart();
 }
 
+function cartSummary() {
+  const entries = [...state.cart.entries()];
+  const pricedEntries = entries
+    .map(([id, qty]) => {
+      const product = state.products.find((item) => item.id === id);
+      return productTotal(product, qty);
+    })
+    .filter((total) => total !== null);
+  const allPriced = entries.length > 0 && pricedEntries.length === entries.length;
+  const total = pricedEntries.reduce((sum, value) => sum + value, 0);
+  return { entries, allPriced, total };
+}
+
 function renderCart() {
   cartItems.innerHTML = "";
-  const entries = [...state.cart.entries()];
+  const { entries, allPriced, total } = cartSummary();
   const totalCount = entries.reduce((sum, [, qty]) => sum + qty, 0);
   cartCount.textContent = totalCount;
 
@@ -172,13 +184,13 @@ function renderCart() {
   }
 
   entries.forEach(([id, qty]) => {
-    const product = products.find((item) => item.id === id);
+    const product = state.products.find((item) => item.id === id);
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}</p>
+        <p class="form-note">${product.category}｜${formatPrice(product)}</p>
       </div>
       <div class="qty-tools">
         <button type="button" aria-label="減少 ${product.name}">-</button>
@@ -191,6 +203,14 @@ function renderCart() {
     plus.addEventListener("click", () => changeQty(id, 1));
     cartItems.append(row);
   });
+
+  const totalRow = document.createElement("div");
+  totalRow.className = "cart-total";
+  totalRow.innerHTML = `
+    <span>商品小計</span>
+    <strong>${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}</strong>
+  `;
+  cartItems.append(totalRow);
 }
 
 function openCart() {
@@ -204,15 +224,57 @@ function closeCart() {
 }
 
 function orderMessage(formData) {
+  const { entries, allPriced, total } = cartSummary();
   const lines = ["老撾日常屋新訂單", "", "商品："];
-  state.cart.forEach((qty, id) => {
-    const product = products.find((item) => item.id === id);
-    lines.push(`- ${product.name} x ${qty}`);
+  entries.forEach(([id, qty]) => {
+    const product = state.products.find((item) => item.id === id);
+    const lineTotal = productTotal(product, qty);
+    const subtotal = lineTotal === null ? "請詢價" : `${config.currencyLabel || ""}${lineTotal.toLocaleString("zh-TW")}`;
+    lines.push(`- ${product.name} x ${qty}｜${formatPrice(product)}｜小計 ${subtotal}`);
   });
-  lines.push("", `姓名：${formData.get("name")}`);
+  lines.push("");
+  lines.push(`總計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}`);
+  lines.push("");
+  lines.push(`姓名：${formData.get("name")}`);
   lines.push(`電話：${formData.get("phone")}`);
   lines.push(`地址：${formData.get("address")}`);
   return lines.join("\n");
+}
+
+async function sendTelegramMessage(message) {
+  const telegram = config.telegram || {};
+  if (telegram.mode === "proxy" && telegram.orderEndpoint) {
+    const response = await fetch(telegram.orderEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message,
+      }),
+    });
+    if (!response.ok) throw new Error("Order message failed");
+    alert("訂單已送出。");
+    return;
+  }
+  window.open(`https://t.me/share/url?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+async function loadShopData() {
+  try {
+    const response = await fetch("./products.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Cannot load products.json");
+    const data = await response.json();
+    state.categories = data.categories || [];
+    state.hotNames = data.hotProducts || [];
+    state.products = (data.products || []).map(normalizeProduct);
+    renderTabs();
+    renderHotProducts();
+    renderProducts();
+    renderCart();
+  } catch (error) {
+    productGrid.innerHTML = "";
+    emptyState.hidden = false;
+    emptyState.textContent = "商品資料載入失敗，請檢查 products.json。";
+  }
 }
 
 document.querySelector("[data-open-cart]").addEventListener("click", openCart);
@@ -226,17 +288,14 @@ search.addEventListener("input", (event) => {
   renderProducts();
 });
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (state.cart.size === 0) {
     alert("請先加入至少一項商品。");
     return;
   }
   const message = orderMessage(new FormData(form));
-  window.open(`https://t.me/share/url?text=${encodeURIComponent(message)}`, "_blank");
+  await sendTelegramMessage(message);
 });
 
-renderTabs();
-renderHotProducts();
-renderProducts();
-renderCart();
+loadShopData();
