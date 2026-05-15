@@ -31,6 +31,12 @@ const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
 const form = document.querySelector("[data-order-form]");
 const orderSuccess = document.querySelector("[data-order-success]");
+const orderCount = document.querySelector("[data-order-count]");
+const orderDetailList = document.querySelector("[data-order-detail-list]");
+const successDetail = document.querySelector("[data-success-detail]");
+const paymentTitle = document.querySelector("[data-payment-title]");
+const paymentAccount = document.querySelector("[data-payment-account]");
+const paymentNote = document.querySelector("[data-payment-note]");
 
 function assetName(input) {
   return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
@@ -49,12 +55,14 @@ function productTotal(product, qty) {
 
 function normalizeProduct(product) {
   const category = state.categories.find((item) => item.name === product.category);
+  const stockQty = Number.isFinite(Number(product.stockQty)) ? Number(product.stockQty) : 0;
   return {
     ...product,
     id: `${product.category}-${product.name}`,
     tone: category?.tone || "#f0b95a",
     mark: iconMap[product.category] || "品",
-    stock: product.stock || "現貨",
+    stockQty,
+    stock: stockQty <= 0 ? "缺貨" : product.stock || "現貨",
     image: product.image || `assets/products/${assetName(product.name)}.svg`,
     fallbackImage: product.fallbackImage || `${assetName(product.name)}.svg`,
   };
@@ -62,7 +70,7 @@ function normalizeProduct(product) {
 
 function productCard(product) {
   const card = document.createElement("article");
-  const disabled = product.stock === "缺貨";
+  const disabled = product.stock === "缺貨" || product.stockQty <= 0;
   card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
@@ -76,6 +84,7 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
         <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
+      <p class="stock-line">庫存 ${product.stockQty}</p>
       <button class="add-button" type="button" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : "加入購物車"}</button>
     </div>
   `;
@@ -145,17 +154,21 @@ function renderHotProducts() {
 
 function addToCart(id) {
   const product = state.products.find((item) => item.id === id);
-  if (!product || product.stock === "缺貨") return;
+  const currentQty = state.cart.get(id) || 0;
+  if (!product || product.stock === "缺貨" || currentQty >= product.stockQty) return;
   state.cart.set(id, (state.cart.get(id) || 0) + 1);
   renderCart();
 }
 
 function changeQty(id, delta) {
+  const product = state.products.find((item) => item.id === id);
   const next = (state.cart.get(id) || 0) + delta;
   if (next <= 0) {
     state.cart.delete(id);
-  } else {
+  } else if (product && next <= product.stockQty) {
     state.cart.set(id, next);
+  } else {
+    alert(`目前庫存只剩 ${product.stockQty} 件。`);
   }
   renderCart();
 }
@@ -175,12 +188,15 @@ function cartSummary() {
 
 function renderCart() {
   cartItems.innerHTML = "";
+  orderDetailList.innerHTML = "";
   const { entries, allPriced, total } = cartSummary();
   const totalCount = entries.reduce((sum, [, qty]) => sum + qty, 0);
   cartCount.textContent = totalCount;
+  orderCount.textContent = `${totalCount} 件商品`;
 
   if (!entries.length) {
     cartItems.innerHTML = '<p class="form-note">購物車目前是空的，先把想補貨的品項加進來。</p>';
+    orderDetailList.innerHTML = '<p class="form-note">尚未選擇商品。</p>';
     return;
   }
 
@@ -191,7 +207,7 @@ function renderCart() {
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${formatPrice(product)}</p>
+        <p class="form-note">${product.category}｜${formatPrice(product)}｜庫存 ${product.stockQty}</p>
       </div>
       <div class="qty-tools">
         <button type="button" aria-label="減少 ${product.name}">-</button>
@@ -203,6 +219,18 @@ function renderCart() {
     minus.addEventListener("click", () => changeQty(id, -1));
     plus.addEventListener("click", () => changeQty(id, 1));
     cartItems.append(row);
+
+    const detail = document.createElement("div");
+    detail.className = "order-detail-item";
+    detail.innerHTML = `
+      <img src="${product.image}" alt="" />
+      <div>
+        <strong>${product.name}</strong>
+        <span>${formatPrice(product)} x ${qty}</span>
+      </div>
+      <em>剩 ${Math.max(product.stockQty - qty, 0)}</em>
+    `;
+    orderDetailList.append(detail);
   });
 
   const totalRow = document.createElement("div");
@@ -230,20 +258,63 @@ function closeCart() {
 
 function orderMessage(formData) {
   const { entries, allPriced, total } = cartSummary();
-  const lines = ["老撾日常屋新訂單", "", "商品："];
+  const orderId = makeOrderId();
+  const lines = [`老撾日常屋新訂單 #${orderId}`, "", "訂單詳情："];
   entries.forEach(([id, qty]) => {
     const product = state.products.find((item) => item.id === id);
     const lineTotal = productTotal(product, qty);
     const subtotal = lineTotal === null ? "請詢價" : `${config.currencyLabel || ""}${lineTotal.toLocaleString("zh-TW")}`;
-    lines.push(`- ${product.name} x ${qty}｜${formatPrice(product)}｜小計 ${subtotal}`);
+    lines.push(`- ${product.name} x ${qty}｜${formatPrice(product)}｜小計 ${subtotal}｜庫存 ${product.stockQty} -> ${Math.max(product.stockQty - qty, 0)}`);
   });
   lines.push("");
   lines.push(`總計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}`);
+  lines.push(`付款：${config.payment?.title || "匯款 / U 帳號"}｜${config.payment?.account || "請洽專人提供 U 帳號"}｜${config.payment?.note || "確認付款後安排出貨"}`);
   lines.push("");
   lines.push(`姓名：${formData.get("name")}`);
   lines.push(`電話：${formData.get("phone")}`);
   lines.push(`地址：${formData.get("address")}`);
+  lines.push(`備註：${formData.get("note") || "無"}`);
   return lines.join("\n");
+}
+
+function makeOrderId() {
+  const now = new Date();
+  const date = now.toISOString().slice(0, 10).replaceAll("-", "");
+  const time = String(now.getHours()).padStart(2, "0") + String(now.getMinutes()).padStart(2, "0");
+  return `${date}-${time}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+}
+
+function renderSuccessDetail(formData) {
+  const { entries, allPriced, total } = cartSummary();
+  const list = entries
+    .map(([id, qty]) => {
+      const product = state.products.find((item) => item.id === id);
+      return `<li>${product.name} x ${qty}</li>`;
+    })
+    .join("");
+  successDetail.innerHTML = `
+    <div class="success-section">
+      <strong>訂單詳情</strong>
+      <ul>${list}</ul>
+      <p>合計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}</p>
+    </div>
+    <div class="success-section">
+      <strong>${config.payment?.title || "匯款 / U 帳號"}</strong>
+      <p>${config.payment?.account || "請洽專人提供 U 帳號"}</p>
+      <small>${config.payment?.note || "確認付款後安排出貨"}</small>
+    </div>
+    <div class="success-section">
+      <strong>收件資料</strong>
+      <p>${formData.get("name")}｜${formData.get("phone")}</p>
+      <p>${formData.get("address")}</p>
+    </div>
+  `;
+}
+
+function applyPaymentConfig() {
+  paymentTitle.textContent = config.payment?.title || "匯款 / U 帳號";
+  paymentAccount.textContent = config.payment?.account || "請洽專人提供 U 帳號";
+  paymentNote.textContent = config.payment?.note || "確認付款後安排出貨";
 }
 
 async function sendTelegramMessage(message) {
@@ -302,13 +373,15 @@ form.addEventListener("submit", async (event) => {
   submitButton.disabled = true;
   submitButton.textContent = "送出中...";
   try {
-    const message = orderMessage(new FormData(form));
+    const formData = new FormData(form);
+    const message = orderMessage(formData);
     await sendTelegramMessage(message);
-    state.cart.clear();
+    renderSuccessDetail(formData);
     form.reset();
-    renderCart();
     form.hidden = true;
     orderSuccess.hidden = false;
+    state.cart.clear();
+    renderCart();
   } catch (error) {
     alert("訂單送出失敗，請稍後再試或直接聯絡店家。");
   } finally {
@@ -319,4 +392,5 @@ form.addEventListener("submit", async (event) => {
 
 document.querySelector("[data-success-close]").addEventListener("click", closeCart);
 
+applyPaymentConfig();
 loadShopData();

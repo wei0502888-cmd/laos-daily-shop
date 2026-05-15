@@ -72,6 +72,18 @@
         <div class="cart-items" data-cart-items></div>
         <form class="checkout-form" data-order-form>
           <h3>下單資料</h3>
+          <div class="order-detail-box">
+            <div class="order-detail-head">
+              <strong>訂單詳情</strong>
+              <span data-order-count>0 件商品</span>
+            </div>
+            <div class="order-detail-list" data-order-detail-list></div>
+          </div>
+          <div class="payment-box">
+            <strong data-payment-title>匯款 / U 帳號</strong>
+            <p data-payment-account>請洽專人提供 U 帳號</p>
+            <small data-payment-note>確認付款後安排出貨</small>
+          </div>
           <label>
             姓名
             <input name="name" required autocomplete="name" />
@@ -84,6 +96,10 @@
             地址
             <textarea name="address" required rows="3" autocomplete="street-address"></textarea>
           </label>
+          <label>
+            備註
+            <textarea name="note" rows="2" placeholder="例如：希望送達時間、替代商品、付款備註"></textarea>
+          </label>
           <button class="primary-button" type="submit">送出訂單</button>
           <p class="form-note">
             此版本不含金流與會員系統，送出後會在本頁完成訂單，店家會收到通知。
@@ -91,13 +107,14 @@
         </form>
         <div class="order-success" data-order-success hidden>
           <h3>下單完成</h3>
-          <p>訂單已送出，店家會透過電話或訊息與你確認商品與配送。</p>
+          <p>訂單已送出，店家會透過電話或訊息與你確認商品、付款與配送。</p>
+          <div class="success-detail" data-success-detail></div>
           <button class="primary-button" type="button" data-success-close>完成</button>
         </div>
       </div>
     </aside>
 
-    <script src="./config.js?v=20260515-order-proxy"></script>
-    <script src="./script.js?v=20260515-order-proxy"></script>
+    <script src="./config.js?v=20260515-order-detail"></script>
+    <script src="./script.js?v=20260515-order-detail"></script>
   </body>
 </html>
