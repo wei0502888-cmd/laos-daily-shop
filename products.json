@@ -40,8 +40,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/乖乖奶油椰子.svg"
+      "stockQty": 12
     },
     {
       "name": "乖乖巧克力",
@@ -49,8 +48,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/乖乖巧克力.svg"
+      "stockQty": 12
     },
     {
       "name": "華元波特多/蚵仔煎",
@@ -58,8 +56,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/華元波特多-蚵仔煎.svg"
+      "stockQty": 12
     },
     {
       "name": "華元鹹蔬餅",
@@ -67,8 +64,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 10,
-      "image": "assets/products/華元鹹蔬餅.svg"
+      "stockQty": 10
     },
     {
       "name": "華元真魷味红烧口味",
@@ -76,8 +72,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 10,
-      "image": "assets/products/華元真魷味红烧口味.svg"
+      "stockQty": 10
     },
     {
       "name": "卡迪那德州薯條",
@@ -85,8 +80,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/卡迪那德州薯條.svg"
+      "stockQty": 12
     },
     {
       "name": "卡迪那滿天星",
@@ -94,8 +88,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/卡迪那滿天星.svg"
+      "stockQty": 12
     },
     {
       "name": "聯華可樂果-原味",
@@ -103,8 +96,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/聯華可樂果-原味.svg"
+      "stockQty": 12
     },
     {
       "name": "聯華可樂果-辣味",
@@ -112,8 +104,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/聯華可樂果-辣味.svg"
+      "stockQty": 12
     },
     {
       "name": "義美小泡芙-草莓",
@@ -121,8 +112,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/義美小泡芙-草莓.svg"
+      "stockQty": 12
     },
     {
       "name": "義美小泡芙-牛奶",
@@ -130,8 +120,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/義美小泡芙-牛奶.svg"
+      "stockQty": 12
     },
     {
       "name": "義美小泡芙-巧克力",
@@ -139,8 +128,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/義美小泡芙-巧克力.svg"
+      "stockQty": 12
     },
     {
       "name": "義美原味蛋捲",
@@ -148,8 +136,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/義美原味蛋捲.svg"
+      "stockQty": 12
     },
     {
       "name": "愛之味脆瓜",
@@ -157,8 +144,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/愛之味脆瓜.svg"
+      "stockQty": 12
     },
     {
       "name": "愛之味土豆麵筋",
@@ -166,8 +152,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "缺貨",
-      "stockQty": 0,
-      "image": "assets/products/愛之味土豆麵筋.svg"
+      "stockQty": 0
     },
     {
       "name": "愛之味玉筍",
@@ -175,8 +160,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/愛之味玉筍.svg"
+      "stockQty": 12
     },
     {
       "name": "綠巨人珍玉米粒易",
@@ -184,8 +168,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/綠巨人珍玉米粒易.svg"
+      "stockQty": 24
     },
     {
       "name": "萬家香素蠔油",
@@ -193,8 +176,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/萬家香素蠔油.svg"
+      "stockQty": 12
     },
     {
       "name": "牛頭牌沙茶醬",
@@ -202,8 +184,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/牛頭牌沙茶醬.svg"
+      "stockQty": 24
     },
     {
       "name": "泰山八寶粥",
@@ -211,8 +192,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/泰山八寶粥.svg"
+      "stockQty": 24
     },
     {
       "name": "泰山花生仁湯",
@@ -220,8 +200,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/泰山花生仁湯.svg"
+      "stockQty": 24
     },
     {
       "name": "泰山仙草蜜",
@@ -229,8 +208,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/泰山仙草蜜.svg"
+      "stockQty": 24
     },
     {
       "name": "三興小茄汁鯖魚",
@@ -238,8 +216,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/三興小茄汁鯖魚.svg"
+      "stockQty": 24
     },
     {
       "name": "味王調理快餐-紅燒牛腩盒",
@@ -247,8 +224,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/味王調理快餐-紅燒牛腩盒.svg"
+      "stockQty": 24
     },
     {
       "name": "味王調理快餐-筍絲控肉盒",
@@ -256,8 +232,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/味王調理快餐-筍絲控肉盒.svg"
+      "stockQty": 24
     },
     {
       "name": "小磨坊白胡椒",
@@ -265,8 +240,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 6,
-      "image": "assets/products/小磨坊白胡椒.svg"
+      "stockQty": 6
     },
     {
       "name": "玉英剝皮辣椒",
@@ -274,8 +248,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/玉英剝皮辣椒.svg"
+      "stockQty": 12
     },
     {
       "name": "統一阿Q桶麵-紅椒牛肉",
@@ -283,8 +256,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一阿q桶麵-紅椒牛肉.svg"
+      "stockQty": 12
     },
     {
       "name": "統一阿Q桶麵-雞汁排骨",
@@ -292,8 +264,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一阿q桶麵-雞汁排骨.svg"
+      "stockQty": 12
     },
     {
       "name": "統一阿Q桶麵-蒜香珍肉",
@@ -301,8 +272,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一阿q桶麵-蒜香珍肉.svg"
+      "stockQty": 12
     },
     {
       "name": "統一蔥燒牛袋",
@@ -310,8 +280,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/統一蔥燒牛袋.svg"
+      "stockQty": 30
     },
     {
       "name": "統一調和米粉肉燥袋麵",
@@ -319,8 +288,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/統一調和米粉肉燥袋麵.svg"
+      "stockQty": 30
     },
     {
       "name": "統一科學麵",
@@ -328,8 +296,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 40,
-      "image": "assets/products/統一科學麵.svg"
+      "stockQty": 40
     },
     {
       "name": "統一來一客川辣牛肉風味",
@@ -337,8 +304,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一來一客川辣牛肉風味.svg"
+      "stockQty": 12
     },
     {
       "name": "統一來一客韓式泡菜風味",
@@ -346,8 +312,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一來一客韓式泡菜風味.svg"
+      "stockQty": 12
     },
     {
       "name": "統一來一客京燉肉骨風味",
@@ -355,8 +320,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一來一客京燉肉骨風味.svg"
+      "stockQty": 12
     },
     {
       "name": "統一來一客鮮蝦魚板風味",
@@ -364,8 +328,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一來一客鮮蝦魚板風味.svg"
+      "stockQty": 12
     },
     {
       "name": "統一滿漢大餐蔥牛袋",
@@ -373,8 +336,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一滿漢大餐蔥牛袋.svg"
+      "stockQty": 12
     },
     {
       "name": "統一滿漢大餐蔥牛碗",
@@ -382,8 +344,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 6,
-      "image": "assets/products/統一滿漢大餐蔥牛碗.svg"
+      "stockQty": 6
     },
     {
       "name": "統一滿漢大餐蔥豬袋",
@@ -391,8 +352,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一滿漢大餐蔥豬袋.svg"
+      "stockQty": 12
     },
     {
       "name": "統一滿漢大餐蔥豬碗",
@@ -400,8 +360,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 6,
-      "image": "assets/products/統一滿漢大餐蔥豬碗.svg"
+      "stockQty": 6
     },
     {
       "name": "統一滿漢大餐麻辣牛袋",
@@ -409,8 +368,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一滿漢大餐麻辣牛袋.svg"
+      "stockQty": 12
     },
     {
       "name": "統一滿漢大餐麻辣牛碗",
@@ -418,8 +376,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 6,
-      "image": "assets/products/統一滿漢大餐麻辣牛碗.svg"
+      "stockQty": 6
     },
     {
       "name": "統一日式豚骨拉麵袋",
@@ -427,8 +384,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一日式豚骨拉麵袋.svg"
+      "stockQty": 12
     },
     {
       "name": "統一肉骨茶袋",
@@ -436,8 +392,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/統一肉骨茶袋.svg"
+      "stockQty": 30
     },
     {
       "name": "統一肉骨茶碗",
@@ -445,8 +400,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一肉骨茶碗.svg"
+      "stockQty": 12
     },
     {
       "name": "統一肉燥麵袋",
@@ -454,8 +408,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/統一肉燥麵袋.svg"
+      "stockQty": 30
     },
     {
       "name": "統一肉燥麵碗",
@@ -463,8 +416,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一肉燥麵碗.svg"
+      "stockQty": 12
     },
     {
       "name": "統一巷口乾麵(麻醬)",
@@ -472,8 +424,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 6,
-      "image": "assets/products/統一巷口乾麵(麻醬).svg"
+      "stockQty": 6
     },
     {
       "name": "統一阿Q桶麵-韓式泡菜",
@@ -481,8 +432,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一阿q桶麵-韓式泡菜.svg"
+      "stockQty": 12
     },
     {
       "name": "統一阿Q桶麵-生猛海鮮",
@@ -490,8 +440,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/統一阿q桶麵-生猛海鮮.svg"
+      "stockQty": 12
     },
     {
       "name": "維力大乾麵地獄辣椒麵(袋)",
@@ -499,8 +448,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/維力大乾麵地獄辣椒麵(袋).svg"
+      "stockQty": 30
     },
     {
       "name": "維力大乾麵紅油擔擔碗麵",
@@ -508,8 +456,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力大乾麵紅油擔擔碗麵.svg"
+      "stockQty": 12
     },
     {
       "name": "維力一度贊袋-麻辣牛肉鍋麵",
@@ -517,8 +464,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度贊袋-麻辣牛肉鍋麵.svg"
+      "stockQty": 12
     },
     {
       "name": "維力一度讚紅燒牛袋",
@@ -526,8 +472,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度讚紅燒牛袋.svg"
+      "stockQty": 12
     },
     {
       "name": "維力一度讚紅燒牛碗",
@@ -535,8 +480,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度讚紅燒牛碗.svg"
+      "stockQty": 12
     },
     {
       "name": "維力一度讚爌肉袋",
@@ -544,8 +488,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度讚爌肉袋.svg"
+      "stockQty": 12
     },
     {
       "name": "維力一度讚老甕牛肉碗",
@@ -553,8 +496,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度讚老甕牛肉碗.svg"
+      "stockQty": 12
     },
     {
       "name": "維力炸醬麵(碗)",
@@ -562,8 +504,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力炸醬麵(碗).svg"
+      "stockQty": 12
     },
     {
       "name": "維力炸醬麵袋",
@@ -571,8 +512,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/維力炸醬麵袋.svg"
+      "stockQty": 30
     },
     {
       "name": "維力一度讚麻辣牛肉袋",
@@ -580,8 +520,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/維力一度讚麻辣牛肉袋.svg"
+      "stockQty": 12
     },
     {
       "name": "味味A排骨雞袋麵",
@@ -589,8 +528,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 30,
-      "image": "assets/products/味味a排骨雞袋麵.svg"
+      "stockQty": 30
     },
     {
       "name": "味味一品極品紅燒牛肉袋麵",
@@ -598,8 +536,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/味味一品極品紅燒牛肉袋麵.svg"
+      "stockQty": 12
     },
     {
       "name": "味味一品爌肉袋麵",
@@ -607,8 +544,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 12,
-      "image": "assets/products/味味一品爌肉袋麵.svg"
+      "stockQty": 12
     },
     {
       "name": "愛之味分解茶",
@@ -616,8 +552,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/愛之味分解茶.svg"
+      "stockQty": 24
     },
     {
       "name": "愛之味-麥仔茶",
@@ -625,8 +560,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/愛之味-麥仔茶.svg"
+      "stockQty": 24
     },
     {
       "name": "可爾必思",
@@ -634,8 +568,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/可爾必思.svg"
+      "stockQty": 24
     },
     {
       "name": "保力達蠻牛",
@@ -643,8 +576,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/保力達蠻牛.svg"
+      "stockQty": 24
     },
     {
       "name": "蘋果西打",
@@ -652,8 +584,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/蘋果西打.svg"
+      "stockQty": 24
     },
     {
       "name": "古道-百香綠茶",
@@ -661,8 +592,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/古道-百香綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "古道-梅子綠茶",
@@ -670,8 +600,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/古道-梅子綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "光泉冷泡茶-頂香清茶(無糖)",
@@ -679,8 +608,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/光泉冷泡茶-頂香清茶(無糖).svg"
+      "stockQty": 24
     },
     {
       "name": "黑松果汁C系列-百香果",
@@ -688,8 +616,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松果汁c系列-百香果.svg"
+      "stockQty": 24
     },
     {
       "name": "黑松果汁C系列-柳橙",
@@ -697,8 +624,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松果汁c系列-柳橙.svg"
+      "stockQty": 24
     },
     {
       "name": "黑松果汁C系列-蘋果",
@@ -706,8 +632,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松果汁c系列-蘋果.svg"
+      "stockQty": 24
     },
     {
       "name": "黑松果汁C系列-葡萄",
@@ -715,8 +640,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松果汁c系列-葡萄.svg"
+      "stockQty": 24
     },
     {
       "name": "黑松沙士",
@@ -724,8 +648,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松沙士.svg"
+      "stockQty": 24
     },
     {
       "name": "黑松沙士加鹽()",
@@ -733,8 +656,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松沙士加鹽().svg"
+      "stockQty": 24
     },
     {
       "name": "黑松FIN補給飲料",
@@ -742,8 +664,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/黑松fin補給飲料.svg"
+      "stockQty": 24
     },
     {
       "name": "紅牌速纖",
@@ -751,8 +672,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/紅牌速纖.svg"
+      "stockQty": 24
     },
     {
       "name": "匯竑阿薩姆原味奶茶",
@@ -760,8 +680,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/匯竑阿薩姆原味奶茶.svg"
+      "stockQty": 24
     },
     {
       "name": "金車-伯朗咖啡()",
@@ -769,8 +688,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/金車-伯朗咖啡().svg"
+      "stockQty": 24
     },
     {
       "name": "津津蘆筍汁鐵罐",
@@ -778,8 +696,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/津津蘆筍汁鐵罐.svg"
+      "stockQty": 24
     },
     {
       "name": "開喜烏龍茶(有糖)",
@@ -787,8 +704,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/開喜烏龍茶(有糖).svg"
+      "stockQty": 24
     },
     {
       "name": "立頓草莓",
@@ -796,8 +712,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/立頓草莓.svg"
+      "stockQty": 24
     },
     {
       "name": "立頓原味奶茶",
@@ -805,8 +720,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/立頓原味奶茶.svg"
+      "stockQty": 24
     },
     {
       "name": "立頓沁香奶綠",
@@ -814,8 +728,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/立頓沁香奶綠.svg"
+      "stockQty": 24
     },
     {
       "name": "生活泡沫紅茶",
@@ -823,8 +736,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/生活泡沫紅茶.svg"
+      "stockQty": 24
     },
     {
       "name": "生活泡沫綠茶",
@@ -832,8 +744,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/生活泡沫綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "生活泡沫奶茶",
@@ -841,8 +752,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/生活泡沫奶茶.svg"
+      "stockQty": 24
     },
     {
       "name": "生活泡沫花茶",
@@ -850,8 +760,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/生活泡沫花茶.svg"
+      "stockQty": 24
     },
     {
       "name": "台鹽-鹼性離子水",
@@ -859,8 +768,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/台鹽-鹼性離子水.svg"
+      "stockQty": 24
     },
     {
       "name": "統一茶裏王日式綠茶",
@@ -868,8 +776,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一茶裏王日式綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "統一茶裏王台式綠茶",
@@ -877,8 +784,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一茶裏王台式綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "統一咖啡廣場",
@@ -886,8 +792,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一咖啡廣場.svg"
+      "stockQty": 24
     },
     {
       "name": "統一麥香紅茶",
@@ -895,8 +800,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一麥香紅茶.svg"
+      "stockQty": 24
     },
     {
       "name": "統一麥香綠茶",
@@ -904,8 +808,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一麥香綠茶.svg"
+      "stockQty": 24
     },
     {
       "name": "統一麥香奶茶",
@@ -913,8 +816,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一麥香奶茶.svg"
+      "stockQty": 24
     },
     {
       "name": "統一蜜豆奶(雞蛋)",
@@ -922,8 +824,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/統一蜜豆奶(雞蛋).svg"
+      "stockQty": 24
     },
     {
       "name": "維他露P",
@@ -931,8 +832,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/維他露p.svg"
+      "stockQty": 24
     },
     {
       "name": "維他露每朝藏熟紅茶()",
@@ -940,8 +840,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/維他露每朝藏熟紅茶().svg"
+      "stockQty": 24
     },
     {
       "name": "維他露每朝健康綠茶()",
@@ -949,8 +848,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/維他露每朝健康綠茶().svg"
+      "stockQty": 24
     },
     {
       "name": "味全貝納頌咖啡鋁箔",
@@ -958,8 +856,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/味全貝納頌咖啡鋁箔.svg"
+      "stockQty": 24
     },
     {
       "name": "原萃綠茶",
@@ -967,8 +864,7 @@
       "price": null,
       "priceText": "待定價",
       "stock": "現貨",
-      "stockQty": 24,
-      "image": "assets/products/原萃綠茶.svg"
+      "stockQty": 24
     }
   ]
 }

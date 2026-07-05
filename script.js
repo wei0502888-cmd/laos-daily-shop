@@ -71,8 +71,8 @@ function normalizeProduct(product) {
     mark: iconMap[product.category] || "品",
     stockQty,
     stock: stockQty <= 0 ? "缺貨" : product.stock || "現貨",
-    image: product.image || `assets/products/${assetName(product.name)}.svg`,
-    fallbackImage: product.fallbackImage || `${assetName(product.name)}.svg`,
+    image: product.image || "",
+    fallbackImage: product.fallbackImage || "",
   };
 }
 
@@ -80,12 +80,21 @@ function productCard(product) {
   const card = document.createElement("article");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0;
   const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
+  const placeholder = `
+    <div class="product-placeholder product-placeholder-${product.categoryKey}" aria-hidden="true">
+      <span>${product.mark}</span>
+      <small>${product.category}</small>
+    </div>
+  `;
+  const productVisual = product.image
+    ? `<img src="${product.image}" data-fallback="${product.fallbackImage || ""}" alt="${product.name} 商品圖" loading="lazy" />`
+    : placeholder;
   card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="badge-row">${badges}</div>
     <div class="product-art">
-      <img src="${product.image}" data-fallback="${product.fallbackImage}" alt="${product.name} 商品圖" loading="lazy" />
+      ${productVisual}
     </div>
     <div class="product-body">
       <p class="category-label">${product.category}</p>
@@ -99,14 +108,16 @@ function productCard(product) {
     </div>
   `;
   const image = card.querySelector("img");
-  image.addEventListener(
-    "error",
-    () => {
-      const art = image.closest(".product-art");
-      art.innerHTML = `<div class="product-placeholder" aria-hidden="true">${product.mark}</div>`;
-    },
-    { once: true },
-  );
+  if (image) {
+    image.addEventListener(
+      "error",
+      () => {
+        const art = image.closest(".product-art");
+        art.innerHTML = placeholder;
+      },
+      { once: true },
+    );
+  }
   card.querySelector("button").addEventListener("click", () => addToCart(product.id));
   return card;
 }
