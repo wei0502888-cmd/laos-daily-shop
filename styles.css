@@ -769,6 +769,19 @@ p {
   background: #fff;
 }
 
+.order-detail-mark {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f8df97, #9f6e31);
+  color: #15100a;
+  font-size: 18px;
+  font-weight: 950;
+}
+
 .order-detail-item div {
   flex: 1;
   min-width: 0;
@@ -911,4 +924,285 @@ p {
     max-height: 100svh;
     border-radius: 24px 0 0 24px;
   }
+}
+
+/* Premium black and gold storefront theme */
+:root {
+  color-scheme: dark;
+  --bg: #080706;
+  --paper: #15120d;
+  --soft: #201a12;
+  --ink: #fff7df;
+  --muted: #b9aa86;
+  --line: rgba(218, 181, 91, 0.24);
+  --green: #caa45d;
+  --green-dark: #f2d28b;
+  --gold: #d9b765;
+  --red: #e17864;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+}
+
+html {
+  background:
+    radial-gradient(circle at 18% -8%, rgba(218, 181, 91, 0.18), transparent 34%),
+    radial-gradient(circle at 92% 12%, rgba(118, 77, 28, 0.18), transparent 32%),
+    var(--bg);
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 240px),
+    var(--bg);
+  color: var(--ink);
+}
+
+.topbar {
+  background: rgba(8, 7, 6, 0.86);
+  border-bottom-color: rgba(218, 181, 91, 0.22);
+}
+
+.brand-mark {
+  background:
+    linear-gradient(145deg, #f5d889, #9b6b2f);
+  color: #15100a;
+  box-shadow: 0 10px 28px rgba(218, 181, 91, 0.2);
+}
+
+.brand strong,
+.section-heading h2,
+.cart-header h2,
+.checkout-form h3,
+.order-success h3 {
+  color: var(--ink);
+}
+
+.brand small,
+.hero-copy > p:last-of-type,
+.search-panel label span,
+.category-label,
+.stock-line,
+.empty-state,
+.steps-grid p,
+.benefit-grid p,
+.manual-order-note p,
+.site-footer,
+.order-detail-head span,
+.order-detail-item span,
+.order-detail-item em,
+.payment-box p,
+.payment-box small,
+.form-note,
+.order-success p,
+.success-section li,
+.success-section small {
+  color: var(--muted);
+}
+
+.cart-pill,
+.cart-header button,
+.primary-link,
+.primary-button,
+.add-button,
+.tab-button.is-active {
+  background: linear-gradient(145deg, #e8c978, #a87532);
+  color: #14100a;
+  box-shadow: 0 12px 28px rgba(169, 117, 50, 0.23);
+}
+
+.cart-pill strong {
+  background: rgba(20, 16, 10, 0.9);
+  color: #f6dc94;
+}
+
+.hero {
+  border-color: rgba(218, 181, 91, 0.28);
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 201, 120, 0.22), transparent 28%),
+    radial-gradient(circle at 12% 88%, rgba(138, 82, 33, 0.2), transparent 32%),
+    linear-gradient(145deg, #17120d 0%, #0d0a08 100%);
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  color: #ffe7a3;
+}
+
+.secondary-link,
+.tab-button,
+.search-panel,
+.steps-grid article,
+.benefit-grid article,
+.manual-order-note,
+.site-footer,
+.cart-panel,
+.order-detail-box,
+.payment-box,
+.success-section {
+  border-color: rgba(218, 181, 91, 0.24);
+  background: rgba(21, 18, 13, 0.86);
+}
+
+.secondary-link,
+.tab-button {
+  color: #f2d28b;
+}
+
+.hero-tile {
+  border-color: rgba(218, 181, 91, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  color: #f5d889;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+.tile-large {
+  background:
+    linear-gradient(145deg, rgba(232, 201, 120, 0.96), rgba(139, 91, 37, 0.96));
+  color: #130f09;
+}
+
+.search-panel input,
+.checkout-form input,
+.checkout-form textarea {
+  border-color: rgba(218, 181, 91, 0.3);
+  background: #0d0b08;
+  color: var(--ink);
+}
+
+.search-panel input::placeholder,
+.checkout-form textarea::placeholder {
+  color: rgba(185, 170, 134, 0.7);
+}
+
+.section-heading p,
+.eyebrow {
+  color: #e5c372;
+}
+
+.product-card {
+  border-color: rgba(218, 181, 91, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    #15120d;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+}
+
+.product-art {
+  background:
+    radial-gradient(circle at 72% 22%, rgba(255, 232, 164, 0.25), transparent 24%),
+    linear-gradient(135deg, #21190f, rgba(218, 181, 91, 0.28));
+}
+
+.product-art img {
+  background: rgba(255, 247, 223, 0.08);
+}
+
+.product-placeholder {
+  background:
+    radial-gradient(circle at 72% 22%, rgba(255, 232, 164, 0.2) 0 18%, transparent 19%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+  border-color: rgba(218, 181, 91, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.product-placeholder span {
+  background:
+    linear-gradient(145deg, #f8df97, #9f6e31);
+  color: #15100a;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.34);
+}
+
+.product-placeholder small,
+.product-placeholder-drinks span,
+.product-placeholder-snacks span,
+.product-placeholder-canned span,
+.product-placeholder-noodles span,
+.product-placeholder-condiments span {
+  color: #f8df97;
+}
+
+.product-placeholder span {
+  color: #15100a;
+}
+
+.product-body h3,
+.product-meta strong,
+.steps-grid h3,
+.benefit-grid h3,
+.payment-box strong,
+.success-section strong,
+.site-footer strong,
+.checkout-form label,
+.cart-total,
+.qty-tools button,
+.payment-box p {
+  color: #ffe7a3;
+}
+
+.product-meta span {
+  background: rgba(218, 181, 91, 0.13);
+  color: #f2d28b;
+}
+
+.product-meta .stock-out {
+  background: rgba(225, 120, 100, 0.16);
+  color: var(--red);
+}
+
+.badge {
+  background: #090806;
+  color: #ffe7a3;
+  border: 1px solid rgba(218, 181, 91, 0.42);
+}
+
+.badge-new {
+  background: linear-gradient(145deg, #e8c978, #a87532);
+  color: #15100a;
+  border: 0;
+}
+
+.add-button:disabled,
+.primary-button:disabled {
+  background: #4a4336;
+  color: #938568;
+}
+
+.manual-order-note {
+  background:
+    linear-gradient(145deg, rgba(232, 201, 120, 0.18), rgba(255, 255, 255, 0.035)),
+    #15120d;
+}
+
+.manual-order-note strong {
+  color: #ffe7a3;
+}
+
+.manual-order-note span {
+  color: #d9b765;
+}
+
+.cart-drawer {
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.cart-panel {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(218, 181, 91, 0.14), transparent 34%),
+    #0d0b08;
+}
+
+.cart-item,
+.order-detail-item {
+  border-bottom-color: rgba(218, 181, 91, 0.18);
+  border-top-color: rgba(218, 181, 91, 0.18);
+}
+
+.qty-tools button {
+  border-color: rgba(218, 181, 91, 0.28);
+  background: #15120d;
+}
+
+.order-success {
+  border-color: rgba(218, 181, 91, 0.28);
+  background: rgba(218, 181, 91, 0.08);
 }

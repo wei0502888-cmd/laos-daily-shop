@@ -19,6 +19,18 @@ const iconMap = {
   酒類: "酒",
 };
 
+const categoryKeyMap = {
+  餅乾: "snacks",
+  零食: "snacks",
+  罐頭: "canned",
+  調味料: "condiments",
+  泡麵: "noodles",
+  飲料: "drinks",
+  生活用品: "daily",
+  日用品: "daily",
+  酒類: "drinks",
+};
+
 const state = {
   categories: [],
   products: [],
@@ -68,6 +80,7 @@ function normalizeProduct(product) {
     ...product,
     id: `${product.category}-${product.name}`,
     tone: category?.tone || "#f0b95a",
+    categoryKey: categoryKeyMap[product.category] || "daily",
     mark: iconMap[product.category] || "品",
     stockQty,
     stock: stockQty <= 0 ? "缺貨" : product.stock || "現貨",
@@ -254,8 +267,11 @@ function renderCart() {
 
     const detail = document.createElement("div");
     detail.className = "order-detail-item";
+    const detailVisual = product.image
+      ? `<img src="${product.image}" alt="" />`
+      : `<span class="order-detail-mark" aria-hidden="true">${product.mark}</span>`;
     detail.innerHTML = `
-      <img src="${product.image}" alt="" />
+      ${detailVisual}
       <div>
         <strong>${product.name}</strong>
         <span>${product.company || product.category}｜${formatPrice(product)} x ${qty}</span>
