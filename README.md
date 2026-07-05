@@ -20,6 +20,7 @@
 - 首頁文字：編輯 `index.html`
 - 顏色版面：編輯 `styles.css`
 - 商品圖片：替換 `assets/products` 裡的同名圖片
+- 訂單轉送後端：使用 `google-apps-script-order-proxy.gs`
 
 `products.json` 裡每個商品可調整：
 

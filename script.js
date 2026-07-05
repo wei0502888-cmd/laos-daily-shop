@@ -10,6 +10,13 @@ const iconMap = {
   台灣日常用品: "用",
   台灣廚房補給: "廚",
   台灣人氣零食: "零",
+  餅乾: "零",
+  罐頭: "罐",
+  調味料: "醬",
+  泡麵: "麵",
+  飲料: "飲",
+  生活用品: "用",
+  酒類: "酒",
 };
 
 const state = {
@@ -23,6 +30,7 @@ const state = {
 
 const productGrid = document.querySelector("[data-product-grid]");
 const hotList = document.querySelector("[data-hot-list]");
+const newList = document.querySelector("[data-new-list]");
 const tabs = document.querySelector("[data-category-tabs]");
 const search = document.querySelector("#product-search");
 const emptyState = document.querySelector("[data-empty-state]");
@@ -71,9 +79,11 @@ function normalizeProduct(product) {
 function productCard(product) {
   const card = document.createElement("article");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0;
+  const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
   card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
+    <div class="badge-row">${badges}</div>
     <div class="product-art">
       <img src="${product.image}" data-fallback="${product.fallbackImage}" alt="${product.name} 商品圖" loading="lazy" />
     </div>
@@ -92,9 +102,8 @@ function productCard(product) {
   image.addEventListener(
     "error",
     () => {
-      if (image.dataset.fallback && !image.src.endsWith(image.dataset.fallback)) {
-        image.src = image.dataset.fallback;
-      }
+      const art = image.closest(".product-art");
+      art.innerHTML = `<div class="product-placeholder" aria-hidden="true">${product.mark}</div>`;
     },
     { once: true },
   );
@@ -131,6 +140,8 @@ function filteredProducts() {
     const matchQuery =
       !state.query ||
       product.name.includes(state.query) ||
+      (product.company || "").includes(state.query) ||
+      (product.barcode || "").includes(state.query) ||
       product.category.includes(state.query) ||
       product.stock.includes(state.query);
     return matchCategory && matchQuery;
@@ -146,10 +157,20 @@ function renderProducts() {
 
 function renderHotProducts() {
   hotList.innerHTML = "";
+  const hotNameSet = new Set(state.hotNames);
   state.hotNames
     .map((name) => state.products.find((product) => product.name === name))
     .filter(Boolean)
-    .forEach((product) => hotList.append(productCard(product)));
+    .forEach((product) => hotList.append(productCard({ ...product, isHot: true, isNew: false })));
+  state.products = state.products.map((product) => ({ ...product, isHot: hotNameSet.has(product.name) }));
+}
+
+function renderNewProducts() {
+  newList.innerHTML = "";
+  const newProducts = state.products.slice(-10).reverse();
+  const newNameSet = new Set(newProducts.map((product) => product.name));
+  newProducts.forEach((product) => newList.append(productCard({ ...product, isNew: true })));
+  state.products = state.products.map((product) => ({ ...product, isNew: newNameSet.has(product.name) }));
 }
 
 function addToCart(id) {
@@ -207,7 +228,7 @@ function renderCart() {
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${formatPrice(product)}｜庫存 ${product.stockQty}</p>
+        <p class="form-note">${product.company || product.category}｜${formatPrice(product)}｜庫存 ${product.stockQty}</p>
       </div>
       <div class="qty-tools">
         <button type="button" aria-label="減少 ${product.name}">-</button>
@@ -226,7 +247,7 @@ function renderCart() {
       <img src="${product.image}" alt="" />
       <div>
         <strong>${product.name}</strong>
-        <span>${formatPrice(product)} x ${qty}</span>
+        <span>${product.company || product.category}｜${formatPrice(product)} x ${qty}</span>
       </div>
       <em>剩 ${Math.max(product.stockQty - qty, 0)}</em>
     `;
@@ -259,12 +280,12 @@ function closeCart() {
 function orderMessage(formData) {
   const { entries, allPriced, total } = cartSummary();
   const orderId = makeOrderId();
-  const lines = [`老撾日常屋新訂單 #${orderId}`, "", "訂單詳情："];
+  const lines = [`LAOS DAILY SHOP 新訂單 #${orderId}`, "", "訂單詳情："];
   entries.forEach(([id, qty]) => {
     const product = state.products.find((item) => item.id === id);
     const lineTotal = productTotal(product, qty);
     const subtotal = lineTotal === null ? "請詢價" : `${config.currencyLabel || ""}${lineTotal.toLocaleString("zh-TW")}`;
-    lines.push(`- ${product.name} x ${qty}｜${formatPrice(product)}｜小計 ${subtotal}｜庫存 ${product.stockQty} -> ${Math.max(product.stockQty - qty, 0)}`);
+    lines.push(`- ${product.name} x ${qty}｜${product.company || product.category}｜${formatPrice(product)}｜小計 ${subtotal}｜庫存 ${product.stockQty} -> ${Math.max(product.stockQty - qty, 0)}`);
   });
   lines.push("");
   lines.push(`總計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}`);
@@ -343,6 +364,7 @@ async function loadShopData() {
     state.products = (data.products || []).map(normalizeProduct);
     renderTabs();
     renderHotProducts();
+    renderNewProducts();
     renderProducts();
     renderCart();
   } catch (error) {

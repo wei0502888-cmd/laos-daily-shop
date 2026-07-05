@@ -1,388 +1,974 @@
 {
+  "source": "寮國.馬來報價表0604-2.xlsx",
+  "notes": "品名已移除規格數字；stockQty 使用 Excel 規格欄；售價留空待後續定價。",
   "categories": [
     {
-      "name": "台灣泡麵補給",
-      "tone": "#f0b95a"
+      "name": "餅乾",
+      "tone": "#c99ac0"
     },
     {
-      "name": "台灣經典飲料",
-      "tone": "#8fb8c8"
-    },
-    {
-      "name": "台灣下飯料理",
+      "name": "罐頭",
       "tone": "#df9279"
     },
     {
-      "name": "台灣日常用品",
-      "tone": "#a7bfa0"
-    },
-    {
-      "name": "台灣廚房補給",
+      "name": "調味料",
       "tone": "#d9c06d"
     },
     {
-      "name": "台灣人氣零食",
-      "tone": "#c99ac0"
+      "name": "泡麵",
+      "tone": "#f0b95a"
+    },
+    {
+      "name": "飲料",
+      "tone": "#8fb8c8"
     }
   ],
   "hotProducts": [
-    "維力炸醬麵",
-    "麥香紅茶／奶茶／綠茶",
-    "沙茶醬",
-    "可樂果",
-    "麵筋"
+    "統一科學麵",
+    "統一蔥燒牛袋",
+    "統一調和米粉肉燥袋麵",
+    "統一肉骨茶袋",
+    "統一肉燥麵袋",
+    "維力大乾麵地獄辣椒麵(袋)",
+    "維力炸醬麵袋",
+    "味味A排骨雞袋麵"
   ],
   "products": [
     {
-      "name": "維力炸醬麵",
-      "category": "台灣泡麵補給",
+      "name": "乖乖奶油椰子",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/維力炸醬麵.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/乖乖奶油椰子.svg"
     },
     {
-      "name": "來一客",
-      "category": "台灣泡麵補給",
+      "name": "乖乖巧克力",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/來一客.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/乖乖巧克力.svg"
     },
     {
-      "name": "統一肉燥麵",
-      "category": "台灣泡麵補給",
+      "name": "華元波特多/蚵仔煎",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/統一肉燥麵.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/華元波特多-蚵仔煎.svg"
     },
     {
-      "name": "一度讚",
-      "category": "台灣泡麵補給",
+      "name": "華元鹹蔬餅",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/一度讚.svg",
-      "stockQty": 10
+      "stockQty": 10,
+      "image": "assets/products/華元鹹蔬餅.svg"
     },
     {
-      "name": "大乾麵",
-      "category": "台灣泡麵補給",
+      "name": "華元真魷味红烧口味",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/大乾麵.svg",
-      "stockQty": 10
+      "stockQty": 10,
+      "image": "assets/products/華元真魷味红烧口味.svg"
     },
     {
-      "name": "關廟麵",
-      "category": "台灣泡麵補給",
+      "name": "卡迪那德州薯條",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/關廟麵.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/卡迪那德州薯條.svg"
     },
     {
-      "name": "麥仔茶",
-      "category": "台灣經典飲料",
+      "name": "卡迪那滿天星",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/麥仔茶.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/卡迪那滿天星.svg"
     },
     {
-      "name": "御茶園",
-      "category": "台灣經典飲料",
+      "name": "聯華可樂果-原味",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/御茶園.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/聯華可樂果-原味.svg"
     },
     {
-      "name": "麥香紅茶／奶茶／綠茶",
-      "category": "台灣經典飲料",
+      "name": "聯華可樂果-辣味",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/麥香紅茶-奶茶-綠茶.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/聯華可樂果-辣味.svg"
     },
     {
-      "name": "茶裏王",
-      "category": "台灣經典飲料",
+      "name": "義美小泡芙-草莓",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/茶裏王.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/義美小泡芙-草莓.svg"
     },
     {
-      "name": "伯朗咖啡",
-      "category": "台灣經典飲料",
+      "name": "義美小泡芙-牛奶",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/伯朗咖啡.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/義美小泡芙-牛奶.svg"
     },
     {
-      "name": "津津蘆筍汁",
-      "category": "台灣經典飲料",
+      "name": "義美小泡芙-巧克力",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/津津蘆筍汁.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/義美小泡芙-巧克力.svg"
     },
     {
-      "name": "貝納頌",
-      "category": "台灣經典飲料",
+      "name": "義美原味蛋捲",
+      "category": "餅乾",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/貝納頌.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/義美原味蛋捲.svg"
     },
     {
-      "name": "左岸奶茶",
-      "category": "台灣經典飲料",
+      "name": "愛之味脆瓜",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/左岸奶茶.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/愛之味脆瓜.svg"
     },
     {
-      "name": "麵筋",
-      "category": "台灣下飯料理",
+      "name": "愛之味土豆麵筋",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
-      "stock": "現貨",
-      "image": "assets/products/麵筋.svg",
-      "stockQty": 10
+      "priceText": "待定價",
+      "stock": "缺貨",
+      "stockQty": 0,
+      "image": "assets/products/愛之味土豆麵筋.svg"
     },
     {
-      "name": "脆瓜",
-      "category": "台灣下飯料理",
+      "name": "愛之味玉筍",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/脆瓜.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/愛之味玉筍.svg"
     },
     {
-      "name": "魚罐頭",
-      "category": "台灣下飯料理",
+      "name": "綠巨人珍玉米粒易",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/魚罐頭.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/綠巨人珍玉米粒易.svg"
     },
     {
-      "name": "肉醬",
-      "category": "台灣下飯料理",
+      "name": "萬家香素蠔油",
+      "category": "調味料",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/肉醬.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/萬家香素蠔油.svg"
     },
     {
-      "name": "料理包",
-      "category": "台灣下飯料理",
+      "name": "牛頭牌沙茶醬",
+      "category": "調味料",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/料理包.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/牛頭牌沙茶醬.svg"
     },
     {
-      "name": "筍子",
-      "category": "台灣下飯料理",
+      "name": "泰山八寶粥",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/筍子.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/泰山八寶粥.svg"
     },
     {
-      "name": "五星上醬",
-      "category": "台灣下飯料理",
+      "name": "泰山花生仁湯",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/五星上醬.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/泰山花生仁湯.svg"
     },
     {
-      "name": "沐浴乳",
-      "category": "台灣日常用品",
+      "name": "泰山仙草蜜",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/沐浴乳.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/泰山仙草蜜.svg"
     },
     {
-      "name": "洗髮乳",
-      "category": "台灣日常用品",
+      "name": "三興小茄汁鯖魚",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/洗髮乳.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/三興小茄汁鯖魚.svg"
     },
     {
-      "name": "洗面乳",
-      "category": "台灣日常用品",
+      "name": "味王調理快餐-紅燒牛腩盒",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/洗面乳.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/味王調理快餐-紅燒牛腩盒.svg"
     },
     {
-      "name": "醬油膏",
-      "category": "台灣廚房補給",
+      "name": "味王調理快餐-筍絲控肉盒",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/醬油膏.svg",
-      "stockQty": 10
+      "stockQty": 24,
+      "image": "assets/products/味王調理快餐-筍絲控肉盒.svg"
     },
     {
-      "name": "沙茶醬",
-      "category": "台灣廚房補給",
+      "name": "小磨坊白胡椒",
+      "category": "調味料",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/沙茶醬.svg",
-      "stockQty": 10
+      "stockQty": 6,
+      "image": "assets/products/小磨坊白胡椒.svg"
     },
     {
-      "name": "豬油蔥醬",
-      "category": "台灣廚房補給",
+      "name": "玉英剝皮辣椒",
+      "category": "罐頭",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/豬油蔥醬.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/玉英剝皮辣椒.svg"
     },
     {
-      "name": "雞粉",
-      "category": "台灣廚房補給",
+      "name": "統一阿Q桶麵-紅椒牛肉",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/雞粉.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一阿q桶麵-紅椒牛肉.svg"
     },
     {
-      "name": "高湯塊",
-      "category": "台灣廚房補給",
+      "name": "統一阿Q桶麵-雞汁排骨",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/高湯塊.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一阿q桶麵-雞汁排骨.svg"
     },
     {
-      "name": "醬油",
-      "category": "台灣廚房補給",
+      "name": "統一阿Q桶麵-蒜香珍肉",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/醬油.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一阿q桶麵-蒜香珍肉.svg"
     },
     {
-      "name": "維力炸醬",
-      "category": "台灣廚房補給",
+      "name": "統一蔥燒牛袋",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/維力炸醬.svg",
-      "stockQty": 10
+      "stockQty": 30,
+      "image": "assets/products/統一蔥燒牛袋.svg"
     },
     {
-      "name": "胡椒粉",
-      "category": "台灣廚房補給",
+      "name": "統一調和米粉肉燥袋麵",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/胡椒粉.svg",
-      "stockQty": 10
+      "stockQty": 30,
+      "image": "assets/products/統一調和米粉肉燥袋麵.svg"
     },
     {
-      "name": "胡椒鹽",
-      "category": "台灣廚房補給",
+      "name": "統一科學麵",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/胡椒鹽.svg",
-      "stockQty": 10
+      "stockQty": 40,
+      "image": "assets/products/統一科學麵.svg"
     },
     {
-      "name": "卡拉姆久",
-      "category": "台灣人氣零食",
+      "name": "統一來一客川辣牛肉風味",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/卡拉姆久.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一來一客川辣牛肉風味.svg"
     },
     {
-      "name": "可樂果",
-      "category": "台灣人氣零食",
+      "name": "統一來一客韓式泡菜風味",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/可樂果.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一來一客韓式泡菜風味.svg"
     },
     {
-      "name": "蚵仔煎洋芋片",
-      "category": "台灣人氣零食",
+      "name": "統一來一客京燉肉骨風味",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/蚵仔煎洋芋片.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一來一客京燉肉骨風味.svg"
     },
     {
-      "name": "乖乖",
-      "category": "台灣人氣零食",
+      "name": "統一來一客鮮蝦魚板風味",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/乖乖.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一來一客鮮蝦魚板風味.svg"
     },
     {
-      "name": "波卡",
-      "category": "台灣人氣零食",
+      "name": "統一滿漢大餐蔥牛袋",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/波卡.svg",
-      "stockQty": 10
+      "stockQty": 12,
+      "image": "assets/products/統一滿漢大餐蔥牛袋.svg"
     },
     {
-      "name": "七七乳加",
-      "category": "台灣人氣零食",
+      "name": "統一滿漢大餐蔥牛碗",
+      "category": "泡麵",
       "price": null,
-      "priceText": "請詢價",
+      "priceText": "待定價",
       "stock": "現貨",
-      "image": "assets/products/七七乳加.svg",
-      "stockQty": 10
+      "stockQty": 6,
+      "image": "assets/products/統一滿漢大餐蔥牛碗.svg"
+    },
+    {
+      "name": "統一滿漢大餐蔥豬袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一滿漢大餐蔥豬袋.svg"
+    },
+    {
+      "name": "統一滿漢大餐蔥豬碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 6,
+      "image": "assets/products/統一滿漢大餐蔥豬碗.svg"
+    },
+    {
+      "name": "統一滿漢大餐麻辣牛袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一滿漢大餐麻辣牛袋.svg"
+    },
+    {
+      "name": "統一滿漢大餐麻辣牛碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 6,
+      "image": "assets/products/統一滿漢大餐麻辣牛碗.svg"
+    },
+    {
+      "name": "統一日式豚骨拉麵袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一日式豚骨拉麵袋.svg"
+    },
+    {
+      "name": "統一肉骨茶袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 30,
+      "image": "assets/products/統一肉骨茶袋.svg"
+    },
+    {
+      "name": "統一肉骨茶碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一肉骨茶碗.svg"
+    },
+    {
+      "name": "統一肉燥麵袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 30,
+      "image": "assets/products/統一肉燥麵袋.svg"
+    },
+    {
+      "name": "統一肉燥麵碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一肉燥麵碗.svg"
+    },
+    {
+      "name": "統一巷口乾麵(麻醬)",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 6,
+      "image": "assets/products/統一巷口乾麵(麻醬).svg"
+    },
+    {
+      "name": "統一阿Q桶麵-韓式泡菜",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一阿q桶麵-韓式泡菜.svg"
+    },
+    {
+      "name": "統一阿Q桶麵-生猛海鮮",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/統一阿q桶麵-生猛海鮮.svg"
+    },
+    {
+      "name": "維力大乾麵地獄辣椒麵(袋)",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 30,
+      "image": "assets/products/維力大乾麵地獄辣椒麵(袋).svg"
+    },
+    {
+      "name": "維力大乾麵紅油擔擔碗麵",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力大乾麵紅油擔擔碗麵.svg"
+    },
+    {
+      "name": "維力一度贊袋-麻辣牛肉鍋麵",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度贊袋-麻辣牛肉鍋麵.svg"
+    },
+    {
+      "name": "維力一度讚紅燒牛袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度讚紅燒牛袋.svg"
+    },
+    {
+      "name": "維力一度讚紅燒牛碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度讚紅燒牛碗.svg"
+    },
+    {
+      "name": "維力一度讚爌肉袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度讚爌肉袋.svg"
+    },
+    {
+      "name": "維力一度讚老甕牛肉碗",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度讚老甕牛肉碗.svg"
+    },
+    {
+      "name": "維力炸醬麵(碗)",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力炸醬麵(碗).svg"
+    },
+    {
+      "name": "維力炸醬麵袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 30,
+      "image": "assets/products/維力炸醬麵袋.svg"
+    },
+    {
+      "name": "維力一度讚麻辣牛肉袋",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/維力一度讚麻辣牛肉袋.svg"
+    },
+    {
+      "name": "味味A排骨雞袋麵",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 30,
+      "image": "assets/products/味味a排骨雞袋麵.svg"
+    },
+    {
+      "name": "味味一品極品紅燒牛肉袋麵",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/味味一品極品紅燒牛肉袋麵.svg"
+    },
+    {
+      "name": "味味一品爌肉袋麵",
+      "category": "泡麵",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 12,
+      "image": "assets/products/味味一品爌肉袋麵.svg"
+    },
+    {
+      "name": "愛之味分解茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/愛之味分解茶.svg"
+    },
+    {
+      "name": "愛之味-麥仔茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/愛之味-麥仔茶.svg"
+    },
+    {
+      "name": "可爾必思",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/可爾必思.svg"
+    },
+    {
+      "name": "保力達蠻牛",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/保力達蠻牛.svg"
+    },
+    {
+      "name": "蘋果西打",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/蘋果西打.svg"
+    },
+    {
+      "name": "古道-百香綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/古道-百香綠茶.svg"
+    },
+    {
+      "name": "古道-梅子綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/古道-梅子綠茶.svg"
+    },
+    {
+      "name": "光泉冷泡茶-頂香清茶(無糖)",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/光泉冷泡茶-頂香清茶(無糖).svg"
+    },
+    {
+      "name": "黑松果汁C系列-百香果",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松果汁c系列-百香果.svg"
+    },
+    {
+      "name": "黑松果汁C系列-柳橙",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松果汁c系列-柳橙.svg"
+    },
+    {
+      "name": "黑松果汁C系列-蘋果",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松果汁c系列-蘋果.svg"
+    },
+    {
+      "name": "黑松果汁C系列-葡萄",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松果汁c系列-葡萄.svg"
+    },
+    {
+      "name": "黑松沙士",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松沙士.svg"
+    },
+    {
+      "name": "黑松沙士加鹽()",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松沙士加鹽().svg"
+    },
+    {
+      "name": "黑松FIN補給飲料",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/黑松fin補給飲料.svg"
+    },
+    {
+      "name": "紅牌速纖",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/紅牌速纖.svg"
+    },
+    {
+      "name": "匯竑阿薩姆原味奶茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/匯竑阿薩姆原味奶茶.svg"
+    },
+    {
+      "name": "金車-伯朗咖啡()",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/金車-伯朗咖啡().svg"
+    },
+    {
+      "name": "津津蘆筍汁鐵罐",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/津津蘆筍汁鐵罐.svg"
+    },
+    {
+      "name": "開喜烏龍茶(有糖)",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/開喜烏龍茶(有糖).svg"
+    },
+    {
+      "name": "立頓草莓",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/立頓草莓.svg"
+    },
+    {
+      "name": "立頓原味奶茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/立頓原味奶茶.svg"
+    },
+    {
+      "name": "立頓沁香奶綠",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/立頓沁香奶綠.svg"
+    },
+    {
+      "name": "生活泡沫紅茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/生活泡沫紅茶.svg"
+    },
+    {
+      "name": "生活泡沫綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/生活泡沫綠茶.svg"
+    },
+    {
+      "name": "生活泡沫奶茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/生活泡沫奶茶.svg"
+    },
+    {
+      "name": "生活泡沫花茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/生活泡沫花茶.svg"
+    },
+    {
+      "name": "台鹽-鹼性離子水",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/台鹽-鹼性離子水.svg"
+    },
+    {
+      "name": "統一茶裏王日式綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一茶裏王日式綠茶.svg"
+    },
+    {
+      "name": "統一茶裏王台式綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一茶裏王台式綠茶.svg"
+    },
+    {
+      "name": "統一咖啡廣場",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一咖啡廣場.svg"
+    },
+    {
+      "name": "統一麥香紅茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一麥香紅茶.svg"
+    },
+    {
+      "name": "統一麥香綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一麥香綠茶.svg"
+    },
+    {
+      "name": "統一麥香奶茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一麥香奶茶.svg"
+    },
+    {
+      "name": "統一蜜豆奶(雞蛋)",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/統一蜜豆奶(雞蛋).svg"
+    },
+    {
+      "name": "維他露P",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/維他露p.svg"
+    },
+    {
+      "name": "維他露每朝藏熟紅茶()",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/維他露每朝藏熟紅茶().svg"
+    },
+    {
+      "name": "維他露每朝健康綠茶()",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/維他露每朝健康綠茶().svg"
+    },
+    {
+      "name": "味全貝納頌咖啡鋁箔",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/味全貝納頌咖啡鋁箔.svg"
+    },
+    {
+      "name": "原萃綠茶",
+      "category": "飲料",
+      "price": null,
+      "priceText": "待定價",
+      "stock": "現貨",
+      "stockQty": 24,
+      "image": "assets/products/原萃綠茶.svg"
     }
   ]
 }

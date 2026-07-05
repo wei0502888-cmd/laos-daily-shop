@@ -3,65 +3,165 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>老撾日常屋｜台灣生活補給商城</title>
+    <title>LAOS DAILY SHOP｜寮國台灣生活補給站</title>
     <meta
       name="description"
-      content="老撾日常屋是在老撾的台灣人與華人生活補給商城，提供台灣泡麵、飲料、下飯料理、日常用品、廚房補給與人氣零食。"
+      content="LAOS DAILY SHOP 是服務在寮國生活、工作、旅遊的台灣人之生活補給商城，提供台灣泡麵、飲料、零食、罐頭、調味料與日常用品。"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Taiwan Daily Supply in Laos</p>
-        <h1>老撾日常屋</h1>
-      </div>
+      <a class="brand" href="#top" aria-label="LAOS DAILY SHOP 首頁">
+        <span class="brand-mark">LDS</span>
+        <span>
+          <strong>LAOS DAILY SHOP</strong>
+          <small>寮國台灣生活補給站</small>
+        </span>
+      </a>
       <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車">
         <span>購物車</span>
         <strong data-cart-count>0</strong>
       </button>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero" aria-label="品牌介紹">
         <div class="hero-copy">
-          <p class="tagline">在老撾，也能買到熟悉的台灣味。</p>
+          <p class="eyebrow">Taiwan Daily Supply in Laos</p>
+          <h1>在寮國，也能買到熟悉的台灣味</h1>
           <p>
-            泡麵、飲料、罐頭、廚房醬料與日常用品，一次整理成手機好逛的補貨清單。
+            精選台灣泡麵、飲料、零食、罐頭、調味料與日常用品，提供在寮國生活的台灣人快速補貨、安心下單。
           </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#shop">立即購物</a>
+            <a class="secondary-link" href="#how-to-order">下單方式</a>
+          </div>
         </div>
-        <div class="supply-board" aria-hidden="true">
-          <span>泡麵</span>
-          <span>飲料</span>
-          <span>零食</span>
-          <span>醬料</span>
+        <div class="hero-board" aria-hidden="true">
+          <div class="hero-tile tile-large">泡麵</div>
+          <div class="hero-tile">飲料</div>
+          <div class="hero-tile">零食</div>
+          <div class="hero-tile">罐頭</div>
+          <div class="hero-tile">調味料</div>
         </div>
       </section>
 
-      <section class="search-panel" aria-label="搜尋商品">
-        <label for="product-search">搜尋商品</label>
-        <input id="product-search" type="search" placeholder="輸入品名，例如：維力、麥香、沙茶醬" />
+      <section class="search-panel" aria-label="商品搜尋">
+        <label for="product-search">商品搜尋 <span>Search Products</span></label>
+        <input id="product-search" type="search" placeholder="輸入品名或分類，例如：維力、麥香、乖乖" />
       </section>
 
-      <section class="section-block" aria-labelledby="hot-title">
+      <section class="section-block" aria-labelledby="best-title">
         <div class="section-heading">
-          <p>Hot Restock</p>
-          <h2 id="hot-title">熱門補貨商品</h2>
+          <div>
+            <p>Best Sellers</p>
+            <h2 id="best-title">熱銷商品</h2>
+          </div>
         </div>
         <div class="product-row" data-hot-list></div>
       </section>
 
-      <nav class="category-tabs" aria-label="商品分類" data-category-tabs></nav>
-
-      <section class="section-block" aria-labelledby="products-title">
+      <section class="section-block" aria-labelledby="new-title">
         <div class="section-heading">
-          <p>Categories</p>
-          <h2 id="products-title">商品分類</h2>
+          <div>
+            <p>New Arrival</p>
+            <h2 id="new-title">新品補貨</h2>
+          </div>
+        </div>
+        <div class="product-row" data-new-list></div>
+      </section>
+
+      <section class="section-block category-section" aria-labelledby="category-title">
+        <div class="section-heading">
+          <div>
+            <p>Shop by Category</p>
+            <h2 id="category-title">商品分類</h2>
+          </div>
+        </div>
+        <nav class="category-tabs" aria-label="商品分類" data-category-tabs></nav>
+      </section>
+
+      <section class="section-block" id="shop" aria-labelledby="products-title">
+        <div class="section-heading">
+          <div>
+            <p>All Products</p>
+            <h2 id="products-title">全部商品</h2>
+          </div>
         </div>
         <div class="product-grid" data-product-grid></div>
         <p class="empty-state" data-empty-state hidden>沒有找到符合的商品。</p>
       </section>
+
+      <section class="info-section" id="how-to-order" aria-labelledby="order-title">
+        <div class="section-heading">
+          <div>
+            <p>How to Order</p>
+            <h2 id="order-title">下單流程</h2>
+          </div>
+        </div>
+        <div class="steps-grid">
+          <article>
+            <span>01</span>
+            <h3>加入購物車</h3>
+            <p>選擇需要補貨的台灣商品，確認品項與數量。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>送出訂單</h3>
+            <p>填寫姓名、電話、地址與備註，系統會自動送至客服 Telegram。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>確認後出貨</h3>
+            <p>客服確認庫存、付款方式與配送時間後，再安排出貨。</p>
+          </article>
+        </div>
+        <div class="manual-order-note">
+          <strong>安心人工確認訂單</strong>
+          <span>Secure Manual Order</span>
+          <p>送出訂單後，系統會自動將訂單送到 Telegram。客服會確認商品庫存、付款方式與配送時間後，再安排出貨。</p>
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="why-title">
+        <div class="section-heading">
+          <div>
+            <p>Why Choose Us</p>
+            <h2 id="why-title">為什麼選我們</h2>
+          </div>
+        </div>
+        <div class="benefit-grid">
+          <article>
+            <h3>台灣熟悉品項</h3>
+            <p>聚焦台灣人在寮國最常補貨的食品、飲料與生活用品。</p>
+          </article>
+          <article>
+            <h3>手機快速下單</h3>
+            <p>商品搜尋、分類瀏覽與購物車流程都以手機使用為優先。</p>
+          </article>
+          <article>
+            <h3>人工確認安心</h3>
+            <p>下單後由客服確認庫存、付款與配送，降低錯單與缺貨風險。</p>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer" aria-label="聯絡方式">
+      <div>
+        <strong>LAOS DAILY SHOP</strong>
+        <p>寮國台灣生活補給站</p>
+      </div>
+      <nav>
+        <a href="#top">聯絡我們 Contact</a>
+        <a href="#top">Telegram 客服</a>
+        <a href="#top">WhatsApp</a>
+        <a href="#how-to-order">付款方式 Payment</a>
+        <a href="#how-to-order">配送說明 Delivery</a>
+        <a href="#how-to-order">退換貨政策 Return Policy</a>
+      </nav>
+    </footer>
 
     <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
       <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
@@ -102,19 +202,19 @@
           </label>
           <button class="primary-button" type="submit">送出訂單</button>
           <p class="form-note">
-            此版本不含金流與會員系統，送出後會在本頁完成訂單，店家會收到通知。
+            安心人工確認訂單｜送出後客服會確認庫存、付款方式與配送時間後，再安排出貨。
           </p>
         </form>
         <div class="order-success" data-order-success hidden>
           <h3>下單完成</h3>
-          <p>訂單已送出，店家會透過電話或訊息與你確認商品、付款與配送。</p>
+          <p>訂單已送出，客服會透過電話或訊息與你確認商品、付款與配送。</p>
           <div class="success-detail" data-success-detail></div>
           <button class="primary-button" type="button" data-success-close>完成</button>
         </div>
       </div>
     </aside>
 
-    <script src="./config.js?v=20260515-order-detail"></script>
-    <script src="./script.js?v=20260515-order-detail"></script>
+    <script src="./config.js?v=20260705-cn-global"></script>
+    <script src="./script.js?v=20260705-cn-global"></script>
   </body>
 </html>
