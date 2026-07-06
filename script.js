@@ -31,6 +31,17 @@ const categoryKeyMap = {
   酒類: "drinks",
 };
 
+const categoryDisplayMap = {
+  全部: { icon: "⌂", label: "全部" },
+  泡麵: { icon: "🍜", label: "泡麵" },
+  飲料: { icon: "🥤", label: "飲料" },
+  餅乾: { icon: "🍪", label: "零食" },
+  罐頭: { icon: "🥫", label: "罐頭" },
+  調味料: { icon: "🧂", label: "調味料" },
+  生活用品: { icon: "🧴", label: "日用品" },
+  日用品: { icon: "🧴", label: "日用品" },
+};
+
 const state = {
   categories: [],
   products: [],
@@ -138,10 +149,12 @@ function productCard(product) {
 function renderTabs() {
   tabs.innerHTML = "";
   ["全部", ...state.categories.map((category) => category.name)].forEach((name) => {
+    const display = categoryDisplayMap[name] || { icon: "◦", label: name };
     const button = document.createElement("button");
     button.type = "button";
     button.className = "tab-button";
-    button.textContent = name;
+    button.dataset.category = name;
+    button.innerHTML = `<span>${display.icon}</span><strong>${display.label}</strong>`;
     button.addEventListener("click", () => {
       state.category = name;
       renderProducts();
@@ -154,7 +167,7 @@ function renderTabs() {
 
 function renderActiveTabs() {
   tabs.querySelectorAll("button").forEach((button) => {
-    button.classList.toggle("is-active", button.textContent === state.category);
+    button.classList.toggle("is-active", button.dataset.category === state.category);
   });
 }
 
@@ -185,13 +198,14 @@ function renderHotProducts() {
   state.hotNames
     .map((name) => state.products.find((product) => product.name === name))
     .filter(Boolean)
+    .slice(0, 4)
     .forEach((product) => hotList.append(productCard({ ...product, isHot: true, isNew: false })));
   state.products = state.products.map((product) => ({ ...product, isHot: hotNameSet.has(product.name) }));
 }
 
 function renderNewProducts() {
   newList.innerHTML = "";
-  const newProducts = state.products.slice(-10).reverse();
+  const newProducts = state.products.slice(-4).reverse();
   const newNameSet = new Set(newProducts.map((product) => product.name));
   newProducts.forEach((product) => newList.append(productCard({ ...product, isNew: true })));
   state.products = state.products.map((product) => ({ ...product, isNew: newNameSet.has(product.name) }));
