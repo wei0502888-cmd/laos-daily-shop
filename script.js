@@ -3,6 +3,8 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
+const BUILD_VERSION = "20260706-2";
+
 const iconMap = {
   台灣泡麵補給: "麵",
   台灣經典飲料: "飲",
@@ -146,6 +148,22 @@ function normalizeProduct(product) {
     caseQuantity,
     casePrice,
   };
+}
+
+function clearLegacyCaches() {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations()
+      .then((registrations) => {
+        registrations.forEach((registration) => registration.unregister());
+      })
+      .catch(() => {});
+  }
+
+  if ("caches" in window) {
+    caches.keys()
+      .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+      .catch(() => {});
+  }
 }
 
 function categoryId(name) {
@@ -737,7 +755,7 @@ async function sendTelegramMessage(message) {
 
 async function loadShopData() {
   try {
-    const response = await fetch("./products.json", { cache: "no-store" });
+    const response = await fetch(`./products.json?v=${BUILD_VERSION}`, { cache: "no-store" });
     if (!response.ok) throw new Error("Cannot load products.json");
     const data = await response.json();
     state.categories = data.categories || [];
@@ -816,4 +834,5 @@ document.addEventListener(
 );
 
 applyPaymentConfig();
+clearLegacyCaches();
 loadShopData();
