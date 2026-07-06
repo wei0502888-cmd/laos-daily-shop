@@ -28,13 +28,14 @@ const categoryKeyMap = {
   飲料: "drinks",
   生活用品: "daily",
   日用品: "daily",
-  酒類: "drinks",
+  酒類: "alcohol",
 };
 
 const categoryDisplayMap = {
   全部: { icon: "⌂", label: "全部" },
   泡麵: { icon: "🍜", label: "泡麵" },
   飲料: { icon: "🥤", label: "飲料" },
+  酒類: { icon: "🍺", label: "酒水" },
   餅乾: { icon: "🍪", label: "零食" },
   罐頭: { icon: "🥫", label: "罐頭" },
   調味料: { icon: "🧂", label: "調味料" },
@@ -86,7 +87,7 @@ const categorySlugMap = {
   調味料: "condiments",
   生活用品: "daily",
   日用品: "daily",
-  酒類: "drinks",
+  酒類: "alcohol",
 };
 
 function assetName(input) {
