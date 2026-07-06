@@ -518,6 +518,24 @@ p {
   margin-top: 12px;
 }
 
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.product-actions .add-button {
+  margin-top: 0;
+}
+
+.case-button {
+  border: 1px solid rgba(61, 107, 84, 0.16);
+  background: rgba(61, 107, 84, 0.1);
+  color: var(--green-dark);
+  box-shadow: none;
+}
+
 .add-button:disabled {
   background: #a9b1ac;
   cursor: not-allowed;
@@ -1821,4 +1839,101 @@ main {
   .steps-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+
+html,
+body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+.cart-drawer,
+.cart-panel,
+.cart-item,
+.quantity-control,
+.quantity-btn,
+.qty-tools button,
+.purchase-type button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.purchase-type {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.purchase-type span {
+  flex: 0 0 100%;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.purchase-type button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fffdf8;
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.purchase-type button.is-active {
+  background: var(--green);
+  color: #fffaf0;
+}
+
+.purchase-type button:disabled:not(.is-active) {
+  background: #ece7dd;
+  color: #9a9284;
+}
+
+.quantity-label {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.qty-tools span {
+  min-width: 38px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 950;
+  text-align: center;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.product-actions .add-button {
+  margin-top: 0;
+}
+
+.product-actions .case-button {
+  border: 1px solid rgba(61, 107, 84, 0.18);
+  background: rgba(61, 107, 84, 0.08);
+  color: var(--green-dark);
+  box-shadow: none;
+}
+
+.product-actions .case-button:disabled {
+  background: #ece7dd;
+  color: #9a9284;
 }

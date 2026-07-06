@@ -1,6 +1,6 @@
 {
   "source": "寮國.馬來報價表0604-2.xlsx",
-  "notes": "由 Excel 範本匯入：品類=商品分類，品名(飲料)=品名，售價=商品售價，規格=庫存；商品圖片 image 先保留空白。",
+  "notes": "由 Excel 範本匯入：品類=商品分類，品名(飲料)=品名，售價=商品售價，規格=庫存；商品圖片 image 先保留空白。；已補購買單位欄位：unitName/caseEnabled/caseQuantity/casePrice，未提供每箱數量者不開放整箱購買。；目前先開放單件與整箱購買版型，整箱數量暫以現有規格/庫存數字作為箱規，整箱售價保持待報價。",
   "importSummary": {
     "rawRows": 228,
     "uniqueProducts": 226,
@@ -8,7 +8,12 @@
     "blankPriceCount": 0,
     "zeroStockCount": 0,
     "priceColumn": "售價",
-    "stockColumn": "規格"
+    "stockColumn": "規格",
+    "unitColumn": null,
+    "caseQuantityColumn": null,
+    "casePriceColumn": null,
+    "caseEnabledCount": 226,
+    "casePriceMode": "pending_quote"
   },
   "categories": [
     {
@@ -57,7 +62,11 @@
       "price": 262,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "乖乖巧克力",
@@ -65,7 +74,11 @@
       "price": 262,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "乖乖五香",
@@ -73,7 +86,11 @@
       "price": 262,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "華元波特多/蚵仔煎",
@@ -81,7 +98,11 @@
       "price": 174,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "華元波特多/蚵仔煎辣",
@@ -89,7 +110,11 @@
       "price": 174,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "華元鹹蔬餅50g",
@@ -97,7 +122,11 @@
       "price": 174,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "華元真魷味红烧口味",
@@ -105,7 +134,11 @@
       "price": 174,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "卡迪那寶卡卡",
@@ -113,7 +146,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "卡迪那德州薯條",
@@ -121,7 +158,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "卡迪那牛排33g",
@@ -129,7 +170,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "卡迪那滿天星32g",
@@ -137,7 +182,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "聯華可樂果-原味48g",
@@ -145,7 +194,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "聯華可樂果-辣味48g",
@@ -153,7 +206,11 @@
       "price": 209,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "義美小泡芙-草莓57g",
@@ -161,7 +218,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "義美小泡芙-牛奶57g",
@@ -169,7 +230,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "義美小泡芙-巧克力57g",
@@ -177,7 +242,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "義美原味蛋捲",
@@ -185,7 +254,11 @@
       "price": 454,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味菜心170g",
@@ -193,7 +266,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味脆瓜180g",
@@ -201,7 +278,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味牛奶花生 (禮盒)",
@@ -209,7 +290,11 @@
       "price": 672,
       "stock": "現貨",
       "stockQty": 48,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 48,
+      "casePrice": null
     },
     {
       "name": "愛之味條瓜170g",
@@ -217,7 +302,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味土豆麵筋170g",
@@ -225,7 +314,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味鮪魚片185g",
@@ -233,7 +326,11 @@
       "price": 3341,
       "stock": "現貨",
       "stockQty": 48,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 48,
+      "casePrice": null
     },
     {
       "name": "愛之味蔭瓜140g",
@@ -241,7 +338,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "愛之味玉筍120g",
@@ -249,7 +350,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "綠巨人珍玉米粒易340G",
@@ -257,7 +362,11 @@
       "price": 1440,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "工研中烏醋300ML",
@@ -265,7 +374,11 @@
       "price": 720,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金橋蔭鳳梨380g",
@@ -273,7 +386,11 @@
       "price": 720,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金蘭油膏10斤",
@@ -281,7 +398,11 @@
       "price": 1122,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "金蘭油膏590ml",
@@ -289,7 +410,11 @@
       "price": 731,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金蘭烤肉醬590ml",
@@ -297,7 +422,11 @@
       "price": 893,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金蘭甲等醬油5L*4(圓桶)",
@@ -305,7 +434,11 @@
       "price": 1044,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "金蘭香菇素蠔油5L",
@@ -313,7 +446,11 @@
       "price": 1056,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "金蘭油清(非基)590ML",
@@ -321,7 +458,11 @@
       "price": 792,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "萬家香素蠔油300CC",
@@ -329,7 +470,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "牛頭牌沙茶醬737g",
@@ -337,7 +482,11 @@
       "price": 3113,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "牛頭牌沙茶醬250g",
@@ -345,7 +494,11 @@
       "price": 2688,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "牛頭牌沙茶醬127g",
@@ -353,7 +506,11 @@
       "price": 1500,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "金蘭大香菇麵筋396G",
@@ -361,7 +518,11 @@
       "price": 792,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金蘭大花生麵筋396G",
@@ -369,7 +530,11 @@
       "price": 792,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "金蘭筍茸350G",
@@ -377,7 +542,11 @@
       "price": 792,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "泰山八寶粥380g",
@@ -385,7 +554,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "泰山黑八寶粥",
@@ -393,7 +566,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "泰山花生仁湯320g",
@@ -401,7 +578,11 @@
       "price": 660,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "泰山仙草蜜330g",
@@ -409,7 +590,11 @@
       "price": 588,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "泰山燕麥奶花生320g",
@@ -417,7 +602,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "三興小茄汁鯖魚210G",
@@ -425,7 +614,11 @@
       "price": 1032,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味全烤肉醬3.3k",
@@ -433,7 +626,11 @@
       "price": 1638,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味全烤肉醬(250g)",
@@ -441,7 +638,11 @@
       "price": 576,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-紅燒牛腩*24盒",
@@ -449,7 +650,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-咖哩雞肉*24盒",
@@ -457,7 +662,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-咖哩牛肉*24盒",
@@ -465,7 +674,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-咖哩豬肉*24盒",
@@ -473,7 +686,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-筍絲控肉*24盒",
@@ -481,7 +698,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味王調理快餐-香菇肉羹*24盒",
@@ -489,7 +710,11 @@
       "price": 1382,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "小磨坊白胡椒1KG",
@@ -497,7 +722,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "小磨坊萬用五香粉1KG",
@@ -505,7 +734,11 @@
       "price": 522,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "小磨坊原粒黑胡椒500G",
@@ -513,7 +746,11 @@
       "price": 422,
       "stock": "現貨",
       "stockQty": 20,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 20,
+      "casePrice": null
     },
     {
       "name": "小磨坊白胡椒250G",
@@ -521,7 +758,11 @@
       "price": 340,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "可果美番茄醬3.15L",
@@ -529,7 +770,11 @@
       "price": 1386,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "米酒6000ML",
@@ -537,7 +782,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 2,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 2,
+      "casePrice": null
     },
     {
       "name": "紅標米酒玻璃瓶",
@@ -545,7 +794,11 @@
       "price": 720,
       "stock": "現貨",
       "stockQty": 20,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 20,
+      "casePrice": null
     },
     {
       "name": "玉英剝皮辣椒450g",
@@ -553,7 +806,11 @@
       "price": 1080,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "百威330ml",
@@ -561,7 +818,11 @@
       "price": 936,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "百威500ml",
@@ -569,7 +830,11 @@
       "price": 672,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "雪山330ml",
@@ -577,7 +842,11 @@
       "price": 768,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "雪山500ml",
@@ -585,7 +854,11 @@
       "price": 546,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "雪山晶鑽330ml",
@@ -593,7 +866,11 @@
       "price": 828,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一阿Q桶麵-紅椒牛肉",
@@ -601,7 +878,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一阿Q桶麵-雞汁排骨",
@@ -609,7 +890,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一阿Q桶麵-蒜香珍肉",
@@ -617,7 +902,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一蔥燒牛袋5",
@@ -625,7 +914,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "統一調和米粉肉燥袋麵6",
@@ -633,7 +926,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "統一科學麵5",
@@ -641,7 +938,11 @@
       "price": 372,
       "stock": "現貨",
       "stockQty": 40,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 40,
+      "casePrice": null
     },
     {
       "name": "統一科學麵雞汁5",
@@ -649,7 +950,11 @@
       "price": 372,
       "stock": "現貨",
       "stockQty": 15,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 15,
+      "casePrice": null
     },
     {
       "name": "統一來一客川辣牛肉風味",
@@ -657,7 +962,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一來一客韓式泡菜風味",
@@ -665,7 +974,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一來一客京燉肉骨風味",
@@ -673,7 +986,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一來一客牛肉蔬菜風味",
@@ -681,7 +998,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一來一客肉燥菠菜風味",
@@ -689,7 +1010,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一來一客鮮蝦魚板風味",
@@ -697,7 +1022,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐蔥牛袋",
@@ -705,7 +1034,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐蔥牛碗",
@@ -713,7 +1046,11 @@
       "price": 324,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐蔥豬袋",
@@ -721,7 +1058,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐蔥豬碗",
@@ -729,7 +1070,11 @@
       "price": 324,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐麻辣牛袋",
@@ -737,7 +1082,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐麻辣牛碗",
@@ -745,7 +1094,11 @@
       "price": 324,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "統一日式豚骨拉麵袋",
@@ -753,7 +1106,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一日式味曾拉麵袋",
@@ -761,7 +1118,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一肉骨茶袋",
@@ -769,7 +1130,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "統一肉骨茶碗",
@@ -777,7 +1142,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一肉燥麵袋",
@@ -785,7 +1154,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "統一肉燥麵碗",
@@ -793,7 +1166,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一鮮蝦袋5",
@@ -801,7 +1178,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "統一巷口乾麵(麻醬)4包入",
@@ -809,7 +1190,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "統一巷口乾麵(炸醬)4包入",
@@ -817,7 +1202,11 @@
       "price": 516,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "統一調和米粉碗",
@@ -825,7 +1214,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一日式豚骨拉麵碗",
@@ -833,7 +1226,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一日式味曾拉麵碗",
@@ -841,7 +1238,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一大補帖-當歸鴨",
@@ -849,7 +1250,11 @@
       "price": 348,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一大補帖-麻油鴨",
@@ -857,7 +1262,11 @@
       "price": 348,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一蔥牛碗",
@@ -865,7 +1274,11 @@
       "price": 252,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一阿Q桶麵-韓式泡菜",
@@ -873,7 +1286,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一阿Q桶麵-生猛海鮮",
@@ -881,7 +1298,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐珍味牛袋",
@@ -889,7 +1310,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "統一滿漢大餐珍味牛碗",
@@ -897,7 +1322,11 @@
       "price": 324,
       "stock": "現貨",
       "stockQty": 6,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 6,
+      "casePrice": null
     },
     {
       "name": "維力大乾麵地獄辣椒麵(袋)",
@@ -905,7 +1334,11 @@
       "price": 534,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "維力大乾麵地獄辣椒碗麵",
@@ -913,7 +1346,11 @@
       "price": 402,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力大乾麵紅油擔擔袋",
@@ -921,7 +1358,11 @@
       "price": 534,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "維力大乾麵紅油擔擔碗麵",
@@ -929,7 +1370,11 @@
       "price": 402,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力素食炸醬麵5",
@@ -937,7 +1382,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "維力一度贊袋-番茄牛肉麵",
@@ -945,7 +1394,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度贊袋-老甕牛肉",
@@ -953,7 +1406,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度贊袋-麻辣牛肉鍋麵",
@@ -961,7 +1418,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚紅燒牛袋3",
@@ -969,7 +1430,11 @@
       "price": 558,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚紅燒牛碗",
@@ -977,7 +1442,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚爌肉袋3",
@@ -985,7 +1454,11 @@
       "price": 558,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚爌肉碗",
@@ -993,7 +1466,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚老甕牛肉碗",
@@ -1001,7 +1478,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力炸醬麵(碗)",
@@ -1009,7 +1490,11 @@
       "price": 264,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力炸醬麵袋5",
@@ -1017,7 +1502,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "維力一度讚剝皮辣椒袋3",
@@ -1025,7 +1514,11 @@
       "price": 558,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚蕃茄牛肉碗",
@@ -1033,7 +1526,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力一度讚麻辣牛肉袋3",
@@ -1041,7 +1538,11 @@
       "price": 558,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "維力大乾麵蔥燒牛肉風味碗",
@@ -1049,7 +1550,11 @@
       "price": 600,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味A冬菜鴨肉冬粉(碗)",
@@ -1057,7 +1562,11 @@
       "price": 318,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味A冬菜鴨肉冬粉4",
@@ -1065,7 +1574,11 @@
       "price": 540,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味味A排骨雞袋麵5",
@@ -1073,7 +1586,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 30,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 30,
+      "casePrice": null
     },
     {
       "name": "味味A排骨雞碗麵",
@@ -1081,7 +1598,11 @@
       "price": 258,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品皇朝牛筋袋麵3",
@@ -1089,7 +1610,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品皇朝牛筋碗麵",
@@ -1097,7 +1622,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "味味一品極品紅燒牛肉袋麵3",
@@ -1105,7 +1634,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品極品紅燒牛肉麵碗麵",
@@ -1113,7 +1646,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "味味一品爌肉袋麵3",
@@ -1121,7 +1658,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品爌肉碗麵",
@@ -1129,7 +1670,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "味味一品麻辣臭豆腐袋麵3",
@@ -1137,7 +1682,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品麻辣臭豆腐碗麵",
@@ -1145,7 +1694,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "味味一品天香川味牛肉碗麵",
@@ -1153,7 +1706,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "味味一品珍味爌肉麵（袋裝）",
@@ -1161,7 +1718,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品珍味牛肉袋麵",
@@ -1169,7 +1730,11 @@
       "price": 552,
       "stock": "現貨",
       "stockQty": 12,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 12,
+      "casePrice": null
     },
     {
       "name": "味味一品珍味牛肉碗麵",
@@ -1177,7 +1742,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 8,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 8,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-玫瑰甜心香衣物護衣精罐裝3.2L",
@@ -1185,7 +1754,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-沁藍海洋香護衣精罐裝3.2L",
@@ -1193,7 +1766,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-陽光馨香護衣精罐裝3.2L",
@@ -1201,7 +1778,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-純淨溫和護衣精罐裝3.2L",
@@ -1209,7 +1790,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-竹萃淨味護衣精罐裝3.0L",
@@ -1217,7 +1802,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-氣質小蒼蘭護衣精罐裝3.0L",
@@ -1225,7 +1814,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭含熊洗衣精(瓶)-馨香精華2.5KG",
@@ -1233,7 +1826,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭含熊洗衣精(瓶)-花樣清新2.5KG",
@@ -1241,7 +1838,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭含熊洗衣精(瓶)-純淨溫和2.5KG",
@@ -1249,7 +1850,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭含熊洗衣精(瓶)-誠敬玫瑰X青檸2.5KG",
@@ -1257,7 +1862,11 @@
       "price": 696,
       "stock": "現貨",
       "stockQty": 4,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 4,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(晨露香)*3盒",
@@ -1265,7 +1874,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(天草本)*3盒",
@@ -1273,7 +1886,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(花果香)*3盒",
@@ -1281,7 +1898,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(芬芳香)*3盒",
@@ -1289,7 +1910,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(花漾香)*3盒",
@@ -1297,7 +1922,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "白蘭熊寶貝-衣物香氛袋(薰衣香)*3盒",
@@ -1305,7 +1934,11 @@
       "price": 624,
       "stock": "現貨",
       "stockQty": 10,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 10,
+      "casePrice": null
     },
     {
       "name": "愛之味分解茶",
@@ -1313,7 +1946,11 @@
       "price": 540,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "愛之味-麥仔茶300ml",
@@ -1321,7 +1958,11 @@
       "price": 204,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "愛之味-莎莎亞椰奶330ml",
@@ -1329,7 +1970,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "可爾必思330ml",
@@ -1337,7 +1982,11 @@
       "price": 432,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "保力達蠻牛200g",
@@ -1345,7 +1994,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "蘋果西打350ml",
@@ -1353,7 +2006,11 @@
       "price": 420,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "古道-百香綠茶300ml",
@@ -1361,7 +2018,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "古道-梅子綠茶300ml",
@@ -1369,7 +2030,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "光泉冷泡茶 金焙烏龍(茶王)585ml",
@@ -1377,7 +2042,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "光泉冷泡茶 - 冷韻青茶(無糖)",
@@ -1385,7 +2054,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "光泉冷泡茶 冷萃綠茶585ml",
@@ -1393,7 +2066,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "光泉冷泡茶-冰釀紅茶",
@@ -1401,7 +2078,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "光泉冷泡茶-頂香清茶(無糖)",
@@ -1409,7 +2090,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松果汁C系列300ml*24-百香果",
@@ -1417,7 +2102,11 @@
       "price": 210,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松果汁C系列300ml*24-柳橙",
@@ -1425,7 +2114,11 @@
       "price": 210,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松果汁C系列300ml*24-蘋果",
@@ -1433,7 +2126,11 @@
       "price": 210,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松果汁C系列300ml*24-葡萄",
@@ -1441,7 +2138,11 @@
       "price": 210,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松果汁C系列300ml*24-水蜜桃",
@@ -1449,7 +2150,11 @@
       "price": 210,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松沙士(600ml)",
@@ -1457,7 +2162,11 @@
       "price": 570,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松沙士330ml",
@@ -1465,7 +2174,11 @@
       "price": 384,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松沙士加鹽(330ml)",
@@ -1473,7 +2186,11 @@
       "price": 384,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "黑松FIN補給飲料330ml",
@@ -1481,7 +2198,11 @@
       "price": 204,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "紅牌速纖300ml",
@@ -1489,7 +2210,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "匯竑阿薩姆草莓奶茶300ml",
@@ -1497,7 +2222,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "匯竑阿薩姆奶茶-蘋果風味 300ml",
@@ -1505,7 +2234,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "匯竑阿薩姆芋香奶茶400ml",
@@ -1513,7 +2246,11 @@
       "price": 300,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "匯竑阿薩姆原味奶茶300ml",
@@ -1521,7 +2258,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "金車-伯朗咖啡(240ml)",
@@ -1529,7 +2270,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "金車-藍山咖啡(240ml)",
@@ -1537,7 +2282,11 @@
       "price": 504,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "津津蘆筍汁245ml*24鐵罐",
@@ -1545,7 +2294,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "開喜烏龍茶(有糖)300ml",
@@ -1553,7 +2306,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓草莓300ml",
@@ -1561,7 +2318,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓檸檬紅茶300ml",
@@ -1569,7 +2330,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓巧克力奶茶300ml",
@@ -1577,7 +2342,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓鮮漾奶綠300ml",
@@ -1585,7 +2354,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓原味奶茶300ml",
@@ -1593,7 +2366,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓沁香奶綠300ml",
@@ -1601,7 +2378,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "立頓琥珀紅茶300ml",
@@ -1609,7 +2390,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫紅茶300ml",
@@ -1617,7 +2402,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫綠茶300ml",
@@ -1625,7 +2414,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫奶茶300ml",
@@ -1633,7 +2426,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫花茶300ml",
@@ -1641,7 +2438,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫紅茶250ml",
@@ -1649,7 +2450,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "生活泡沫綠茶250ml",
@@ -1657,7 +2462,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "台鹽-鹼性離子水600ml",
@@ -1665,7 +2474,11 @@
       "price": 396,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "台鹽-鹼性離子水850ml",
@@ -1673,7 +2486,11 @@
       "price": 378,
       "stock": "現貨",
       "stockQty": 20,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 20,
+      "casePrice": null
     },
     {
       "name": "統一茶裏王白毫烏龍",
@@ -1681,7 +2498,11 @@
       "price": 408,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一茶裏王日式綠茶",
@@ -1689,7 +2510,11 @@
       "price": 408,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一茶裏王台式綠茶",
@@ -1697,7 +2522,11 @@
       "price": 408,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一茶裏王英式紅茶",
@@ -1705,7 +2534,11 @@
       "price": 408,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一咖啡廣場300ml",
@@ -1713,7 +2546,11 @@
       "price": 270,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一麥香紅茶300ml",
@@ -1721,7 +2558,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一麥香綠茶300ml",
@@ -1729,7 +2570,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一麥香奶茶300ml",
@@ -1737,7 +2582,11 @@
       "price": 216,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一蜜豆奶(雞蛋) 250ml",
@@ -1745,7 +2594,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一蜜豆奶(牛奶) 250ml",
@@ -1753,7 +2606,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "統一蜜豆奶(草莓) 250ml",
@@ -1761,7 +2618,11 @@
       "price": 282,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "維他露P330ml",
@@ -1769,7 +2630,11 @@
       "price": 348,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "維他露每朝藏熟紅茶(650ml)",
@@ -1777,7 +2642,11 @@
       "price": 612,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "維他露每朝健康綠茶(650ml)",
@@ -1785,7 +2654,11 @@
       "price": 612,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "維他露每朝雙纖綠茶(650ml)",
@@ -1793,7 +2666,11 @@
       "price": 612,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味全貝納頌咖啡鋁箔375ml",
@@ -1801,7 +2678,11 @@
       "price": 534,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "味全貝納頌咖啡榛果鋁箔375ml",
@@ -1809,7 +2690,11 @@
       "price": 534,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃綠茶玉露",
@@ -1817,7 +2702,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃日式煎茶",
@@ -1825,7 +2714,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃鐵觀音",
@@ -1833,7 +2726,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃烏龍茶",
@@ -1841,7 +2738,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃綠茶",
@@ -1849,7 +2750,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     },
     {
       "name": "原萃錫蘭無糖紅茶",
@@ -1857,7 +2762,11 @@
       "price": 480,
       "stock": "現貨",
       "stockQty": 24,
-      "image": ""
+      "image": "",
+      "unitName": "件",
+      "caseEnabled": true,
+      "caseQuantity": 24,
+      "casePrice": null
     }
   ]
 }

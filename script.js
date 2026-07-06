@@ -75,7 +75,7 @@ function assetName(input) {
 }
 
 function formatPrice(product) {
-  if (typeof product.price === "number") {
+  if (isPriced(product.price)) {
     return formatMoney(product.price);
   }
   return product.priceText || "請詢價";
@@ -85,16 +85,35 @@ function formatMoney(value) {
   return `${config.currencyLabel || ""}${value.toLocaleString("zh-TW")}`;
 }
 
-function productTotal(product, qty) {
-  return typeof product.price === "number" ? product.price * qty : null;
+function isPriced(value) {
+  return value !== null && value !== undefined && !Number.isNaN(Number(value));
+}
+
+function normalizePriceValue(value) {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  const text = String(value).trim();
+  if (!text || /^(待定價|請詢價|未定|詢價)$/i.test(text)) return null;
+  const number = Number(text.replace(/NT\$|TWD|\$|元|,|\s/g, ""));
+  return Number.isFinite(number) ? number : null;
+}
+
+function normalizePositiveNumber(value) {
+  const number = normalizePriceValue(value);
+  return number && number > 0 ? number : null;
 }
 
 function normalizeProduct(product) {
   const category = state.categories.find((item) => item.name === product.category);
   const stockQty = Number.isFinite(Number(product.stockQty)) ? Number(product.stockQty) : 0;
+  const price = normalizePriceValue(product.price);
+  const caseQuantity = normalizePositiveNumber(product.caseQuantity);
+  const casePrice = normalizePriceValue(product.casePrice);
   return {
     ...product,
     id: `${product.category}-${product.name}`,
+    price,
+    priceText: price === null ? product.priceText || "待定價" : "",
     tone: category?.tone || "#f0b95a",
     categoryKey: categoryKeyMap[product.category] || "daily",
     mark: iconMap[product.category] || "品",
@@ -102,12 +121,17 @@ function normalizeProduct(product) {
     stock: stockQty <= 0 ? "缺貨" : product.stock || "現貨",
     image: product.image || "",
     fallbackImage: product.fallbackImage || "",
+    unitName: product.unitName || "件",
+    caseEnabled: Boolean(product.caseEnabled && caseQuantity),
+    caseQuantity,
+    casePrice,
   };
 }
 
 function productCard(product) {
   const card = document.createElement("article");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0;
+  const caseDisabled = disabled || !product.caseEnabled || !product.caseQuantity || maxPurchaseQty(product, "case") <= 0;
   const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
   const placeholder = `
     <div class="product-placeholder product-placeholder-${product.categoryKey}" aria-hidden="true">
@@ -132,8 +156,15 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
         <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
-      <p class="stock-line">庫存 ${product.stockQty}</p>
-      <button class="add-button" type="button" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : "加入購物車"}</button>
+      <p class="stock-line">庫存 ${product.stockQty}${product.unitName}</p>
+      <div class="product-actions">
+        <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `單${product.unitName}`}</button>
+        ${
+          product.caseEnabled
+            ? `<button class="add-button case-button" type="button" data-add-type="case" ${caseDisabled ? "disabled" : ""}>${caseDisabled ? "整箱缺貨" : `整箱 ${product.caseQuantity}${product.unitName}`}</button>`
+            : ""
+        }
+      </div>
     </div>
   `;
   const image = card.querySelector("img");
@@ -147,7 +178,9 @@ function productCard(product) {
       { once: true },
     );
   }
-  card.querySelector("button").addEventListener("click", () => addToCart(product.id));
+  card.querySelectorAll("[data-add-type]").forEach((button) => {
+    button.addEventListener("click", () => addToCart(product.id, button.dataset.addType));
+  });
   return card;
 }
 
@@ -216,23 +249,72 @@ function renderNewProducts() {
   state.products = state.products.map((product) => ({ ...product, isNew: newNameSet.has(product.name) }));
 }
 
-function addToCart(id) {
+function cartKey(productId, purchaseType) {
+  return `${productId}::${purchaseType}`;
+}
+
+function parseCartKey(key) {
+  const [productId, purchaseType = "unit"] = key.split("::");
+  return { productId, purchaseType };
+}
+
+function purchaseUnitCount(product, purchaseType, qty) {
+  return purchaseType === "case" ? qty * (product.caseQuantity || 0) : qty;
+}
+
+function cartUsedUnits(productId, excludedKey = "") {
+  return [...state.cart.entries()].reduce((sum, [key, qty]) => {
+    if (key === excludedKey) return sum;
+    const parsed = parseCartKey(key);
+    if (parsed.productId !== productId) return sum;
+    const product = state.products.find((item) => item.id === parsed.productId);
+    if (!product) return sum;
+    return sum + purchaseUnitCount(product, parsed.purchaseType, qty);
+  }, 0);
+}
+
+function maxPurchaseQty(product, purchaseType, key = "") {
+  const availableStock = Math.max(product.stockQty - cartUsedUnits(product.id, key), 0);
+  if (purchaseType === "case") {
+    if (!product.caseEnabled || !product.caseQuantity) return 0;
+    return Math.floor(availableStock / product.caseQuantity);
+  }
+  return availableStock;
+}
+
+function lineTotal(product, purchaseType, qty) {
+  if (purchaseType === "case") {
+    return isPriced(product.casePrice) ? product.casePrice * qty : null;
+  }
+  return isPriced(product.price) ? product.price * qty : null;
+}
+
+function purchaseLabel(product, purchaseType) {
+  if (purchaseType === "case") return `整箱 ${product.caseQuantity}${product.unitName}`;
+  return `單${product.unitName}`;
+}
+
+function addToCart(id, purchaseType = "unit") {
   const product = state.products.find((item) => item.id === id);
-  const currentQty = state.cart.get(id) || 0;
-  if (!product || product.stock === "缺貨" || currentQty >= product.stockQty) return;
-  state.cart.set(id, (state.cart.get(id) || 0) + 1);
+  if (!product || product.stock === "缺貨") return;
+  const key = cartKey(id, purchaseType);
+  const currentQty = state.cart.get(key) || 0;
+  const maxQty = maxPurchaseQty(product, purchaseType, key);
+  if (currentQty >= maxQty) return;
+  state.cart.set(key, currentQty + 1);
   renderCart();
 }
 
-function changeQty(id, delta) {
-  const product = state.products.find((item) => item.id === id);
-  const next = (state.cart.get(id) || 0) + delta;
+function changeQty(key, delta) {
+  const { productId, purchaseType } = parseCartKey(key);
+  const product = state.products.find((item) => item.id === productId);
+  const next = (state.cart.get(key) || 0) + delta;
   if (next <= 0) {
-    state.cart.delete(id);
-  } else if (product && next <= product.stockQty) {
-    state.cart.set(id, next);
+    state.cart.delete(key);
+  } else if (product && next <= maxPurchaseQty(product, purchaseType, key)) {
+    state.cart.set(key, next);
   } else {
-    alert(`目前庫存只剩 ${product.stockQty} 件。`);
+    alert(`目前庫存不足，最多可購買 ${maxPurchaseQty(product, purchaseType, key)} ${purchaseType === "case" ? "箱" : product.unitName}。`);
   }
   renderCart();
 }
@@ -240,19 +322,25 @@ function changeQty(id, delta) {
 function cartSummary() {
   const entries = [...state.cart.entries()];
   const items = entries
-    .map(([id, qty]) => {
-      const product = state.products.find((item) => item.id === id);
+    .map(([key, qty]) => {
+      const { productId, purchaseType } = parseCartKey(key);
+      const product = state.products.find((item) => item.id === productId);
       if (!product) return null;
+      const usedUnits = purchaseUnitCount(product, purchaseType, qty);
+      const subtotal = lineTotal(product, purchaseType, qty);
       return {
-        id,
+        key,
+        productId,
         product,
+        purchaseType,
         qty,
-        lineTotal: productTotal(product, qty),
+        usedUnits,
+        lineTotal: subtotal,
       };
     })
     .filter(Boolean);
   const itemCount = items.length;
-  const totalCount = items.reduce((sum, item) => sum + item.qty, 0);
+  const totalCount = items.reduce((sum, item) => sum + item.usedUnits, 0);
   const hasUnpriced = items.some((item) => item.lineTotal === null);
   const allPriced = itemCount > 0 && !hasUnpriced;
   const total = allPriced ? items.reduce((sum, item) => sum + item.lineTotal, 0) : null;
@@ -276,24 +364,48 @@ function renderCart() {
     return;
   }
 
-  items.forEach(({ id, product, qty, lineTotal }) => {
+  items.forEach(({ key, product, purchaseType, qty, usedUnits, lineTotal }) => {
+    const unitMode = purchaseType === "unit";
+    const unitPriceText = unitMode
+      ? isPriced(product.price)
+        ? `單價 ${formatMoney(product.price)}`
+        : "待定價"
+      : isPriced(product.casePrice)
+        ? `箱價 ${formatMoney(product.casePrice)}`
+        : "整箱待報價";
+    const quantityText = unitMode ? `${qty}${product.unitName}` : `${qty}箱`;
+    const caseOptionDisabled = !product.caseEnabled || maxPurchaseQty(product, "case", key) <= 0;
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價"}｜庫存 ${product.stockQty}</p>
+        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}｜庫存 ${product.stockQty}${product.unitName}</p>
+        <div class="purchase-type" aria-label="購買方式">
+          <span>購買方式</span>
+          <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${product.unitName}</button>
+          ${
+            product.caseEnabled
+              ? `<button type="button" class="${purchaseType === "case" ? "is-active" : ""}" ${purchaseType === "case" || caseOptionDisabled ? "disabled" : ""} data-purchase-type="case">${caseOptionDisabled && purchaseType !== "case" ? "整箱缺貨" : `整箱 ${product.caseQuantity}${product.unitName}`}</button>`
+              : ""
+          }
+        </div>
+        <p class="quantity-label">購買數量：${quantityText}</p>
+        ${unitMode ? "" : `<p class="quantity-label">${qty}箱 × ${product.caseQuantity}${product.unitName}｜實際商品數量：${usedUnits}${product.unitName}</p>`}
         <p class="line-total">商品小計：${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</p>
       </div>
       <div class="qty-tools">
         <button type="button" aria-label="減少 ${product.name}">-</button>
-        <span>${qty}</span>
+        <span>${quantityText}</span>
         <button type="button" aria-label="增加 ${product.name}">+</button>
       </div>
     `;
-    const [minus, plus] = row.querySelectorAll("button");
-    minus.addEventListener("click", () => changeQty(id, -1));
-    plus.addEventListener("click", () => changeQty(id, 1));
+    const [minus, plus] = row.querySelectorAll(".qty-tools button");
+    minus.addEventListener("click", () => changeQty(key, -1));
+    plus.addEventListener("click", () => changeQty(key, 1));
+    row.querySelectorAll("[data-purchase-type]").forEach((button) => {
+      button.addEventListener("click", () => addToCart(product.id, button.dataset.purchaseType));
+    });
     cartItems.append(row);
 
     const detail = document.createElement("div");
@@ -305,9 +417,9 @@ function renderCart() {
       ${detailVisual}
       <div>
         <strong>${product.name}</strong>
-        <span>${product.category}｜${typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價"} x ${qty}</span>
+        <span>${product.category}｜${unitPriceText} x ${quantityText}</span>
       </div>
-      <em>剩 ${Math.max(product.stockQty - qty, 0)}</em>
+      <em>剩 ${Math.max(product.stockQty - cartUsedUnits(product.id), 0)}${product.unitName}</em>
     `;
     orderDetailList.append(detail);
   });
@@ -370,10 +482,19 @@ function orderMessage(formData) {
     "━━━━━━━━━━━━━━━━━━",
     "",
   ];
-  items.forEach(({ product, qty, lineTotal }, index) => {
+  items.forEach(({ product, purchaseType, qty, usedUnits, lineTotal }, index) => {
     const subtotal = lineTotal === null ? "請詢價" : formatMoney(lineTotal);
-    const unitPrice = typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價";
-    lines.push(`${index + 1}. ${product.name} × ${qty}`);
+    const unitPrice =
+      purchaseType === "case"
+        ? isPriced(product.casePrice)
+          ? `箱價 ${formatMoney(product.casePrice)}`
+          : "整箱待定價"
+        : isPriced(product.price)
+          ? `單價 ${formatPrice(product)}`
+          : "待定價";
+    const quantityText =
+      purchaseType === "case" ? `${qty}箱（${usedUnits}${product.unitName}）` : `${qty}${product.unitName}`;
+    lines.push(`${index + 1}. ${product.name} × ${quantityText}`);
     lines.push(`   ${unitPrice}｜小計 ${subtotal}`);
     lines.push("");
   });
@@ -446,8 +567,10 @@ function orderAnomalies({ name, phone, address, items, hasUnpriced }) {
   }
   if (!address) anomalies.push("地址未填寫");
   if (hasUnpriced) anomalies.push("商品尚未設定售價");
-  items.forEach(({ product, qty }) => {
-    if (qty > product.stockQty) anomalies.push(`${product.name} 商品庫存不足`);
+  items.forEach(({ product, usedUnits }) => {
+    if (cartUsedUnits(product.id) > product.stockQty || usedUnits > product.stockQty) {
+      anomalies.push(`${product.name} 商品庫存不足`);
+    }
   });
   return anomalies;
 }
@@ -455,7 +578,11 @@ function orderAnomalies({ name, phone, address, items, hasUnpriced }) {
 function renderSuccessDetail(formData) {
   const { items, amountText } = cartSummary();
   const list = items
-    .map(({ product, qty, lineTotal }) => `<li>${product.name} x ${qty}｜${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</li>`)
+    .map(({ product, purchaseType, qty, usedUnits, lineTotal }) => {
+      const quantityText =
+        purchaseType === "case" ? `${qty}箱（${usedUnits}${product.unitName}）` : `${qty}${product.unitName}`;
+      return `<li>${product.name} x ${quantityText}｜${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</li>`;
+    })
     .join("");
   successDetail.innerHTML = `
     <div class="success-section">
@@ -557,6 +684,20 @@ form.addEventListener("submit", async (event) => {
 });
 
 document.querySelector("[data-success-close]").addEventListener("click", closeCart);
+
+let lastTouchEnd = 0;
+
+document.addEventListener(
+  "touchend",
+  function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  },
+  { passive: false },
+);
 
 applyPaymentConfig();
 loadShopData();
