@@ -1857,6 +1857,7 @@ textarea,
 .cart-item,
 .quantity-control,
 .quantity-btn,
+.quick-add-button,
 .qty-tools button,
 .purchase-type button {
   touch-action: manipulation;
@@ -1936,4 +1937,83 @@ textarea,
 .product-actions .case-button:disabled {
   background: #ece7dd;
   color: #9a9284;
+}
+
+.all-products-section {
+  scroll-margin-top: 88px;
+}
+
+.quick-add-button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fffaf0;
+  font-size: 28px;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow: 0 14px 28px rgba(47, 98, 75, 0.28);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.quick-add-button:active,
+.quick-add-button.is-added {
+  transform: scale(0.9);
+  box-shadow: 0 8px 18px rgba(47, 98, 75, 0.2);
+}
+
+.quick-add-button.is-added {
+  background: var(--green-dark);
+  font-size: 22px;
+}
+
+.quick-add-button:disabled {
+  background: #bec4bd;
+  color: #fff;
+  box-shadow: none;
+}
+
+.product-card {
+  padding-bottom: 54px;
+}
+
+.product-body {
+  padding-bottom: 10px;
+}
+
+.shop-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  z-index: 30;
+  min-width: 136px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(37, 76, 58, 0.94);
+  color: #fffaf0;
+  font-size: 14px;
+  font-weight: 950;
+  text-align: center;
+  box-shadow: 0 16px 35px rgba(37, 76, 58, 0.24);
+  opacity: 0;
+  transform: translate(-50%, 14px);
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.shop-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }

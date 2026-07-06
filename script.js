@@ -69,6 +69,25 @@ const paymentTitle = document.querySelector("[data-payment-title]");
 const paymentAccount = document.querySelector("[data-payment-account]");
 const paymentNote = document.querySelector("[data-payment-note]");
 const checkoutTotal = document.querySelector("[data-checkout-total]");
+const toast = document.querySelector("[data-toast]");
+const productSection = document.querySelector(".all-products-section");
+const productsTitle = document.querySelector("#products-title");
+
+const headerOffset = 88;
+let toastTimer;
+
+const categorySlugMap = {
+  全部: "all",
+  飲料: "drinks",
+  泡麵: "noodles",
+  餅乾: "snacks",
+  零食: "snacks",
+  罐頭: "canned",
+  調味料: "condiments",
+  生活用品: "daily",
+  日用品: "daily",
+  酒類: "drinks",
+};
 
 function assetName(input) {
   return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
@@ -128,6 +147,59 @@ function normalizeProduct(product) {
   };
 }
 
+function categoryId(name) {
+  const slug = categorySlugMap[name] || String(name).trim().toLowerCase().replace(/\s+/g, "-");
+  return `category-${slug}`;
+}
+
+function updateProductSectionAnchor() {
+  if (!productSection) return;
+  productSection.id = categoryId(state.category);
+  productSection.dataset.activeCategory = state.category;
+  if (productsTitle) {
+    productsTitle.textContent = state.category === "全部" ? "全部商品" : `${state.category}商品`;
+  }
+}
+
+function scrollToProductSection() {
+  if (!productSection) return;
+  const top = productSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({
+    top: Math.max(top, 0),
+    behavior: "smooth",
+  });
+}
+
+function centerActiveCategoryButton(button) {
+  if (!button || !tabs) return;
+  button.scrollIntoView({
+    behavior: "smooth",
+    inline: "center",
+    block: "nearest",
+  });
+}
+
+function setCategory(name, options = {}) {
+  state.category = name;
+  renderProducts();
+  renderActiveTabs();
+  updateProductSectionAnchor();
+  const activeButton = [...tabs.querySelectorAll("button")].find((button) => button.dataset.category === name);
+  centerActiveCategoryButton(activeButton);
+  if (options.updateHash !== false) {
+    history.replaceState(null, "", `#${categoryId(name)}`);
+  }
+  if (options.scroll !== false) {
+    scrollToProductSection();
+  }
+}
+
+function categoryFromHash() {
+  const hash = decodeURIComponent(window.location.hash.replace("#", ""));
+  if (!hash) return "";
+  return ["全部", ...state.categories.map((category) => category.name)].find((name) => categoryId(name) === hash) || "";
+}
+
 function productCard(product) {
   const card = document.createElement("article");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0;
@@ -166,6 +238,7 @@ function productCard(product) {
         }
       </div>
     </div>
+    <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
   `;
   const image = card.querySelector("img");
   if (image) {
@@ -179,7 +252,19 @@ function productCard(product) {
     );
   }
   card.querySelectorAll("[data-add-type]").forEach((button) => {
-    button.addEventListener("click", () => addToCart(product.id, button.dataset.addType));
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (addToCart(product.id, button.dataset.addType)) {
+        showAddedFeedback(button);
+      }
+    });
+  });
+  const quickAdd = card.querySelector("[data-quick-add]");
+  quickAdd.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (addToCart(product.id, "unit")) {
+      showAddedFeedback(quickAdd);
+    }
   });
   return card;
 }
@@ -192,14 +277,14 @@ function renderTabs() {
     button.type = "button";
     button.className = "tab-button";
     button.dataset.category = name;
+    button.dataset.target = categoryId(name);
     button.innerHTML = `<span>${display.icon}</span><strong>${display.label}</strong>`;
     button.addEventListener("click", () => {
-      state.category = name;
-      renderProducts();
-      renderActiveTabs();
+      setCategory(name);
     });
     tabs.append(button);
   });
+  updateProductSectionAnchor();
   renderActiveTabs();
 }
 
@@ -296,13 +381,37 @@ function purchaseLabel(product, purchaseType) {
 
 function addToCart(id, purchaseType = "unit") {
   const product = state.products.find((item) => item.id === id);
-  if (!product || product.stock === "缺貨") return;
+  if (!product || product.stock === "缺貨") return false;
   const key = cartKey(id, purchaseType);
   const currentQty = state.cart.get(key) || 0;
   const maxQty = maxPurchaseQty(product, purchaseType, key);
-  if (currentQty >= maxQty) return;
+  if (currentQty >= maxQty) return false;
   state.cart.set(key, currentQty + 1);
   renderCart();
+  return true;
+}
+
+function showToast(message = "已加入購物車") {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.hidden = false;
+  toast.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("is-visible");
+    toast.hidden = true;
+  }, 1300);
+}
+
+function showAddedFeedback(button) {
+  const originalText = button.textContent;
+  button.classList.add("is-added");
+  button.textContent = "✓";
+  showToast("已加入購物車");
+  setTimeout(() => {
+    button.classList.remove("is-added");
+    button.textContent = originalText;
+  }, 650);
 }
 
 function changeQty(key, delta) {
@@ -638,6 +747,12 @@ async function loadShopData() {
     renderNewProducts();
     renderProducts();
     renderCart();
+    const hashedCategory = categoryFromHash();
+    if (hashedCategory) {
+      setCategory(hashedCategory, { updateHash: false, scroll: true });
+    } else {
+      updateProductSectionAnchor();
+    }
   } catch (error) {
     productGrid.innerHTML = "";
     emptyState.hidden = false;
