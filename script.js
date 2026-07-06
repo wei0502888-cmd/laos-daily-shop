@@ -1,5 +1,5 @@
 const config = window.SHOP_CONFIG || {
-  currencyLabel: "₭",
+  currencyLabel: "$",
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
@@ -68,6 +68,7 @@ const successDetail = document.querySelector("[data-success-detail]");
 const paymentTitle = document.querySelector("[data-payment-title]");
 const paymentAccount = document.querySelector("[data-payment-account]");
 const paymentNote = document.querySelector("[data-payment-note]");
+const checkoutTotal = document.querySelector("[data-checkout-total]");
 
 function assetName(input) {
   return input.replace(/[／\s]+/g, "-").replace(/[\\/:*?"<>|]/g, "").toLowerCase();
@@ -75,9 +76,13 @@ function assetName(input) {
 
 function formatPrice(product) {
   if (typeof product.price === "number") {
-    return `${config.currencyLabel || ""}${product.price.toLocaleString("zh-TW")}`;
+    return formatMoney(product.price);
   }
   return product.priceText || "請詢價";
+}
+
+function formatMoney(value) {
+  return `${config.currencyLabel || ""}${value.toLocaleString("zh-TW")}`;
 }
 
 function productTotal(product, qty) {
@@ -234,39 +239,51 @@ function changeQty(id, delta) {
 
 function cartSummary() {
   const entries = [...state.cart.entries()];
-  const pricedEntries = entries
+  const items = entries
     .map(([id, qty]) => {
       const product = state.products.find((item) => item.id === id);
-      return productTotal(product, qty);
+      if (!product) return null;
+      return {
+        id,
+        product,
+        qty,
+        lineTotal: productTotal(product, qty),
+      };
     })
-    .filter((total) => total !== null);
-  const allPriced = entries.length > 0 && pricedEntries.length === entries.length;
-  const total = pricedEntries.reduce((sum, value) => sum + value, 0);
-  return { entries, allPriced, total };
+    .filter(Boolean);
+  const itemCount = items.length;
+  const totalCount = items.reduce((sum, item) => sum + item.qty, 0);
+  const hasUnpriced = items.some((item) => item.lineTotal === null);
+  const allPriced = itemCount > 0 && !hasUnpriced;
+  const total = allPriced ? items.reduce((sum, item) => sum + item.lineTotal, 0) : null;
+  const amountText = allPriced ? formatMoney(total) : "依店家回覆為準";
+  return { entries, items, itemCount, totalCount, hasUnpriced, allPriced, total, amountText };
 }
 
 function renderCart() {
   cartItems.innerHTML = "";
   orderDetailList.innerHTML = "";
-  const { entries, allPriced, total } = cartSummary();
-  const totalCount = entries.reduce((sum, [, qty]) => sum + qty, 0);
+  const { items, itemCount, totalCount, hasUnpriced, amountText } = cartSummary();
   cartCount.textContent = totalCount;
   orderCount.textContent = `${totalCount} 件商品`;
 
-  if (!entries.length) {
+  if (!items.length) {
     cartItems.innerHTML = '<p class="form-note">購物車目前是空的，先把想補貨的品項加進來。</p>';
     orderDetailList.innerHTML = '<p class="form-note">尚未選擇商品。</p>';
+    if (checkoutTotal) {
+      checkoutTotal.innerHTML = "<strong>訂單金額：依店家回覆為準</strong>";
+    }
     return;
   }
 
-  entries.forEach(([id, qty]) => {
-    const product = state.products.find((item) => item.id === id);
+  items.forEach(({ id, product, qty, lineTotal }) => {
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.company || product.category}｜${formatPrice(product)}｜庫存 ${product.stockQty}</p>
+        <p class="form-note">${product.category}｜${typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價"}｜庫存 ${product.stockQty}</p>
+        <p class="line-total">商品小計：${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</p>
       </div>
       <div class="qty-tools">
         <button type="button" aria-label="減少 ${product.name}">-</button>
@@ -288,7 +305,7 @@ function renderCart() {
       ${detailVisual}
       <div>
         <strong>${product.name}</strong>
-        <span>${product.company || product.category}｜${formatPrice(product)} x ${qty}</span>
+        <span>${product.category}｜${typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價"} x ${qty}</span>
       </div>
       <em>剩 ${Math.max(product.stockQty - qty, 0)}</em>
     `;
@@ -298,10 +315,21 @@ function renderCart() {
   const totalRow = document.createElement("div");
   totalRow.className = "cart-total";
   totalRow.innerHTML = `
-    <span>商品小計</span>
-    <strong>${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}</strong>
+    <div>
+      <span>商品品項：${itemCount} 項</span>
+      <span>商品數量：${totalCount} 件</span>
+      <span>目前金額：${amountText}</span>
+      ${hasUnpriced ? '<small>⚠️ 本訂單含待定價商品，實際金額請以店家回覆為準。</small>' : ""}
+    </div>
   `;
   cartItems.append(totalRow);
+
+  if (checkoutTotal) {
+    checkoutTotal.innerHTML = `
+      <strong>訂單金額：${amountText}</strong>
+      ${hasUnpriced ? "<small>⚠️ 實際金額請以店家確認報價為準。</small>" : ""}
+    `;
+  }
 }
 
 function openCart() {
@@ -319,23 +347,76 @@ function closeCart() {
 }
 
 function orderMessage(formData) {
-  const { entries, allPriced, total } = cartSummary();
+  const { items, itemCount, totalCount, amountText, hasUnpriced } = cartSummary();
   const orderId = makeOrderId();
-  const lines = [`LAOS DAILY SHOP 新訂單 #${orderId}`, "", "訂單詳情："];
-  entries.forEach(([id, qty]) => {
-    const product = state.products.find((item) => item.id === id);
-    const lineTotal = productTotal(product, qty);
-    const subtotal = lineTotal === null ? "請詢價" : `${config.currencyLabel || ""}${lineTotal.toLocaleString("zh-TW")}`;
-    lines.push(`- ${product.name} x ${qty}｜${product.company || product.category}｜${formatPrice(product)}｜小計 ${subtotal}｜庫存 ${product.stockQty} -> ${Math.max(product.stockQty - qty, 0)}`);
+  const orderTime = formatOrderTime(new Date());
+  const name = String(formData.get("name") || "").trim();
+  const phone = String(formData.get("phone") || "").trim();
+  const address = String(formData.get("address") || "").trim();
+  const note = String(formData.get("note") || "").trim();
+  const anomalies = orderAnomalies({ name, phone, address, items, hasUnpriced });
+  const lines = [
+    "【LAOS DAILY SHOP｜新訂單通知】",
+    "",
+    "🔴 待報價｜待聯繫",
+    "",
+    `訂單編號：#${orderId}`,
+    `下單時間：${orderTime}`,
+    `商品數量：${totalCount} 件`,
+    `商品品項：${itemCount} 項`,
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "🛒 商品明細",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+  ];
+  items.forEach(({ product, qty, lineTotal }, index) => {
+    const subtotal = lineTotal === null ? "請詢價" : formatMoney(lineTotal);
+    const unitPrice = typeof product.price === "number" ? `單價 ${formatPrice(product)}` : "待定價";
+    lines.push(`${index + 1}. ${product.name} × ${qty}`);
+    lines.push(`   ${unitPrice}｜小計 ${subtotal}`);
+    lines.push("");
   });
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("👤 客戶資料");
+  lines.push("━━━━━━━━━━━━━━━━━━");
   lines.push("");
-  lines.push(`總計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}`);
-  lines.push(`付款：${config.payment?.title || "匯款 / U 帳號"}｜${config.payment?.account || "請洽專人提供 U 帳號"}｜${config.payment?.note || "確認付款後安排出貨"}`);
+  lines.push(`姓名：${name}`);
+  lines.push(`電話：${phone}`);
+  lines.push(`地址：${address}`);
+  lines.push(`備註：${note || "無"}`);
   lines.push("");
-  lines.push(`姓名：${formData.get("name")}`);
-  lines.push(`電話：${formData.get("phone")}`);
-  lines.push(`地址：${formData.get("address")}`);
-  lines.push(`備註：${formData.get("note") || "無"}`);
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("💳 付款與配送");
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("");
+  lines.push("訂單金額：");
+  lines.push("");
+  lines.push(amountText);
+  lines.push("");
+  lines.push("付款方式：匯款／U 帳號");
+  lines.push("付款狀態：⏳ 待付款");
+  lines.push("配送狀態：⏳ 待安排");
+  lines.push("");
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("⚠️ 訂單異常提醒");
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("");
+  lines.push(anomalies.length ? anomalies.map((item) => `• ${item}`).join("\n") : "目前無訂單異常。");
+  lines.push("");
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("📋 下一步處理");
+  lines.push("━━━━━━━━━━━━━━━━━━");
+  lines.push("");
+  lines.push("□ 1. 聯繫客戶並補齊資料");
+  lines.push("□ 2. 確認商品售價與訂單總額");
+  lines.push("□ 3. 回覆客戶報價及付款資訊");
+  lines.push("□ 4. 確認款項入帳");
+  lines.push("□ 5. 安排出貨並提供物流單號");
+  lines.push("");
+  lines.push("目前進度：0／5");
+  lines.push("");
+  lines.push(`訂單編號：#${orderId}`);
   return lines.join("\n");
 }
 
@@ -346,19 +427,41 @@ function makeOrderId() {
   return `${date}-${time}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
 }
 
+function formatOrderTime(date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  const hh = String(date.getHours()).padStart(2, "0");
+  const min = String(date.getMinutes()).padStart(2, "0");
+  return `${yyyy}/${mm}/${dd} ${hh}:${min}`;
+}
+
+function orderAnomalies({ name, phone, address, items, hasUnpriced }) {
+  const anomalies = [];
+  if (!name) anomalies.push("客戶姓名未填寫");
+  if (!phone) {
+    anomalies.push("電話未填寫");
+  } else if (!/^\+?[0-9][0-9\s()\-]{6,}$/.test(phone)) {
+    anomalies.push("電話格式異常");
+  }
+  if (!address) anomalies.push("地址未填寫");
+  if (hasUnpriced) anomalies.push("商品尚未設定售價");
+  items.forEach(({ product, qty }) => {
+    if (qty > product.stockQty) anomalies.push(`${product.name} 商品庫存不足`);
+  });
+  return anomalies;
+}
+
 function renderSuccessDetail(formData) {
-  const { entries, allPriced, total } = cartSummary();
-  const list = entries
-    .map(([id, qty]) => {
-      const product = state.products.find((item) => item.id === id);
-      return `<li>${product.name} x ${qty}</li>`;
-    })
+  const { items, amountText } = cartSummary();
+  const list = items
+    .map(({ product, qty, lineTotal }) => `<li>${product.name} x ${qty}｜${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</li>`)
     .join("");
   successDetail.innerHTML = `
     <div class="success-section">
       <strong>訂單詳情</strong>
       <ul>${list}</ul>
-      <p>合計：${allPriced ? `${config.currencyLabel || ""}${total.toLocaleString("zh-TW")}` : "依店家回覆為準"}</p>
+      <p>合計：${amountText}</p>
     </div>
     <div class="success-section">
       <strong>${config.payment?.title || "匯款 / U 帳號"}</strong>

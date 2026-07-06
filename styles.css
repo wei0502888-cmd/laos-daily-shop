@@ -696,22 +696,48 @@ p {
 }
 
 .cart-total {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   padding: 14px 0 4px;
   color: var(--green-dark);
 }
 
-.cart-total strong {
-  font-size: 17px;
+.cart-total div,
+.checkout-total-box {
+  display: grid;
+  gap: 7px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(31, 92, 67, 0.07);
+}
+
+.cart-total span,
+.checkout-total-box strong {
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.cart-total small,
+.checkout-total-box small {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.line-total {
+  margin-top: 5px;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 950;
 }
 
 .checkout-form {
   display: grid;
   gap: 12px;
   margin-top: 18px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
 }
 
 .checkout-form h3,
