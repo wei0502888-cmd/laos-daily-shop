@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260706-2";
+const BUILD_VERSION = "20260707-1";
 
 const iconMap = {
   台灣泡麵補給: "麵",
@@ -38,7 +38,7 @@ const categoryDisplayMap = {
   泡麵: { icon: "🍜", label: "泡麵" },
   飲料: { icon: "🥤", label: "飲料" },
   酒類: { icon: "🍺", label: "酒水" },
-  餅乾: { icon: "🍪", label: "零食" },
+  餅乾: { icon: "🍪", label: "餅乾" },
   罐頭: { icon: "🥫", label: "罐頭" },
   調味料: { icon: "🧂", label: "調味料" },
   生活用品: { icon: "🧴", label: "日用品" },
@@ -76,7 +76,6 @@ const toast = document.querySelector("[data-toast]");
 const productSection = document.querySelector(".all-products-section");
 const productsTitle = document.querySelector("#products-title");
 
-const headerOffset = 88;
 let toastTimer;
 
 const categorySlugMap = {
@@ -133,7 +132,10 @@ function normalizeProduct(product) {
   const casePrice = normalizePriceValue(product.casePrice);
   return {
     ...product,
-    id: `${product.category}-${product.name}`,
+    id: product.id || `${product.category}-${product.rawName || product.name}`,
+    rawName: product.rawName || product.name,
+    displayName: product.displayName || product.name,
+    name: product.displayName || product.name,
     price,
     priceText: price === null ? product.priceText || "待定價" : "",
     tone: category?.tone || "#f0b95a",
@@ -182,11 +184,24 @@ function updateProductSectionAnchor() {
 
 function scrollToProductSection() {
   if (!productSection) return;
-  const top = productSection.getBoundingClientRect().top + window.scrollY - headerOffset;
+  const top = productSection.getBoundingClientRect().top + window.scrollY - currentScrollOffset();
   window.scrollTo({
     top: Math.max(top, 0),
     behavior: "smooth",
   });
+}
+
+function currentScrollOffset() {
+  const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
+  const categoryHeight = document.querySelector(".category-section")?.getBoundingClientRect().height || 0;
+  return Math.ceil(topbarHeight + categoryHeight + 14);
+}
+
+function updateStickyMetrics() {
+  const topbarHeight = Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height || 0);
+  const scrollOffset = currentScrollOffset();
+  document.documentElement.style.setProperty("--sticky-category-top", `${topbarHeight}px`);
+  document.documentElement.style.setProperty("--product-scroll-margin", `${scrollOffset}px`);
 }
 
 function centerActiveCategoryButton(button) {
@@ -319,6 +334,8 @@ function filteredProducts() {
     const matchQuery =
       !state.query ||
       product.name.includes(state.query) ||
+      (product.displayName || "").includes(state.query) ||
+      (product.rawName || "").includes(state.query) ||
       (product.company || "").includes(state.query) ||
       (product.barcode || "").includes(state.query) ||
       product.category.includes(state.query) ||
@@ -448,6 +465,7 @@ function changeQty(key, delta) {
 }
 
 function cartSummary() {
+  pruneCartUnavailableProducts();
   const entries = [...state.cart.entries()];
   const items = entries
     .map(([key, qty]) => {
@@ -474,6 +492,27 @@ function cartSummary() {
   const total = allPriced ? items.reduce((sum, item) => sum + item.lineTotal, 0) : null;
   const amountText = allPriced ? formatMoney(total) : "依店家回覆為準";
   return { entries, items, itemCount, totalCount, hasUnpriced, allPriced, total, amountText };
+}
+
+function pruneCartUnavailableProducts() {
+  state.cart.forEach((qty, key) => {
+    const { productId, purchaseType } = parseCartKey(key);
+    const product = state.products.find((item) => item.id === productId);
+    if (!product || product.stockQty <= 0 || product.stock === "缺貨") {
+      state.cart.delete(key);
+      return;
+    }
+    const maxAllowed = purchaseType === "case"
+      ? product.caseQuantity
+        ? Math.floor(product.stockQty / product.caseQuantity)
+        : 0
+      : product.stockQty;
+    if (maxAllowed <= 0) {
+      state.cart.delete(key);
+    } else if (qty > maxAllowed) {
+      state.cart.set(key, maxAllowed);
+    }
+  });
 }
 
 function renderCart() {
@@ -755,12 +794,13 @@ async function sendTelegramMessage(message) {
 
 async function loadShopData() {
   try {
+    updateStickyMetrics();
     const response = await fetch(`./products.json?v=${BUILD_VERSION}`, { cache: "no-store" });
     if (!response.ok) throw new Error("Cannot load products.json");
     const data = await response.json();
     state.categories = data.categories || [];
     state.hotNames = data.hotProducts || [];
-    state.products = (data.products || []).map(normalizeProduct);
+    state.products = (data.products || []).map(normalizeProduct).filter((product) => product.stockQty > 0);
     renderTabs();
     renderHotProducts();
     renderNewProducts();
@@ -789,6 +829,8 @@ search.addEventListener("input", (event) => {
   state.query = event.target.value.trim();
   renderProducts();
 });
+
+window.addEventListener("resize", updateStickyMetrics);
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
