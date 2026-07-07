@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260707-1";
+const BUILD_VERSION = "20260707-3";
 
 const iconMap = {
   台灣泡麵補給: "麵",
@@ -279,6 +279,12 @@ function productCard(product) {
     image.addEventListener(
       "error",
       () => {
+        const fallbackSrc = image.dataset.fallback;
+        if (fallbackSrc && !image.dataset.fallbackUsed) {
+          image.dataset.fallbackUsed = "true";
+          image.src = fallbackSrc;
+          return;
+        }
         const art = image.closest(".product-art");
         art.innerHTML = placeholder;
       },

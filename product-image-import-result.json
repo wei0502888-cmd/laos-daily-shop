@@ -1,0 +1,1072 @@
+{
+  "importedImages": 67,
+  "missingImages": 37,
+  "skippedDuplicateAcceptedRows": 1,
+  "imported": [
+    {
+      "productIndex": 1,
+      "productId": "barcode-4710015114857",
+      "name": "乖乖奶油椰子",
+      "rawName": "乖乖奶油椰子*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "餅乾零食/012_乖乖奶油椰子.jpg.jpg",
+      "dest": "images/products/snacks/product-001.webp",
+      "bytes": 62916
+    },
+    {
+      "productIndex": 2,
+      "productId": "barcode-4710015115991",
+      "name": "乖乖巧克力",
+      "rawName": "乖乖巧克力*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "餅乾零食/013_乖乖巧克力.jpeg",
+      "dest": "images/products/snacks/product-002.webp",
+      "bytes": 59202
+    },
+    {
+      "productIndex": 3,
+      "productId": "barcode-4710176121145",
+      "name": "華元波特多 蚵仔煎",
+      "rawName": "華元波特多/蚵仔煎*34g*10",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/001_華元波特多蚵仔煎.jpg.jpeg",
+      "dest": "images/products/snacks/product-003.webp",
+      "bytes": 40962
+    },
+    {
+      "productIndex": 4,
+      "productId": "barcode-14710176039461",
+      "name": "華元鹹蔬餅",
+      "rawName": "華元鹹蔬餅50g*10",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/011_images.jpeg",
+      "dest": "images/products/snacks/product-004.webp",
+      "bytes": 51940
+    },
+    {
+      "productIndex": 5,
+      "productId": "barcode-4710176011040",
+      "name": "華元真魷味红烧口味",
+      "rawName": "華元真魷味红烧口味*50g*10",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "餅乾零食/010_images-2.jpeg",
+      "dest": "images/products/snacks/product-005.webp",
+      "bytes": 58980
+    },
+    {
+      "productIndex": 6,
+      "productId": "barcode-062241",
+      "name": "卡迪那德州薯條",
+      "rawName": "卡迪那德州薯條*38g*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/009_images-3.jpeg",
+      "dest": "images/products/snacks/product-006.webp",
+      "bytes": 46970
+    },
+    {
+      "productIndex": 7,
+      "productId": "barcode-063022",
+      "name": "卡迪那滿天星",
+      "rawName": "卡迪那滿天星32g*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "餅乾零食/008_images-4.jpeg",
+      "dest": "images/products/snacks/product-007.webp",
+      "bytes": 64720
+    },
+    {
+      "productIndex": 8,
+      "productId": "barcode-060476",
+      "name": "聯華可樂果 原味",
+      "rawName": "聯華可樂果-原味48g*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "餅乾零食/007_images-5.jpeg",
+      "dest": "images/products/snacks/product-008.webp",
+      "bytes": 40952
+    },
+    {
+      "productIndex": 9,
+      "productId": "barcode-060554",
+      "name": "聯華可樂果 辣味",
+      "rawName": "聯華可樂果-辣味48g*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "餅乾零食/005_images-6.jpeg",
+      "dest": "images/products/snacks/product-009.webp",
+      "bytes": 47162
+    },
+    {
+      "productIndex": 10,
+      "productId": "barcode-4710126021013",
+      "name": "義美小泡芙 草莓",
+      "rawName": "義美小泡芙-草莓57g",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/003_images-7.jpeg",
+      "dest": "images/products/snacks/product-010.webp",
+      "bytes": 47442
+    },
+    {
+      "productIndex": 11,
+      "productId": "barcode-47101260210200",
+      "name": "義美小泡芙 牛奶",
+      "rawName": "義美小泡芙-牛奶57g",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/002_images-8.jpeg",
+      "dest": "images/products/snacks/product-011.webp",
+      "bytes": 43416
+    },
+    {
+      "productIndex": 12,
+      "productId": "barcode-47101260210060",
+      "name": "義美小泡芙 巧克力",
+      "rawName": "義美小泡芙-巧克力57g",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/006_images-9.jpeg",
+      "dest": "images/products/snacks/product-012.webp",
+      "bytes": 52078
+    },
+    {
+      "productIndex": 13,
+      "productId": "barcode-4710126012080",
+      "name": "義美原味蛋捲",
+      "rawName": "義美原味蛋捲*12",
+      "category": "餅乾",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "餅乾零食/004_images-10.jpeg",
+      "dest": "images/products/snacks/product-013.webp",
+      "bytes": 68528
+    },
+    {
+      "productIndex": 14,
+      "productId": "barcode-4710626110125",
+      "name": "愛之味脆瓜",
+      "rawName": "愛之味脆瓜180g",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "罐頭罐裝食品/008_images(1).jpeg",
+      "dest": "images/products/canned/product-014.webp",
+      "bytes": 25680
+    },
+    {
+      "productIndex": 15,
+      "productId": "barcode-47106261114290",
+      "name": "愛之味土豆麵筋",
+      "rawName": "愛之味土豆麵筋170g",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "罐頭罐裝食品/001_images-2(1).jpeg",
+      "dest": "images/products/canned/product-015.webp",
+      "bytes": 47542
+    },
+    {
+      "productIndex": 16,
+      "productId": "barcode-4710626111320",
+      "name": "愛之味玉筍",
+      "rawName": "愛之味玉筍120g",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "罐頭罐裝食品/003_images-3(1).jpeg",
+      "dest": "images/products/canned/product-016.webp",
+      "bytes": 60450
+    },
+    {
+      "productIndex": 17,
+      "productId": "row-28-綠巨人珍玉米粒易340G",
+      "name": "綠巨人珍玉米粒易",
+      "rawName": "綠巨人珍玉米粒易340G",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "罐頭罐裝食品/005_images-4(1).jpeg",
+      "dest": "images/products/canned/product-017.webp",
+      "bytes": 30158
+    },
+    {
+      "productIndex": 18,
+      "productId": "row-37-萬家香素蠔油300CC",
+      "name": "萬家香素蠔油",
+      "rawName": "萬家香素蠔油300CC",
+      "category": "調味料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "調味料/002_images-5(2).jpeg",
+      "dest": "images/products/seasoning/product-018.webp",
+      "bytes": 20812
+    },
+    {
+      "productIndex": 19,
+      "productId": "row-40-牛頭牌沙茶醬127g",
+      "name": "牛頭牌沙茶醬",
+      "rawName": "牛頭牌沙茶醬127g",
+      "category": "調味料",
+      "status": "REVIEW",
+      "confidence": 0.88,
+      "source": "調味料/003_images-6(1).jpeg",
+      "dest": "images/products/seasoning/product-019.webp",
+      "bytes": 30120
+    },
+    {
+      "productIndex": 20,
+      "productId": "barcode-47100959874400",
+      "name": "泰山八寶粥",
+      "rawName": "泰山八寶粥380g",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "罐頭罐裝食品/009_images拷貝.jpeg",
+      "dest": "images/products/canned/product-020.webp",
+      "bytes": 47530
+    },
+    {
+      "productIndex": 21,
+      "productId": "barcode-47100959580440",
+      "name": "泰山花生仁湯",
+      "rawName": "泰山花生仁湯320g*24",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "罐頭罐裝食品/002_images-2拷貝.jpeg",
+      "dest": "images/products/canned/product-021.webp",
+      "bytes": 30890
+    },
+    {
+      "productIndex": 23,
+      "productId": "row-49-三興小茄汁鯖魚210G",
+      "name": "三興小茄汁鯖魚",
+      "rawName": "三興小茄汁鯖魚210G",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "罐頭罐裝食品/004_images-3拷貝.jpeg",
+      "dest": "images/products/canned/product-023.webp",
+      "bytes": 26204
+    },
+    {
+      "productIndex": 24,
+      "productId": "barcode-4710008286219",
+      "name": "味王調理快餐 紅燒牛腩",
+      "rawName": "味王調理快餐-紅燒牛腩*24盒",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "罐頭罐裝食品/006_images-4拷貝.jpeg",
+      "dest": "images/products/canned/product-024.webp",
+      "bytes": 72178
+    },
+    {
+      "productIndex": 25,
+      "productId": "barcode-4710008286271",
+      "name": "味王調理快餐 筍絲控肉",
+      "rawName": "味王調理快餐-筍絲控肉*24盒",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "罐頭罐裝食品/007_images-5(1).jpeg",
+      "dest": "images/products/canned/product-025.webp",
+      "bytes": 87164
+    },
+    {
+      "productIndex": 26,
+      "productId": "row-61-小磨坊白胡椒250G",
+      "name": "小磨坊白胡椒",
+      "rawName": "小磨坊白胡椒250G",
+      "category": "調味料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "調味料/001_images-6拷貝.jpeg",
+      "dest": "images/products/seasoning/product-026.webp",
+      "bytes": 22438
+    },
+    {
+      "productIndex": 27,
+      "productId": "barcode-4712140000142",
+      "name": "玉英剝皮辣椒",
+      "rawName": "玉英剝皮辣椒450g",
+      "category": "罐頭",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "罐頭罐裝食品/010_images拷貝2.jpeg",
+      "dest": "images/products/canned/product-027.webp",
+      "bytes": 33532
+    },
+    {
+      "productIndex": 29,
+      "productId": "barcode-47100885129700",
+      "name": "統一阿 桶麵 雞汁排骨",
+      "rawName": "統一阿Q桶麵-雞汁排骨*12",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "泡麵/002_images-19.jpeg",
+      "dest": "images/products/noodles/product-029.webp",
+      "bytes": 66224
+    },
+    {
+      "productIndex": 39,
+      "productId": "barcode-47100885122080",
+      "name": "統一滿漢大餐蔥牛碗",
+      "rawName": "統一滿漢大餐蔥牛碗*6",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/009_images-12.jpeg",
+      "dest": "images/products/noodles/product-039.webp",
+      "bytes": 50524
+    },
+    {
+      "productIndex": 40,
+      "productId": "barcode-47100885117990",
+      "name": "統一滿漢大餐蔥豬袋",
+      "rawName": "統一滿漢大餐蔥豬袋*3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/008_images-13.jpeg",
+      "dest": "images/products/noodles/product-040.webp",
+      "bytes": 63420
+    },
+    {
+      "productIndex": 41,
+      "productId": "barcode-47100885122460",
+      "name": "統一滿漢大餐蔥豬碗",
+      "rawName": "統一滿漢大餐蔥豬碗*6",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/007_images-14.jpeg",
+      "dest": "images/products/noodles/product-041.webp",
+      "bytes": 54930
+    },
+    {
+      "productIndex": 42,
+      "productId": "barcode-47100889301870",
+      "name": "統一滿漢大餐麻辣牛袋",
+      "rawName": "統一滿漢大餐麻辣牛袋*3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/006_images-15.jpeg",
+      "dest": "images/products/noodles/product-042.webp",
+      "bytes": 71400
+    },
+    {
+      "productIndex": 43,
+      "productId": "barcode-47100885120860",
+      "name": "統一滿漢大餐麻辣牛碗",
+      "rawName": "統一滿漢大餐麻辣牛碗*6",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/005_images-16.jpeg",
+      "dest": "images/products/noodles/product-043.webp",
+      "bytes": 53758
+    },
+    {
+      "productIndex": 44,
+      "productId": "barcode-47100885152470",
+      "name": "統一日式豚骨拉麵袋",
+      "rawName": "統一日式豚骨拉麵袋",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/004_images-17.jpeg",
+      "dest": "images/products/noodles/product-044.webp",
+      "bytes": 51290
+    },
+    {
+      "productIndex": 50,
+      "productId": "barcode-47100885143940",
+      "name": "統一阿 桶麵 韓式泡菜",
+      "rawName": "統一阿Q桶麵-韓式泡菜*12",
+      "category": "泡麵",
+      "status": "REVIEW",
+      "confidence": 0.9,
+      "source": "泡麵/010_images-21.jpeg",
+      "dest": "images/products/noodles/product-050.webp",
+      "bytes": 66360
+    },
+    {
+      "productIndex": 55,
+      "productId": "barcode-4710199017210",
+      "name": "維力一度讚紅燒牛袋",
+      "rawName": "維力一度讚紅燒牛袋3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "泡麵/017_images-30.jpeg",
+      "dest": "images/products/noodles/product-055.webp",
+      "bytes": 66980
+    },
+    {
+      "productIndex": 56,
+      "productId": "barcode-47101990153220",
+      "name": "維力一度讚紅燒牛碗",
+      "rawName": "維力一度讚紅燒牛碗*12",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "泡麵/018_images-29.jpeg",
+      "dest": "images/products/noodles/product-056.webp",
+      "bytes": 55800
+    },
+    {
+      "productIndex": 57,
+      "productId": "barcode-4710199017210",
+      "name": "維力一度讚爌肉袋",
+      "rawName": "維力一度讚爌肉袋3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "泡麵/017_images-30.jpeg",
+      "dest": "images/products/noodles/product-057.webp",
+      "bytes": 66980
+    },
+    {
+      "productIndex": 58,
+      "productId": "barcode-47101990777190",
+      "name": "維力一度讚老甕牛肉碗",
+      "rawName": "維力一度讚老甕牛肉碗*12",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "泡麵/016_images-31.jpeg",
+      "dest": "images/products/noodles/product-058.webp",
+      "bytes": 62144
+    },
+    {
+      "productIndex": 60,
+      "productId": "barcode-4710199014721",
+      "name": "維力炸醬麵袋",
+      "rawName": "維力炸醬麵袋5*6",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/014_images-32.jpeg",
+      "dest": "images/products/noodles/product-060.webp",
+      "bytes": 56430
+    },
+    {
+      "productIndex": 61,
+      "productId": "barcode-4710199114117",
+      "name": "維力一度讚麻辣牛肉袋",
+      "rawName": "維力一度讚麻辣牛肉袋3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "泡麵/013_images-33.jpeg",
+      "dest": "images/products/noodles/product-061.webp",
+      "bytes": 36316
+    },
+    {
+      "productIndex": 62,
+      "productId": "barcode-47101100000240",
+      "name": "味味 排骨雞袋麵",
+      "rawName": "味味A排骨雞袋麵5*6",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "泡麵/012_images-34.jpeg",
+      "dest": "images/products/noodles/product-062.webp",
+      "bytes": 51522
+    },
+    {
+      "productIndex": 63,
+      "productId": "barcode-47101102318860",
+      "name": "味味一品極品紅燒牛肉袋麵",
+      "rawName": "味味一品極品紅燒牛肉袋麵3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "泡麵/011_images-35.jpeg",
+      "dest": "images/products/noodles/product-063.webp",
+      "bytes": 46862
+    },
+    {
+      "productIndex": 64,
+      "productId": "barcode-47101102265920",
+      "name": "味味一品爌肉袋麵",
+      "rawName": "味味一品爌肉袋麵3*4",
+      "category": "泡麵",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "泡麵/015_images-36.jpeg",
+      "dest": "images/products/noodles/product-064.webp",
+      "bytes": 85362
+    },
+    {
+      "productIndex": 65,
+      "productId": "barcode-4710626159537",
+      "name": "愛之味分解茶",
+      "rawName": "愛之味分解茶",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/008_images(2).jpeg",
+      "dest": "images/products/drinks/product-065.webp",
+      "bytes": 25984
+    },
+    {
+      "productIndex": 67,
+      "productId": "row-165-可爾必思330ml",
+      "name": "可爾必思",
+      "rawName": "可爾必思330ml",
+      "category": "飲料",
+      "status": "REVIEW",
+      "confidence": 0.86,
+      "source": "飲料/007_images-2(2).jpeg",
+      "dest": "images/products/drinks/product-067.webp",
+      "bytes": 33310
+    },
+    {
+      "productIndex": 68,
+      "productId": "barcode-4711160003676",
+      "name": "保力達蠻牛",
+      "rawName": "保力達蠻牛200g*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/006_images-3(2).jpeg",
+      "dest": "images/products/drinks/product-068.webp",
+      "bytes": 25966
+    },
+    {
+      "productIndex": 69,
+      "productId": "barcode-47101280239230",
+      "name": "蘋果西打",
+      "rawName": "蘋果西打350ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.99,
+      "source": "飲料/001_images-4(2).jpeg",
+      "dest": "images/products/drinks/product-069.webp",
+      "bytes": 44474
+    },
+    {
+      "productIndex": 70,
+      "productId": "barcode-4710911022669",
+      "name": "古道 百香綠茶",
+      "rawName": "古道-百香綠茶300ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/003_images-5(3).jpeg",
+      "dest": "images/products/drinks/product-070.webp",
+      "bytes": 61642
+    },
+    {
+      "productIndex": 71,
+      "productId": "barcode-4710911022683",
+      "name": "古道 梅子綠茶",
+      "rawName": "古道-梅子綠茶300ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/005_images-6(2).jpeg",
+      "dest": "images/products/drinks/product-071.webp",
+      "bytes": 49286
+    },
+    {
+      "productIndex": 72,
+      "productId": "barcode-4710105157597",
+      "name": "光泉冷泡茶 頂香清茶 無糖",
+      "rawName": "光泉冷泡茶-頂香清茶(無糖)",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/004_images-7(1).jpeg",
+      "dest": "images/products/drinks/product-072.webp",
+      "bytes": 24176
+    },
+    {
+      "productIndex": 73,
+      "productId": "barcode-47101542586650",
+      "name": "黑松果汁 系列 百香果",
+      "rawName": "黑松果汁C系列300ml*24-百香果",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/002_images-8(1).jpeg",
+      "dest": "images/products/drinks/product-073.webp",
+      "bytes": 50532
+    },
+    {
+      "productIndex": 75,
+      "productId": "barcode-47101542586270",
+      "name": "黑松果汁 系列 蘋果",
+      "rawName": "黑松果汁C系列300ml*24-蘋果",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/016_images-9(1).jpeg",
+      "dest": "images/products/drinks/product-075.webp",
+      "bytes": 43086
+    },
+    {
+      "productIndex": 76,
+      "productId": "barcode-47101542586410",
+      "name": "黑松果汁 系列 葡萄",
+      "rawName": "黑松果汁C系列300ml*24-葡萄",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/017_images-10(1).jpeg",
+      "dest": "images/products/drinks/product-076.webp",
+      "bytes": 46796
+    },
+    {
+      "productIndex": 77,
+      "productId": "barcode-4710154420277",
+      "name": "黑松沙士",
+      "rawName": "黑松沙士330ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/015_images-11(1).jpeg",
+      "dest": "images/products/drinks/product-077.webp",
+      "bytes": 31160
+    },
+    {
+      "productIndex": 78,
+      "productId": "barcode-4710154220310",
+      "name": "黑松沙士加鹽",
+      "rawName": "黑松沙士加鹽(330ml)",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/010_images-12(2).jpeg",
+      "dest": "images/products/drinks/product-078.webp",
+      "bytes": 41710
+    },
+    {
+      "productIndex": 79,
+      "productId": "row-183-黑松FIN補給飲料330ml",
+      "name": "黑松 補給飲料",
+      "rawName": "黑松FIN補給飲料330ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.95,
+      "source": "飲料/009_images-13(2).jpeg",
+      "dest": "images/products/drinks/product-079.webp",
+      "bytes": 23708
+    },
+    {
+      "productIndex": 80,
+      "productId": "barcode-4710587184906",
+      "name": "紅牌速纖",
+      "rawName": "紅牌速纖300ml*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/014_images-14(2).jpeg",
+      "dest": "images/products/drinks/product-080.webp",
+      "bytes": 33506
+    },
+    {
+      "productIndex": 81,
+      "productId": "barcode-47111629870590",
+      "name": "匯竑阿薩姆原味奶茶",
+      "rawName": "匯竑阿薩姆原味奶茶300ml*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/012_images-15(2).jpeg",
+      "dest": "images/products/drinks/product-081.webp",
+      "bytes": 32384
+    },
+    {
+      "productIndex": 82,
+      "productId": "barcode-4710085120246",
+      "name": "金車 伯朗咖啡",
+      "rawName": "金車-伯朗咖啡(240ml)",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/013_images-16(2).jpeg",
+      "dest": "images/products/drinks/product-082.webp",
+      "bytes": 56242
+    },
+    {
+      "productIndex": 83,
+      "productId": "barcode-47109465211990",
+      "name": "津津蘆筍汁 鐵罐",
+      "rawName": "津津蘆筍汁245ml*24鐵罐",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/011_images-17(2).jpeg",
+      "dest": "images/products/drinks/product-083.webp",
+      "bytes": 25186
+    },
+    {
+      "productIndex": 87,
+      "productId": "barcode-4710254023613",
+      "name": "立頓沁香奶綠",
+      "rawName": "立頓沁香奶綠300ml*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.97,
+      "source": "飲料/019_images-21(1).jpeg",
+      "dest": "images/products/drinks/product-087.webp",
+      "bytes": 33472
+    },
+    {
+      "productIndex": 88,
+      "productId": "barcode-4710079930531",
+      "name": "生活泡沫紅茶",
+      "rawName": "生活泡沫紅茶300ml*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.95,
+      "source": "飲料/024_images-22.jpeg",
+      "dest": "images/products/drinks/product-088.webp",
+      "bytes": 48448
+    },
+    {
+      "productIndex": 89,
+      "productId": "barcode-4710079920548",
+      "name": "生活泡沫綠茶",
+      "rawName": "生活泡沫綠茶300ml*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.95,
+      "source": "飲料/018_images-23.jpeg",
+      "dest": "images/products/drinks/product-089.webp",
+      "bytes": 40304
+    },
+    {
+      "productIndex": 90,
+      "productId": "barcode-47100799205550",
+      "name": "生活泡沫奶茶",
+      "rawName": "生活泡沫奶茶300ml*24",
+      "category": "飲料",
+      "status": "REVIEW",
+      "confidence": 0.82,
+      "source": "飲料/020_images-25.jpeg",
+      "dest": "images/products/drinks/product-090.webp",
+      "bytes": 54682
+    },
+    {
+      "productIndex": 91,
+      "productId": "barcode-4710079920661",
+      "name": "生活泡沫花茶",
+      "rawName": "生活泡沫花茶300ml*24",
+      "category": "飲料",
+      "status": "REVIEW",
+      "confidence": 0.82,
+      "source": "飲料/021_images-24.jpeg",
+      "dest": "images/products/drinks/product-091.webp",
+      "bytes": 44946
+    },
+    {
+      "productIndex": 92,
+      "productId": "barcode-4711271012116",
+      "name": "台鹽 鹼性離子水",
+      "rawName": "台鹽-鹼性離子水600ml",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.98,
+      "source": "飲料/022_images-26.jpeg",
+      "dest": "images/products/drinks/product-092.webp",
+      "bytes": 23968
+    },
+    {
+      "productIndex": 93,
+      "productId": "barcode-4710088730152",
+      "name": "統一茶裏王日式綠茶",
+      "rawName": "統一茶裏王日式綠茶*24",
+      "category": "飲料",
+      "status": "MATCHED",
+      "confidence": 0.96,
+      "source": "飲料/023_images-27.jpeg",
+      "dest": "images/products/drinks/product-093.webp",
+      "bytes": 21866
+    }
+  ],
+  "missing": [
+    {
+      "productIndex": 22,
+      "productId": "barcode-4710095937049",
+      "name": "泰山仙草蜜",
+      "rawName": "泰山仙草蜜330g*24",
+      "category": "罐頭"
+    },
+    {
+      "productIndex": 28,
+      "productId": "barcode-47100885129630",
+      "name": "統一阿 桶麵 紅椒牛肉",
+      "rawName": "統一阿Q桶麵-紅椒牛肉*12",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 30,
+      "productId": "barcode-4710088930682",
+      "name": "統一阿 桶麵 蒜香珍肉",
+      "rawName": "統一阿Q桶麵-蒜香珍肉*12",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 31,
+      "productId": "barcode-4710088931863",
+      "name": "統一蔥燒牛袋",
+      "rawName": "統一蔥燒牛袋5*6",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 32,
+      "productId": "barcode-4710088510457",
+      "name": "統一調和米粉肉燥袋麵",
+      "rawName": "統一調和米粉肉燥袋麵6*5",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 33,
+      "productId": "barcode-47100885101980",
+      "name": "統一科學麵",
+      "rawName": "統一科學麵5*8",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 34,
+      "productId": "barcode-47100885119590",
+      "name": "統一來一客川辣牛肉風味",
+      "rawName": "統一來一客川辣牛肉風味",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 35,
+      "productId": "barcode-47100885119800",
+      "name": "統一來一客韓式泡菜風味",
+      "rawName": "統一來一客韓式泡菜風味",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 36,
+      "productId": "barcode-47100885119110",
+      "name": "統一來一客京燉肉骨風味",
+      "rawName": "統一來一客京燉肉骨風味",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 37,
+      "productId": "barcode-4710088511935",
+      "name": "統一來一客鮮蝦魚板風味",
+      "rawName": "統一來一客鮮蝦魚板風味",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 38,
+      "productId": "barcode-47100885117820",
+      "name": "統一滿漢大餐蔥牛袋",
+      "rawName": "統一滿漢大餐蔥牛袋*3*4",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 45,
+      "productId": "barcode-47100889319310",
+      "name": "統一肉骨茶袋",
+      "rawName": "統一肉骨茶袋*5*6",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 46,
+      "productId": "barcode-47100889320130",
+      "name": "統一肉骨茶碗",
+      "rawName": "統一肉骨茶碗*12",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 47,
+      "productId": "barcode-4710088931924",
+      "name": "統一肉燥麵袋",
+      "rawName": "統一肉燥麵袋*5*6",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 48,
+      "productId": "barcode-47100889319930",
+      "name": "統一肉燥麵碗",
+      "rawName": "統一肉燥麵碗*12",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 49,
+      "productId": "barcode-4710088931276",
+      "name": "統一巷口乾麵 麻醬",
+      "rawName": "統一巷口乾麵(麻醬)4包入*6",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 51,
+      "productId": "barcode-47100889343690",
+      "name": "統一阿 桶麵 生猛海鮮",
+      "rawName": "統一阿Q桶麵-生猛海鮮*12",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 52,
+      "productId": "barcode-47101990391060",
+      "name": "維力大乾麵地獄辣椒麵 袋",
+      "rawName": "維力大乾麵地獄辣椒麵(袋)",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 53,
+      "productId": "barcode-47101990307760",
+      "name": "維力大乾麵紅油擔擔碗麵",
+      "rawName": "維力大乾麵紅油擔擔碗麵",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 54,
+      "productId": "barcode-47101991141170",
+      "name": "維力一度贊袋 麻辣牛肉鍋麵",
+      "rawName": "維力一度贊袋-麻辣牛肉鍋麵",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 59,
+      "productId": "barcode-47101990156360",
+      "name": "維力炸醬麵 碗",
+      "rawName": "維力炸醬麵(碗)",
+      "category": "泡麵"
+    },
+    {
+      "productIndex": 66,
+      "productId": "barcode-47106265675300",
+      "name": "愛之味 麥仔茶",
+      "rawName": "愛之味-麥仔茶300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 74,
+      "productId": "barcode-47101542586340",
+      "name": "黑松果汁 系列 柳橙",
+      "rawName": "黑松果汁C系列300ml*24-柳橙",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 84,
+      "productId": "barcode-47100689767470",
+      "name": "開喜烏龍茶 有糖",
+      "rawName": "開喜烏龍茶(有糖)300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 85,
+      "productId": "barcode-4710094015335",
+      "name": "立頓草莓",
+      "rawName": "立頓草莓300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 86,
+      "productId": "barcode-4710094097348",
+      "name": "立頓原味奶茶",
+      "rawName": "立頓原味奶茶300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 94,
+      "productId": "barcode-4710088730145",
+      "name": "統一茶裏王台式綠茶",
+      "rawName": "統一茶裏王台式綠茶*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 95,
+      "productId": "barcode-4710088570819",
+      "name": "統一咖啡廣場",
+      "rawName": "統一咖啡廣場300ml",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 96,
+      "productId": "barcode-4710088522054",
+      "name": "統一麥香紅茶",
+      "rawName": "統一麥香紅茶300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 97,
+      "productId": "barcode-4710088735362",
+      "name": "統一麥香綠茶",
+      "rawName": "統一麥香綠茶300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 98,
+      "productId": "barcode-4710088522061",
+      "name": "統一麥香奶茶",
+      "rawName": "統一麥香奶茶300ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 99,
+      "productId": "barcode-4710088920263",
+      "name": "統一蜜豆奶 雞蛋",
+      "rawName": "統一蜜豆奶(雞蛋) 250ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 100,
+      "productId": "barcode-4710421029097",
+      "name": "維他露",
+      "rawName": "維他露P330ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 101,
+      "productId": "barcode-4710421074202",
+      "name": "維他露每朝藏熟紅茶",
+      "rawName": "維他露每朝藏熟紅茶(650ml)",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 102,
+      "productId": "barcode-4710421160011",
+      "name": "維他露每朝健康綠茶",
+      "rawName": "維他露每朝健康綠茶(650ml)",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 103,
+      "productId": "barcode-47100633162100",
+      "name": "味全貝納頌咖啡鋁箔",
+      "rawName": "味全貝納頌咖啡鋁箔375ml*24",
+      "category": "飲料"
+    },
+    {
+      "productIndex": 104,
+      "productId": "barcode-4710018152719",
+      "name": "原萃綠茶",
+      "rawName": "原萃綠茶",
+      "category": "飲料"
+    }
+  ]
+}

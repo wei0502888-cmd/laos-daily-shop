@@ -80,11 +80,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/snacks/product-001.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/乖乖奶油椰子.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/012_乖乖奶油椰子.jpg.jpg"
     },
     {
       "id": "barcode-4710015115991",
@@ -99,11 +102,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/snacks/product-002.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/乖乖巧克力.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/013_乖乖巧克力.jpeg"
     },
     {
       "id": "barcode-4710176121145",
@@ -118,11 +124,14 @@
       "stock": "現貨",
       "stockQty": 20,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-003.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 10,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/華元波特多蚵仔煎.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/001_華元波特多蚵仔煎.jpg.jpeg"
     },
     {
       "id": "barcode-14710176039461",
@@ -137,11 +146,14 @@
       "stock": "現貨",
       "stockQty": 10,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/snacks/product-004.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 10,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/華元鹹蔬餅.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/011_images.jpeg"
     },
     {
       "id": "barcode-4710176011040",
@@ -156,11 +168,14 @@
       "stock": "現貨",
       "stockQty": 10,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/snacks/product-005.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 10,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/華元真魷味红烧口味.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/010_images-2.jpeg"
     },
     {
       "id": "barcode-062241",
@@ -175,11 +190,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-006.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/卡迪那德州薯條.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/009_images-3.jpeg"
     },
     {
       "id": "barcode-063022",
@@ -194,11 +212,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-007.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/卡迪那滿天星.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/008_images-4.jpeg"
     },
     {
       "id": "barcode-060476",
@@ -213,11 +234,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-008.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/聯華可樂果原味.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/007_images-5.jpeg"
     },
     {
       "id": "barcode-060554",
@@ -232,11 +256,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-009.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/聯華可樂果辣味.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/005_images-6.jpeg"
     },
     {
       "id": "barcode-4710126021013",
@@ -251,11 +278,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-010.webp",
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/義美小泡芙草莓.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/003_images-7.jpeg"
     },
     {
       "id": "barcode-47101260210200",
@@ -270,11 +300,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-011.webp",
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/義美小泡芙牛奶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/002_images-8.jpeg"
     },
     {
       "id": "barcode-47101260210060",
@@ -289,11 +322,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-012.webp",
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/義美小泡芙巧克力.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/006_images-9.jpeg"
     },
     {
       "id": "barcode-4710126012080",
@@ -308,11 +344,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/snacks/product-013.webp",
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/餅乾/義美原味蛋捲.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "餅乾零食/004_images-10.jpeg"
     },
     {
       "id": "barcode-4710626110125",
@@ -327,11 +366,14 @@
       "stock": "現貨",
       "stockQty": 3,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/canned/product-014.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/愛之味脆瓜.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/008_images(1).jpeg"
     },
     {
       "id": "barcode-47106261114290",
@@ -346,11 +388,14 @@
       "stock": "現貨",
       "stockQty": 3,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/canned/product-015.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/愛之味土豆麵筋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/001_images-2(1).jpeg"
     },
     {
       "id": "barcode-4710626111320",
@@ -365,11 +410,14 @@
       "stock": "現貨",
       "stockQty": 3,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/canned/product-016.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/愛之味玉筍.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/003_images-3(1).jpeg"
     },
     {
       "id": "row-28-綠巨人珍玉米粒易340G",
@@ -384,11 +432,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/canned/product-017.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/綠巨人珍玉米粒易.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/005_images-4(1).jpeg"
     },
     {
       "id": "row-37-萬家香素蠔油300CC",
@@ -403,11 +454,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/seasoning/product-018.webp",
       "unitName": "件",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/調味料/萬家香素蠔油.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "調味料/002_images-5(2).jpeg"
     },
     {
       "id": "row-40-牛頭牌沙茶醬127g",
@@ -422,11 +476,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/seasoning/product-019.webp",
       "unitName": "件",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/調味料/牛頭牌沙茶醬.svg",
+      "imageStatus": "review_confirmed",
+      "imageSourceFile": "調味料/003_images-6(1).jpeg"
     },
     {
       "id": "barcode-47100959874400",
@@ -441,11 +498,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/canned/product-020.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/泰山八寶粥.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/009_images拷貝.jpeg"
     },
     {
       "id": "barcode-47100959580440",
@@ -460,11 +520,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/canned/product-021.webp",
       "unitName": "罐",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/泰山花生仁湯.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/002_images-2拷貝.jpeg"
     },
     {
       "id": "barcode-4710095937049",
@@ -483,7 +546,9 @@
       "unitName": "罐",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/泰山仙草蜜.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "row-49-三興小茄汁鯖魚210G",
@@ -498,11 +563,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/canned/product-023.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/三興小茄汁鯖魚.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/004_images-3拷貝.jpeg"
     },
     {
       "id": "barcode-4710008286219",
@@ -517,11 +585,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/canned/product-024.webp",
       "unitName": "罐",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/味王調理快餐紅燒牛腩.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/006_images-4拷貝.jpeg"
     },
     {
       "id": "barcode-4710008286271",
@@ -536,11 +607,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/canned/product-025.webp",
       "unitName": "罐",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/味王調理快餐筍絲控肉.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/007_images-5(1).jpeg"
     },
     {
       "id": "row-61-小磨坊白胡椒250G",
@@ -555,11 +629,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/seasoning/product-026.webp",
       "unitName": "件",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/調味料/小磨坊白胡椒.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "調味料/001_images-6拷貝.jpeg"
     },
     {
       "id": "barcode-4712140000142",
@@ -574,11 +651,14 @@
       "stock": "現貨",
       "stockQty": 1,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/canned/product-027.webp",
       "unitName": "罐",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/罐頭/玉英剝皮辣椒.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "罐頭罐裝食品/010_images拷貝2.jpeg"
     },
     {
       "id": "barcode-47100885129630",
@@ -597,7 +677,9 @@
       "unitName": "桶",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一阿桶麵紅椒牛肉.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885129700",
@@ -612,11 +694,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/noodles/product-029.webp",
       "unitName": "桶",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一阿桶麵雞汁排骨.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/002_images-19.jpeg"
     },
     {
       "id": "barcode-4710088930682",
@@ -635,7 +720,9 @@
       "unitName": "桶",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一阿桶麵蒜香珍肉.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088931863",
@@ -654,7 +741,9 @@
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一蔥燒牛袋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088510457",
@@ -673,7 +762,9 @@
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 5,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一調和米粉肉燥袋麵.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885101980",
@@ -692,7 +783,9 @@
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 8,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一科學麵.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885119590",
@@ -711,7 +804,9 @@
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一來一客川辣牛肉風味.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885119800",
@@ -730,7 +825,9 @@
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一來一客韓式泡菜風味.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885119110",
@@ -749,7 +846,9 @@
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一來一客京燉肉骨風味.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088511935",
@@ -768,7 +867,9 @@
       "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一來一客鮮蝦魚板風味.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885117820",
@@ -787,7 +888,9 @@
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥牛袋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885122080",
@@ -802,11 +905,14 @@
       "stock": "現貨",
       "stockQty": 6,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/noodles/product-039.webp",
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥牛碗.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/009_images-12.jpeg"
     },
     {
       "id": "barcode-47100885117990",
@@ -821,11 +927,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-040.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥豬袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/008_images-13.jpeg"
     },
     {
       "id": "barcode-47100885122460",
@@ -840,11 +949,14 @@
       "stock": "現貨",
       "stockQty": 6,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/noodles/product-041.webp",
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥豬碗.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/007_images-14.jpeg"
     },
     {
       "id": "barcode-47100889301870",
@@ -859,11 +971,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-042.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐麻辣牛袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/006_images-15.jpeg"
     },
     {
       "id": "barcode-47100885120860",
@@ -878,11 +993,14 @@
       "stock": "現貨",
       "stockQty": 6,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/noodles/product-043.webp",
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一滿漢大餐麻辣牛碗.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/005_images-16.jpeg"
     },
     {
       "id": "barcode-47100885152470",
@@ -897,11 +1015,14 @@
       "stock": "現貨",
       "stockQty": 3,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-044.webp",
       "unitName": "袋",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一日式豚骨拉麵袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/004_images-17.jpeg"
     },
     {
       "id": "barcode-47100889319310",
@@ -920,7 +1041,9 @@
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一肉骨茶袋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100889320130",
@@ -939,7 +1062,9 @@
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一肉骨茶碗.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088931924",
@@ -958,7 +1083,9 @@
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一肉燥麵袋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100889319930",
@@ -977,7 +1104,9 @@
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一肉燥麵碗.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088931276",
@@ -996,7 +1125,9 @@
       "unitName": "包",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一巷口乾麵麻醬.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100885143940",
@@ -1011,11 +1142,14 @@
       "stock": "現貨",
       "stockQty": 24,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/noodles/product-050.webp",
       "unitName": "桶",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一阿桶麵韓式泡菜.svg",
+      "imageStatus": "review_confirmed",
+      "imageSourceFile": "泡麵/010_images-21.jpeg"
     },
     {
       "id": "barcode-47100889343690",
@@ -1034,7 +1168,9 @@
       "unitName": "桶",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/統一阿桶麵生猛海鮮.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47101990391060",
@@ -1053,7 +1189,9 @@
       "unitName": "袋",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力大乾麵地獄辣椒麵袋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47101990307760",
@@ -1072,7 +1210,9 @@
       "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力大乾麵紅油擔擔碗麵.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47101991141170",
@@ -1091,7 +1231,9 @@
       "unitName": "袋",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度贊袋麻辣牛肉鍋麵.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710199017210",
@@ -1106,11 +1248,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-055.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度讚紅燒牛袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/017_images-30.jpeg"
     },
     {
       "id": "barcode-47101990153220",
@@ -1125,11 +1270,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/noodles/product-056.webp",
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度讚紅燒牛碗.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/018_images-29.jpeg"
     },
     {
       "id": "barcode-4710199017210",
@@ -1144,11 +1292,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-057.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度讚爌肉袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/017_images-30.jpeg"
     },
     {
       "id": "barcode-47101990777190",
@@ -1163,11 +1314,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 1,
-      "image": "",
+      "image": "images/products/noodles/product-058.webp",
       "unitName": "碗",
       "caseEnabled": true,
       "caseQuantity": 12,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度讚老甕牛肉碗.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/016_images-31.jpeg"
     },
     {
       "id": "barcode-47101990156360",
@@ -1186,7 +1340,9 @@
       "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力炸醬麵碗.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710199014721",
@@ -1201,11 +1357,14 @@
       "stock": "現貨",
       "stockQty": 30,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/noodles/product-060.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力炸醬麵袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/014_images-32.jpeg"
     },
     {
       "id": "barcode-4710199114117",
@@ -1220,11 +1379,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-061.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/維力一度讚麻辣牛肉袋.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/013_images-33.jpeg"
     },
     {
       "id": "barcode-47101100000240",
@@ -1239,11 +1401,14 @@
       "stock": "現貨",
       "stockQty": 18,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-062.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 6,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/味味排骨雞袋麵.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/012_images-34.jpeg"
     },
     {
       "id": "barcode-47101102318860",
@@ -1258,11 +1423,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-063.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/味味一品極品紅燒牛肉袋麵.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/011_images-35.jpeg"
     },
     {
       "id": "barcode-47101102265920",
@@ -1277,11 +1445,14 @@
       "stock": "現貨",
       "stockQty": 12,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/noodles/product-064.webp",
       "unitName": "袋",
       "caseEnabled": true,
       "caseQuantity": 4,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/泡麵/味味一品爌肉袋麵.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "泡麵/015_images-36.jpeg"
     },
     {
       "id": "barcode-4710626159537",
@@ -1296,11 +1467,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-065.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/愛之味分解茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/008_images(2).jpeg"
     },
     {
       "id": "barcode-47106265675300",
@@ -1319,7 +1493,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/愛之味麥仔茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "row-165-可爾必思330ml",
@@ -1334,11 +1510,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-067.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/可爾必思.svg",
+      "imageStatus": "review_confirmed",
+      "imageSourceFile": "飲料/007_images-2(2).jpeg"
     },
     {
       "id": "barcode-4711160003676",
@@ -1353,11 +1532,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-068.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/保力達蠻牛.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/006_images-3(2).jpeg"
     },
     {
       "id": "barcode-47101280239230",
@@ -1372,11 +1554,14 @@
       "stock": "現貨",
       "stockQty": 5,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-069.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/蘋果西打.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/001_images-4(2).jpeg"
     },
     {
       "id": "barcode-4710911022669",
@@ -1391,11 +1576,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-070.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/古道百香綠茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/003_images-5(3).jpeg"
     },
     {
       "id": "barcode-4710911022683",
@@ -1410,11 +1598,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-071.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/古道梅子綠茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/005_images-6(2).jpeg"
     },
     {
       "id": "barcode-4710105157597",
@@ -1429,11 +1620,14 @@
       "stock": "現貨",
       "stockQty": 5,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-072.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/光泉冷泡茶頂香清茶無糖.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/004_images-7(1).jpeg"
     },
     {
       "id": "barcode-47101542586650",
@@ -1448,11 +1642,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-073.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松果汁系列百香果.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/002_images-8(1).jpeg"
     },
     {
       "id": "barcode-47101542586340",
@@ -1471,7 +1668,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松果汁系列柳橙.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47101542586270",
@@ -1486,11 +1685,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-075.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松果汁系列蘋果.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/016_images-9(1).jpeg"
     },
     {
       "id": "barcode-47101542586410",
@@ -1505,11 +1707,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-076.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松果汁系列葡萄.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/017_images-10(1).jpeg"
     },
     {
       "id": "barcode-4710154420277",
@@ -1524,11 +1729,14 @@
       "stock": "現貨",
       "stockQty": 3,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/drinks/product-077.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松沙士.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/015_images-11(1).jpeg"
     },
     {
       "id": "barcode-4710154220310",
@@ -1543,11 +1751,14 @@
       "stock": "現貨",
       "stockQty": 2,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-078.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松沙士加鹽.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/010_images-12(2).jpeg"
     },
     {
       "id": "row-183-黑松FIN補給飲料330ml",
@@ -1562,11 +1773,14 @@
       "stock": "現貨",
       "stockQty": 5,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-079.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/黑松補給飲料.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/009_images-13(2).jpeg"
     },
     {
       "id": "barcode-4710587184906",
@@ -1581,11 +1795,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-080.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/紅牌速纖.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/014_images-14(2).jpeg"
     },
     {
       "id": "barcode-47111629870590",
@@ -1600,11 +1817,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-081.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/匯竑阿薩姆原味奶茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/012_images-15(2).jpeg"
     },
     {
       "id": "barcode-4710085120246",
@@ -1619,11 +1839,14 @@
       "stock": "現貨",
       "stockQty": 5,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-082.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/金車伯朗咖啡.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/013_images-16(2).jpeg"
     },
     {
       "id": "barcode-47109465211990",
@@ -1638,11 +1861,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-083.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/津津蘆筍汁鐵罐.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/011_images-17(2).jpeg"
     },
     {
       "id": "barcode-47100689767470",
@@ -1661,7 +1887,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/開喜烏龍茶有糖.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710094015335",
@@ -1680,7 +1908,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/立頓草莓.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710094097348",
@@ -1699,7 +1929,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/立頓原味奶茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710254023613",
@@ -1714,11 +1946,14 @@
       "stock": "現貨",
       "stockQty": 48,
       "orderQty": 2,
-      "image": "",
+      "image": "images/products/drinks/product-087.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/立頓沁香奶綠.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/019_images-21(1).jpeg"
     },
     {
       "id": "barcode-4710079930531",
@@ -1733,11 +1968,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-088.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/生活泡沫紅茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/024_images-22.jpeg"
     },
     {
       "id": "barcode-4710079920548",
@@ -1752,11 +1990,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-089.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/生活泡沫綠茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/018_images-23.jpeg"
     },
     {
       "id": "barcode-47100799205550",
@@ -1771,11 +2012,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-090.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/生活泡沫奶茶.svg",
+      "imageStatus": "review_confirmed",
+      "imageSourceFile": "飲料/020_images-25.jpeg"
     },
     {
       "id": "barcode-4710079920661",
@@ -1790,11 +2034,14 @@
       "stock": "現貨",
       "stockQty": 72,
       "orderQty": 3,
-      "image": "",
+      "image": "images/products/drinks/product-091.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/生活泡沫花茶.svg",
+      "imageStatus": "review_confirmed",
+      "imageSourceFile": "飲料/021_images-24.jpeg"
     },
     {
       "id": "barcode-4711271012116",
@@ -1809,11 +2056,14 @@
       "stock": "現貨",
       "stockQty": 10,
       "orderQty": 10,
-      "image": "",
+      "image": "images/products/drinks/product-092.webp",
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/台鹽鹼性離子水.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/022_images-26.jpeg"
     },
     {
       "id": "barcode-4710088730152",
@@ -1828,11 +2078,14 @@
       "stock": "現貨",
       "stockQty": 120,
       "orderQty": 5,
-      "image": "",
+      "image": "images/products/drinks/product-093.webp",
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一茶裏王日式綠茶.svg",
+      "imageStatus": "matched",
+      "imageSourceFile": "飲料/023_images-27.jpeg"
     },
     {
       "id": "barcode-4710088730145",
@@ -1851,7 +2104,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一茶裏王台式綠茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088570819",
@@ -1870,7 +2125,9 @@
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一咖啡廣場.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088522054",
@@ -1889,7 +2146,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一麥香紅茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088735362",
@@ -1908,7 +2167,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一麥香綠茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088522061",
@@ -1927,7 +2188,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一麥香奶茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710088920263",
@@ -1946,7 +2209,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/統一蜜豆奶雞蛋.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710421029097",
@@ -1965,7 +2230,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/維他露.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710421074202",
@@ -1984,7 +2251,9 @@
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/維他露每朝藏熟紅茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710421160011",
@@ -2003,7 +2272,9 @@
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/維他露每朝健康綠茶.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-47100633162100",
@@ -2022,7 +2293,9 @@
       "unitName": "瓶",
       "caseEnabled": true,
       "caseQuantity": 24,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/味全貝納頌咖啡鋁箔.svg",
+      "imageStatus": "placeholder"
     },
     {
       "id": "barcode-4710018152719",
@@ -2041,7 +2314,21 @@
       "unitName": "瓶",
       "caseEnabled": false,
       "caseQuantity": null,
-      "casePrice": null
+      "casePrice": null,
+      "fallbackImage": "images/products/飲料/原萃綠茶.svg",
+      "imageStatus": "placeholder"
     }
-  ]
+  ],
+  "imageImportSummary": {
+    "acceptedStatuses": [
+      "MATCHED",
+      "REVIEW"
+    ],
+    "importedImages": 67,
+    "missingImages": 37,
+    "skippedDuplicateAcceptedRows": 1,
+    "outputFormat": "webp",
+    "outputSize": "800x800",
+    "formalRoot": "images/products/{snacks,canned,seasoning,noodles,drinks}"
+  }
 }
