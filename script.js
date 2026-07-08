@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260708-3";
+const BUILD_VERSION = "20260708-4";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -796,7 +796,11 @@ function renderSuccessDetail(formData, order) {
     <div class="success-section order-id-section">
       <strong>訂單編號</strong>
       <p class="success-order-id">${order.orderId}</p>
-      <small>請保留此編號，之後可在網站查詢訂單狀態。</small>
+      <small>請保存訂單編號，您可以使用「訂單查詢」查看最新處理進度。</small>
+      <div class="success-actions">
+        <a class="primary-button" href="#order-lookup" data-success-lookup>查詢訂單</a>
+        <button class="secondary-button" type="button" data-success-continue>繼續購物</button>
+      </div>
     </div>
     <div class="success-section">
       <strong>訂單詳情</strong>
@@ -879,6 +883,29 @@ function queryOrderStatus({ orderId, phone }) {
   });
 }
 
+function saveLastOrderLookup(order) {
+  try {
+    localStorage.setItem("ldsLastOrderId", order.orderId || "");
+    localStorage.setItem("ldsLastOrderPhone", order.phone || "");
+  } catch (error) {
+    // localStorage is only a convenience, not the source of order status truth.
+  }
+}
+
+function prefillLastOrderLookup() {
+  if (!orderLookupForm) return;
+  try {
+    const orderId = localStorage.getItem("ldsLastOrderId") || "";
+    const phone = localStorage.getItem("ldsLastOrderPhone") || "";
+    const orderInput = orderLookupForm.querySelector('[name="orderId"]');
+    const phoneInput = orderLookupForm.querySelector('[name="phone"]');
+    if (orderInput && !orderInput.value) orderInput.value = orderId;
+    if (phoneInput && !phoneInput.value) phoneInput.value = phone;
+  } catch (error) {
+    // Ignore unavailable storage.
+  }
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -905,6 +932,7 @@ function renderOrderLookupResult(data) {
         <strong>${escapeHtml(order.orderId)}</strong>
         <span>${escapeHtml(order.status || "已收到訂單")}</span>
       </div>
+      ${renderOrderProgress(order.status || "已收到訂單")}
       <dl>
         <div><dt>下單時間</dt><dd>${escapeHtml(order.createdAt || "-")}</dd></div>
         <div><dt>更新時間</dt><dd>${escapeHtml(order.updatedAt || "-")}</dd></div>
@@ -915,6 +943,22 @@ function renderOrderLookupResult(data) {
       </dl>
     </article>
   `).join("");
+}
+
+function renderOrderProgress(status) {
+  if (status === "已取消") {
+    return `<div class="order-progress is-cancelled"><strong>訂單已取消</strong><p>如需協助，請直接聯絡客服。</p></div>`;
+  }
+  const steps = ["已收到訂單", "已確認接單", "備貨中", "配送中", "已完成"];
+  const currentIndex = Math.max(0, steps.indexOf(status));
+  return `
+    <ol class="order-progress" aria-label="訂單進度">
+      ${steps.map((step, index) => {
+        const stateClass = index < currentIndex ? "is-done" : index === currentIndex ? "is-current" : "";
+        return `<li class="${stateClass}"><span></span><strong>${escapeHtml(step)}</strong></li>`;
+      }).join("")}
+    </ol>
+  `;
 }
 
 async function loadShopData() {
@@ -970,6 +1014,7 @@ form.addEventListener("submit", async (event) => {
     const formData = new FormData(form);
     const order = buildOrderPayload(formData);
     await sendOrder(order);
+    saveLastOrderLookup(order);
     renderSuccessDetail(formData, order);
     form.reset();
     form.hidden = true;
@@ -990,9 +1035,9 @@ if (orderLookupForm) {
     const formData = new FormData(orderLookupForm);
     const orderId = String(formData.get("orderId") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
-    if (!orderId && !phone) {
+    if (!orderId || !phone) {
       orderLookupResult.hidden = false;
-      orderLookupResult.innerHTML = `<p class="form-note">請輸入訂單編號或手機號碼。</p>`;
+      orderLookupResult.innerHTML = `<p class="form-note">請同時輸入訂單編號與下單手機號碼。</p>`;
       return;
     }
     const button = orderLookupForm.querySelector("button[type='submit']");
@@ -1013,6 +1058,20 @@ if (orderLookupForm) {
 }
 
 document.querySelector("[data-success-close]").addEventListener("click", closeCart);
+
+document.addEventListener("click", (event) => {
+  const lookupLink = event.target.closest("[data-success-lookup]");
+  if (lookupLink) {
+    closeCart();
+    prefillLastOrderLookup();
+  }
+  const continueButton = event.target.closest("[data-success-continue]");
+  if (continueButton) {
+    closeCart();
+  }
+});
+
+prefillLastOrderLookup();
 
 let lastTouchEnd = 0;
 
