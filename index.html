@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="build-version" content="20260708-3" />
+    <meta name="build-version" content="20260708-4" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>LAOS DAILY SHOP｜寮國台灣生活補給站</title>
     <meta
       name="description"
       content="LAOS DAILY SHOP 是服務在寮國生活、工作、旅遊的台灣人之生活補給商城，提供台灣泡麵、飲料、零食、罐頭、調味料與日常用品。"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260708-3" />
+    <link rel="stylesheet" href="./styles.css?v=20260708-4" />
   </head>
-  <body data-build-version="20260708-3">
+  <body data-build-version="20260708-4">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="LAOS DAILY SHOP 首頁">
         <span class="brand-mark">LDS</span>
@@ -21,10 +21,13 @@
           <small>寮國台灣生活補給站</small>
         </span>
       </a>
-      <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車">
-        <span>購物車</span>
-        <strong data-cart-count>0</strong>
-      </button>
+      <div class="topbar-actions">
+        <a class="order-lookup-pill" href="#order-lookup">查詢訂單</a>
+        <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車">
+          <span>購物車</span>
+          <strong data-cart-count>0</strong>
+        </button>
+      </div>
     </header>
 
     <main id="top">
@@ -161,14 +164,14 @@
         <form class="order-lookup-form" data-order-lookup-form>
           <label>
             訂單編號
-            <input name="orderId" autocomplete="off" placeholder="例如：LDS-20260708-001" />
+            <input name="orderId" autocomplete="off" placeholder="例如：LDS-20260708-001" required />
           </label>
           <label>
             手機號碼
-            <input name="phone" autocomplete="tel" inputmode="tel" placeholder="也可以輸入下單手機" />
+            <input name="phone" autocomplete="tel" inputmode="tel" placeholder="請輸入下單手機" required />
           </label>
           <button class="primary-button" type="submit">查詢訂單狀態</button>
-          <p class="form-note">輸入訂單編號或手機其中一項即可查詢。</p>
+          <p class="form-note">為保護資料，請同時輸入訂單編號與下單手機號碼。</p>
         </form>
         <div class="order-lookup-result" data-order-lookup-result hidden></div>
       </section>
@@ -245,7 +248,7 @@
       </div>
     </aside>
 
-    <script src="./config.js?v=20260708-3"></script>
-    <script src="./script.js?v=20260708-3"></script>
+    <script src="./config.js?v=20260708-4"></script>
+    <script src="./script.js?v=20260708-4"></script>
   </body>
 </html>

@@ -101,6 +101,13 @@ button {
   font-weight: 800;
 }
 
+.topbar-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-lookup-pill,
 .cart-pill,
 .cart-header button {
   border: 0;
@@ -109,6 +116,16 @@ button {
   color: #fff;
   font-size: 13px;
   font-weight: 900;
+}
+
+.order-lookup-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 13px;
+  background: rgba(61, 107, 84, 0.1);
+  color: var(--green-dark);
+  text-decoration: none;
 }
 
 .cart-pill {
@@ -932,6 +949,29 @@ p {
   line-height: 1.6;
 }
 
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.success-actions .primary-button,
+.success-actions .secondary-button {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.secondary-button {
+  border: 1px solid rgba(61, 107, 84, 0.18);
+  background: #fff;
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 950;
+}
+
 @media (min-width: 720px) {
   .hero {
     grid-template-columns: 1.06fr 0.94fr;
@@ -967,6 +1007,35 @@ p {
     width: min(460px, 100%);
     max-height: 100svh;
     border-radius: 24px 0 0 24px;
+  }
+}
+
+@media (max-width: 430px) {
+  .topbar {
+    gap: 8px;
+  }
+
+  .brand strong {
+    font-size: 14px;
+  }
+
+  .brand small {
+    font-size: 10px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .order-lookup-pill,
+  .cart-pill {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .cart-pill span {
+    display: none;
   }
 }
 
@@ -2277,6 +2346,84 @@ textarea,
   display: grid;
   gap: 10px;
   margin: 0;
+}
+
+.order-progress {
+  display: grid;
+  gap: 0;
+  margin: 4px 0 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.order-progress li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  min-height: 34px;
+  color: #9a9387;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.order-progress li::after {
+  position: absolute;
+  top: 18px;
+  bottom: -4px;
+  left: 7px;
+  width: 2px;
+  background: rgba(56, 50, 42, 0.12);
+  content: "";
+}
+
+.order-progress li:last-child::after {
+  display: none;
+}
+
+.order-progress li span {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  border: 2px solid rgba(56, 50, 42, 0.2);
+  border-radius: 999px;
+  background: #fffdf8;
+}
+
+.order-progress li.is-done,
+.order-progress li.is-current {
+  color: var(--green-dark);
+}
+
+.order-progress li.is-done::after {
+  background: rgba(61, 107, 84, 0.45);
+}
+
+.order-progress li.is-done span,
+.order-progress li.is-current span {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+}
+
+.order-progress li.is-current strong {
+  font-size: 14px;
+}
+
+.order-progress.is-cancelled {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(56, 50, 42, 0.08);
+  color: var(--ink);
+}
+
+.order-progress.is-cancelled p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .lookup-order-card dl div {
