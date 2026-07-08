@@ -3,7 +3,8 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260707-3";
+const BUILD_VERSION = "20260708-1";
+const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
   台灣泡麵補給: "麵",
@@ -75,6 +76,8 @@ const checkoutTotal = document.querySelector("[data-checkout-total]");
 const toast = document.querySelector("[data-toast]");
 const productSection = document.querySelector(".all-products-section");
 const productsTitle = document.querySelector("#products-title");
+const orderLookupForm = document.querySelector("[data-order-lookup-form]");
+const orderLookupResult = document.querySelector("[data-order-lookup-result]");
 
 let toastTimer;
 
@@ -104,6 +107,12 @@ function formatPrice(product) {
 
 function formatMoney(value) {
   return `${config.currencyLabel || ""}${value.toLocaleString("zh-TW")}`;
+}
+
+function imageCandidates(src) {
+  if (!src) return [];
+  if (/^https?:\/\//i.test(src) || src.startsWith("data:")) return [src];
+  return [...new Set(IMAGE_PATH_PREFIXES.map((prefix) => `${prefix}${src}`))];
 }
 
 function isPriced(value) {
@@ -245,8 +254,10 @@ function productCard(product) {
       <small>${product.category}</small>
     </div>
   `;
-  const productVisual = product.image
-    ? `<img src="${product.image}" data-fallback="${product.fallbackImage || ""}" alt="${product.name} 商品圖" loading="lazy" />`
+  const imageList = imageCandidates(product.image);
+  const fallbackList = imageCandidates(product.fallbackImage);
+  const productVisual = imageList.length
+    ? `<img src="${imageList[0]}" data-src-list='${JSON.stringify([...imageList, ...fallbackList])}' alt="${product.name} 商品圖" loading="lazy" />`
     : placeholder;
   card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
@@ -279,10 +290,12 @@ function productCard(product) {
     image.addEventListener(
       "error",
       () => {
-        const fallbackSrc = image.dataset.fallback;
-        if (fallbackSrc && !image.dataset.fallbackUsed) {
-          image.dataset.fallbackUsed = "true";
-          image.src = fallbackSrc;
+        const candidates = JSON.parse(image.dataset.srcList || "[]");
+        const currentIndex = Number(image.dataset.srcIndex || 0);
+        const nextSrc = candidates[currentIndex + 1];
+        if (nextSrc) {
+          image.dataset.srcIndex = String(currentIndex + 1);
+          image.src = nextSrc;
           return;
         }
         const art = image.closest(".product-art");
@@ -631,7 +644,7 @@ function closeCart() {
   cartDrawer.setAttribute("aria-hidden", "true");
 }
 
-function orderMessage(formData) {
+function buildOrderPayload(formData) {
   const { items, itemCount, totalCount, amountText, hasUnpriced } = cartSummary();
   const orderId = makeOrderId();
   const orderTime = formatOrderTime(new Date());
@@ -640,13 +653,51 @@ function orderMessage(formData) {
   const address = String(formData.get("address") || "").trim();
   const note = String(formData.get("note") || "").trim();
   const anomalies = orderAnomalies({ name, phone, address, items, hasUnpriced });
+  const orderItems = items.map(({ product, purchaseType, qty, usedUnits, lineTotal }) => ({
+    productId: product.id,
+    name: product.name,
+    category: product.category,
+    purchaseType,
+    quantity: qty,
+    unitName: product.unitName,
+    usedUnits,
+    price: purchaseType === "case" ? product.casePrice : product.price,
+    lineTotal,
+    lineTotalText: lineTotal === null ? "請詢價" : formatMoney(lineTotal),
+  }));
+  return {
+    orderId,
+    createdAt: orderTime,
+    status: "已收到訂單",
+    customerName: name,
+    phone,
+    address,
+    note,
+    items: orderItems,
+    itemCount,
+    totalCount,
+    totalAmount: amountText,
+    amountText,
+    hasUnpriced,
+    anomalies,
+  };
+}
+
+function orderMessage(order) {
+  const { itemCount, totalCount, amountText, hasUnpriced } = order;
+  const name = order.customerName;
+  const phone = order.phone;
+  const address = order.address;
+  const note = order.note;
+  const items = order.items || [];
+  const anomalies = order.anomalies || [];
   const lines = [
     "【LAOS DAILY SHOP｜新訂單通知】",
     "",
-    "🔴 待報價｜待聯繫",
+    "🔴 已收到訂單｜待確認",
     "",
-    `訂單編號：#${orderId}`,
-    `下單時間：${orderTime}`,
+    `訂單編號：${order.orderId}`,
+    `下單時間：${order.createdAt}`,
     `商品數量：${totalCount} 件`,
     `商品品項：${itemCount} 項`,
     "",
@@ -655,19 +706,19 @@ function orderMessage(formData) {
     "━━━━━━━━━━━━━━━━━━",
     "",
   ];
-  items.forEach(({ product, purchaseType, qty, usedUnits, lineTotal }, index) => {
-    const subtotal = lineTotal === null ? "請詢價" : formatMoney(lineTotal);
+  items.forEach((item, index) => {
+    const subtotal = item.lineTotal === null ? "請詢價" : item.lineTotalText || formatMoney(item.lineTotal);
     const unitPrice =
-      purchaseType === "case"
-        ? isPriced(product.casePrice)
-          ? `箱價 ${formatMoney(product.casePrice)}`
+      item.purchaseType === "case"
+        ? isPriced(item.price)
+          ? `箱價 ${formatMoney(item.price)}`
           : "整箱待定價"
-        : isPriced(product.price)
-          ? `單價 ${formatPrice(product)}`
+        : isPriced(item.price)
+          ? `單價 ${formatMoney(item.price)}`
           : "待定價";
     const quantityText =
-      purchaseType === "case" ? `${qty}箱（${usedUnits}${product.unitName}）` : `${qty}${product.unitName}`;
-    lines.push(`${index + 1}. ${product.name} × ${quantityText}`);
+      item.purchaseType === "case" ? `${item.quantity}箱（${item.usedUnits}${item.unitName}）` : `${item.quantity}${item.unitName}`;
+    lines.push(`${index + 1}. ${item.name} × ${quantityText}`);
     lines.push(`   ${unitPrice}｜小計 ${subtotal}`);
     lines.push("");
   });
@@ -710,15 +761,19 @@ function orderMessage(formData) {
   lines.push("");
   lines.push("目前進度：0／5");
   lines.push("");
-  lines.push(`訂單編號：#${orderId}`);
+  lines.push(`訂單編號：${order.orderId}`);
   return lines.join("\n");
 }
 
 function makeOrderId() {
   const now = new Date();
-  const date = now.toISOString().slice(0, 10).replaceAll("-", "");
-  const time = String(now.getHours()).padStart(2, "0") + String(now.getMinutes()).padStart(2, "0");
-  return `${date}-${time}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const date = `${yyyy}${mm}${dd}`;
+  const seconds = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+  const serial = `${String(seconds).padStart(5, "0")}${String(now.getMilliseconds()).padStart(3, "0")}`;
+  return `LDS-${date}-${serial}`;
 }
 
 function formatOrderTime(date) {
@@ -748,7 +803,7 @@ function orderAnomalies({ name, phone, address, items, hasUnpriced }) {
   return anomalies;
 }
 
-function renderSuccessDetail(formData) {
+function renderSuccessDetail(formData, order) {
   const { items, amountText } = cartSummary();
   const list = items
     .map(({ product, purchaseType, qty, usedUnits, lineTotal }) => {
@@ -758,6 +813,11 @@ function renderSuccessDetail(formData) {
     })
     .join("");
   successDetail.innerHTML = `
+    <div class="success-section order-id-section">
+      <strong>訂單編號</strong>
+      <p class="success-order-id">${order.orderId}</p>
+      <small>請保留此編號，之後可在網站查詢訂單狀態。</small>
+    </div>
     <div class="success-section">
       <strong>訂單詳情</strong>
       <ul>${list}</ul>
@@ -782,7 +842,7 @@ function applyPaymentConfig() {
   paymentNote.textContent = config.payment?.note || "確認付款後安排出貨";
 }
 
-async function sendTelegramMessage(message) {
+async function sendOrder(order) {
   const telegram = config.telegram || {};
   if (telegram.mode === "proxy" && telegram.orderEndpoint) {
     await fetch(telegram.orderEndpoint, {
@@ -790,12 +850,91 @@ async function sendTelegramMessage(message) {
       mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
-        message,
+        action: "createOrder",
+        order,
+        message: orderMessage(order),
       }),
     });
     return;
   }
   alert("訂單通知尚未設定完成，請聯絡店家。");
+}
+
+function orderStatusEndpoint() {
+  return config.orderStatusEndpoint || config.telegram?.orderEndpoint || "";
+}
+
+function queryOrderStatus({ orderId, phone }) {
+  const endpoint = orderStatusEndpoint();
+  if (!endpoint) return Promise.reject(new Error("ORDER_STATUS_ENDPOINT_MISSING"));
+  return new Promise((resolve, reject) => {
+    const callbackName = `ldsOrderStatus${Date.now()}${Math.random().toString(36).slice(2)}`;
+    const params = new URLSearchParams({
+      action: "query",
+      callback: callbackName,
+    });
+    if (orderId) params.set("orderId", orderId);
+    if (phone) params.set("phone", phone);
+
+    const script = document.createElement("script");
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("ORDER_STATUS_TIMEOUT"));
+    }, 12000);
+    function cleanup() {
+      window.clearTimeout(timeout);
+      delete window[callbackName];
+      script.remove();
+    }
+    window[callbackName] = (data) => {
+      cleanup();
+      resolve(data);
+    };
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("ORDER_STATUS_LOAD_FAILED"));
+    };
+    script.src = `${endpoint}?${params.toString()}`;
+    document.body.append(script);
+  });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderOrderLookupResult(data) {
+  const orders = data?.orders || [];
+  orderLookupResult.hidden = false;
+  if (!data?.ok) {
+    orderLookupResult.innerHTML = `<p class="form-note">查詢失敗，請稍後再試或聯絡客服。</p>`;
+    return;
+  }
+  if (!orders.length) {
+    orderLookupResult.innerHTML = `<p class="form-note">查無訂單，請確認訂單編號或手機號碼是否正確。</p>`;
+    return;
+  }
+  orderLookupResult.innerHTML = orders.map((order) => `
+    <article class="lookup-order-card">
+      <div class="lookup-order-head">
+        <strong>${escapeHtml(order.orderId)}</strong>
+        <span>${escapeHtml(order.status || "已收到訂單")}</span>
+      </div>
+      <dl>
+        <div><dt>下單時間</dt><dd>${escapeHtml(order.createdAt || "-")}</dd></div>
+        <div><dt>更新時間</dt><dd>${escapeHtml(order.updatedAt || "-")}</dd></div>
+        <div><dt>商品明細</dt><dd>${escapeHtml(order.items || "-").replaceAll("\n", "<br>")}</dd></div>
+        <div><dt>總金額</dt><dd>${escapeHtml(order.totalAmount || "依店家回覆為準")}</dd></div>
+        <div><dt>配送地址</dt><dd>${escapeHtml(order.address || "-")}</dd></div>
+        <div><dt>備註</dt><dd>${escapeHtml(order.note || "無")}</dd></div>
+      </dl>
+    </article>
+  `).join("");
 }
 
 async function loadShopData() {
@@ -849,9 +988,9 @@ form.addEventListener("submit", async (event) => {
   submitButton.textContent = "送出中...";
   try {
     const formData = new FormData(form);
-    const message = orderMessage(formData);
-    await sendTelegramMessage(message);
-    renderSuccessDetail(formData);
+    const order = buildOrderPayload(formData);
+    await sendOrder(order);
+    renderSuccessDetail(formData, order);
     form.reset();
     form.hidden = true;
     orderSuccess.hidden = false;
@@ -864,6 +1003,34 @@ form.addEventListener("submit", async (event) => {
     submitButton.textContent = "送出訂單";
   }
 });
+
+if (orderLookupForm) {
+  orderLookupForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(orderLookupForm);
+    const orderId = String(formData.get("orderId") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    if (!orderId && !phone) {
+      orderLookupResult.hidden = false;
+      orderLookupResult.innerHTML = `<p class="form-note">請輸入訂單編號或手機號碼。</p>`;
+      return;
+    }
+    const button = orderLookupForm.querySelector("button[type='submit']");
+    button.disabled = true;
+    button.textContent = "查詢中...";
+    orderLookupResult.hidden = false;
+    orderLookupResult.innerHTML = `<p class="form-note">正在查詢訂單狀態...</p>`;
+    try {
+      const data = await queryOrderStatus({ orderId, phone });
+      renderOrderLookupResult(data);
+    } catch (error) {
+      orderLookupResult.innerHTML = `<p class="form-note">查詢失敗，請稍後再試或直接聯絡客服。</p>`;
+    } finally {
+      button.disabled = false;
+      button.textContent = "查詢訂單狀態";
+    }
+  });
+}
 
 document.querySelector("[data-success-close]").addEventListener("click", closeCart);
 
