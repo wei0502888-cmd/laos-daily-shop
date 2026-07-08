@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260708-1";
+const BUILD_VERSION = "20260708-2";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -112,7 +112,12 @@ function formatMoney(value) {
 function imageCandidates(src) {
   if (!src) return [];
   if (/^https?:\/\//i.test(src) || src.startsWith("data:")) return [src];
-  return [...new Set(IMAGE_PATH_PREFIXES.map((prefix) => `${prefix}${src}`))];
+  return [...new Set(IMAGE_PATH_PREFIXES.map((prefix) => withAssetVersion(`${prefix}${src}`)))];
+}
+
+function withAssetVersion(src) {
+  if (!src || /^https?:\/\//i.test(src) || src.startsWith("data:")) return src;
+  return `${src}${src.includes("?") ? "&" : "?"}v=${BUILD_VERSION}`;
 }
 
 function isPriced(value) {
@@ -597,7 +602,7 @@ function renderCart() {
     const detail = document.createElement("div");
     detail.className = "order-detail-item";
     const detailVisual = product.image
-      ? `<img src="${product.image}" alt="" />`
+      ? `<img src="${withAssetVersion(product.image)}" alt="" />`
       : `<span class="order-detail-mark" aria-hidden="true">${product.mark}</span>`;
     detail.innerHTML = `
       ${detailVisual}
