@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260708-2";
+const BUILD_VERSION = "20260708-3";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -696,78 +696,53 @@ function orderMessage(order) {
   const note = order.note;
   const items = order.items || [];
   const anomalies = order.anomalies || [];
+  const itemSummary = shortOrderItemSummary(items, itemCount, totalCount);
+  const anomalySummary = shortOrderAnomalySummary(anomalies, hasUnpriced);
   const lines = [
-    "【LAOS DAILY SHOP｜新訂單通知】",
+    "【LAOS DAILY SHOP｜新訂單】",
     "",
-    "🔴 已收到訂單｜待確認",
+    `🔴 待確認｜${order.orderId}`,
+    `金額：${amountText}`,
+    `商品：${itemSummary}`,
     "",
-    `訂單編號：${order.orderId}`,
-    `下單時間：${order.createdAt}`,
-    `商品數量：${totalCount} 件`,
-    `商品品項：${itemCount} 項`,
+    `客戶：${name}`,
+    `電話：${phone}`,
+    `地址：${address}`,
     "",
-    "━━━━━━━━━━━━━━━━━━",
-    "🛒 商品明細",
-    "━━━━━━━━━━━━━━━━━━",
-    "",
+    "付款：匯款／U帳號｜待付款",
+    `備註：${note || "無"}`,
   ];
-  items.forEach((item, index) => {
-    const subtotal = item.lineTotal === null ? "請詢價" : item.lineTotalText || formatMoney(item.lineTotal);
-    const unitPrice =
-      item.purchaseType === "case"
-        ? isPriced(item.price)
-          ? `箱價 ${formatMoney(item.price)}`
-          : "整箱待定價"
-        : isPriced(item.price)
-          ? `單價 ${formatMoney(item.price)}`
-          : "待定價";
-    const quantityText =
-      item.purchaseType === "case" ? `${item.quantity}箱（${item.usedUnits}${item.unitName}）` : `${item.quantity}${item.unitName}`;
-    lines.push(`${index + 1}. ${item.name} × ${quantityText}`);
-    lines.push(`   ${unitPrice}｜小計 ${subtotal}`);
+  if (anomalySummary) {
     lines.push("");
-  });
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("👤 客戶資料");
-  lines.push("━━━━━━━━━━━━━━━━━━");
+    lines.push(`異常：${anomalySummary}`);
+  }
   lines.push("");
-  lines.push(`姓名：${name}`);
-  lines.push(`電話：${phone}`);
-  lines.push(`地址：${address}`);
-  lines.push(`備註：${note || "無"}`);
-  lines.push("");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("💳 付款與配送");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("");
-  lines.push("訂單金額：");
-  lines.push("");
-  lines.push(amountText);
-  lines.push("");
-  lines.push("付款方式：匯款／U 帳號");
-  lines.push("付款狀態：⏳ 待付款");
-  lines.push("配送狀態：⏳ 待安排");
-  lines.push("");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("⚠️ 訂單異常提醒");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("");
-  lines.push(anomalies.length ? anomalies.map((item) => `• ${item}`).join("\n") : "目前無訂單異常。");
-  lines.push("");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("📋 下一步處理");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("");
-  lines.push("□ 1. 聯繫客戶並補齊資料");
-  lines.push("□ 2. 確認商品售價與訂單總額");
-  lines.push("□ 3. 回覆客戶報價及付款資訊");
-  lines.push("□ 4. 確認款項入帳");
-  lines.push("□ 5. 安排出貨並提供物流單號");
-  lines.push("");
-  lines.push("目前進度：0／5");
-  lines.push("");
-  lines.push(`訂單編號：${order.orderId}`);
+  lines.push("下一步：聯繫客戶 → 確認付款 → 安排出貨");
   return lines.join("\n");
+}
+
+function shortOrderItemSummary(items, itemCount, totalCount) {
+  if (items.length > 2) return `共 ${itemCount} 項／${totalCount} 件`;
+  return items.map((item) => {
+    const unitName = item.unitName || "件";
+    const quantityText =
+      item.purchaseType === "case" ? `${item.quantity}箱（${item.usedUnits}${unitName}）` : `${item.quantity}${unitName}`;
+    return `${item.name} × ${quantityText}`;
+  }).join("、") || "無商品明細";
+}
+
+function shortOrderAnomalySummary(anomalies, hasUnpriced) {
+  const items = [...anomalies];
+  if (hasUnpriced) items.push("商品待定價");
+  return [...new Set(items.map((item) => {
+    if (item.includes("姓名")) return "姓名未填";
+    if (item.includes("電話格式")) return "電話格式異常";
+    if (item.includes("電話")) return "電話未填";
+    if (item.includes("地址")) return "地址未填";
+    if (item.includes("售價") || item.includes("待定價")) return "商品待定價";
+    if (item.includes("庫存")) return "商品庫存不足";
+    return item;
+  }))].join("／");
 }
 
 function makeOrderId() {
