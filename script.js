@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260708-5";
+const BUILD_VERSION = "20260709-1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -926,7 +926,7 @@ function renderOrderLookupResult(data) {
     return;
   }
   if (!orders.length) {
-    orderLookupResult.innerHTML = `<p class="form-note">查無訂單，請確認訂單編號或手機號碼是否正確。</p>`;
+    orderLookupResult.innerHTML = `<p class="form-note">查無訂單，請確認訂單編號與下單手機號碼是否正確。</p>`;
     return;
   }
   orderLookupResult.innerHTML = orders.map((order) => `
