@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260708-4";
+const BUILD_VERSION = "20260708-5";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -829,19 +829,20 @@ function applyPaymentConfig() {
 async function sendOrder(order) {
   const telegram = config.telegram || {};
   if (telegram.mode === "proxy" && telegram.orderEndpoint) {
-    await fetch(telegram.orderEndpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({
-        action: "createOrder",
-        order,
-        message: orderMessage(order),
-      }),
-    });
+    const data = await createOrderStatusRequest(order);
+    if (!data?.ok) throw new Error(data?.error || "ORDER_CREATE_FAILED");
     return;
   }
   alert("訂單通知尚未設定完成，請聯絡店家。");
+}
+
+function createOrderStatusRequest(order) {
+  const endpoint = orderStatusEndpoint();
+  if (!endpoint) return Promise.reject(new Error("ORDER_ENDPOINT_MISSING"));
+  return jsonpRequest(endpoint, {
+    action: "createOrder",
+    order: JSON.stringify(order),
+  }, 18000);
 }
 
 function orderStatusEndpoint() {
@@ -851,20 +852,22 @@ function orderStatusEndpoint() {
 function queryOrderStatus({ orderId, phone }) {
   const endpoint = orderStatusEndpoint();
   if (!endpoint) return Promise.reject(new Error("ORDER_STATUS_ENDPOINT_MISSING"));
+  return jsonpRequest(endpoint, { action: "query", orderId, phone }, 12000);
+}
+
+function jsonpRequest(endpoint, paramsObject, timeoutMs) {
   return new Promise((resolve, reject) => {
     const callbackName = `ldsOrderStatus${Date.now()}${Math.random().toString(36).slice(2)}`;
-    const params = new URLSearchParams({
-      action: "query",
-      callback: callbackName,
+    const params = new URLSearchParams({ callback: callbackName });
+    Object.entries(paramsObject).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && value !== "") params.set(key, value);
     });
-    if (orderId) params.set("orderId", orderId);
-    if (phone) params.set("phone", phone);
 
     const script = document.createElement("script");
     const timeout = window.setTimeout(() => {
       cleanup();
       reject(new Error("ORDER_STATUS_TIMEOUT"));
-    }, 12000);
+    }, timeoutMs);
     function cleanup() {
       window.clearTimeout(timeout);
       delete window[callbackName];
