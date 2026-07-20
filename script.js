@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260720-1";
+const BUILD_VERSION = "20260720-2";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -143,7 +143,8 @@ function normalizeProduct(product) {
   const stockQty = Number.isFinite(Number(product.stockQty)) ? Number(product.stockQty) : 0;
   const price = normalizePriceValue(product.price);
   const caseQuantity = normalizePositiveNumber(product.caseQuantity);
-  const casePrice = normalizePriceValue(product.casePrice);
+  const casePrice = normalizePositiveNumber(product.casePrice);
+  const hasCompleteCaseData = Boolean(product.caseEnabled && caseQuantity && casePrice && stockQty >= caseQuantity);
   return {
     ...product,
     id: product.id || `${product.category}-${product.rawName || product.name}`,
@@ -160,7 +161,7 @@ function normalizeProduct(product) {
     image: product.image || "",
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
-    caseEnabled: Boolean(product.caseEnabled && caseQuantity),
+    caseEnabled: hasCompleteCaseData,
     caseQuantity,
     casePrice,
   };
@@ -251,7 +252,7 @@ function categoryFromHash() {
 function productCard(product) {
   const card = document.createElement("article");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0;
-  const caseDisabled = disabled || !product.caseEnabled || !product.caseQuantity || maxPurchaseQty(product, "case") <= 0;
+  const canBuyCase = !disabled && product.caseEnabled && maxPurchaseQty(product, "case") > 0;
   const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
   const placeholder = `
     <div class="product-placeholder product-placeholder-${product.categoryKey}" aria-hidden="true">
@@ -282,8 +283,8 @@ function productCard(product) {
       <div class="product-actions">
         <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `單${product.unitName}`}</button>
         ${
-          product.caseEnabled
-            ? `<button class="add-button case-button" type="button" data-add-type="case" ${caseDisabled ? "disabled" : ""}>${caseDisabled ? "整箱缺貨" : `整箱 ${product.caseQuantity}${product.unitName}`}</button>`
+          canBuyCase
+            ? `<button class="add-button case-button" type="button" data-add-type="case">整箱 ${product.caseQuantity}入</button>`
             : ""
         }
       </div>
@@ -421,7 +422,7 @@ function cartUsedUnits(productId, excludedKey = "") {
 function maxPurchaseQty(product, purchaseType, key = "") {
   const availableStock = Math.max(product.stockQty - cartUsedUnits(product.id, key), 0);
   if (purchaseType === "case") {
-    if (!product.caseEnabled || !product.caseQuantity) return 0;
+    if (!product.caseEnabled || !product.caseQuantity || !isPriced(product.casePrice)) return 0;
     return Math.floor(availableStock / product.caseQuantity);
   }
   return availableStock;
@@ -435,13 +436,14 @@ function lineTotal(product, purchaseType, qty) {
 }
 
 function purchaseLabel(product, purchaseType) {
-  if (purchaseType === "case") return `整箱 ${product.caseQuantity}${product.unitName}`;
+  if (purchaseType === "case") return `整箱 ${product.caseQuantity}入`;
   return `單${product.unitName}`;
 }
 
 function addToCart(id, purchaseType = "unit") {
   const product = state.products.find((item) => item.id === id);
   if (!product || product.stock === "缺貨") return false;
+  if (purchaseType === "case" && (!product.caseEnabled || !isPriced(product.casePrice))) return false;
   const key = cartKey(id, purchaseType);
   const currentQty = state.cart.get(key) || 0;
   const maxQty = maxPurchaseQty(product, purchaseType, key);
@@ -563,9 +565,9 @@ function renderCart() {
         : "待定價"
       : isPriced(product.casePrice)
         ? `箱價 ${formatMoney(product.casePrice)}`
-        : "整箱待報價";
+        : "";
     const quantityText = unitMode ? `${qty}${product.unitName}` : `${qty}箱`;
-    const caseOptionDisabled = !product.caseEnabled || maxPurchaseQty(product, "case", key) <= 0;
+    const canSwitchToCase = product.caseEnabled && maxPurchaseQty(product, "case", key) > 0;
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
@@ -577,7 +579,7 @@ function renderCart() {
           <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${product.unitName}</button>
           ${
             product.caseEnabled
-              ? `<button type="button" class="${purchaseType === "case" ? "is-active" : ""}" ${purchaseType === "case" || caseOptionDisabled ? "disabled" : ""} data-purchase-type="case">${caseOptionDisabled && purchaseType !== "case" ? "整箱缺貨" : `整箱 ${product.caseQuantity}${product.unitName}`}</button>`
+              ? `<button type="button" class="${purchaseType === "case" ? "is-active" : ""}" ${purchaseType === "case" || !canSwitchToCase ? "disabled" : ""} data-purchase-type="case">整箱 ${product.caseQuantity}入</button>`
               : ""
           }
         </div>
@@ -666,6 +668,8 @@ function buildOrderPayload(formData) {
     quantity: qty,
     unitName: product.unitName,
     usedUnits,
+    caseQuantity: purchaseType === "case" ? product.caseQuantity : null,
+    casePrice: purchaseType === "case" ? product.casePrice : null,
     price: purchaseType === "case" ? product.casePrice : product.price,
     lineTotal,
     lineTotalText: lineTotal === null ? "請詢價" : formatMoney(lineTotal),
