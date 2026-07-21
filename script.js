@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260721-5";
+const BUILD_VERSION = "20260721-6";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -901,10 +901,43 @@ async function sendOrder(order) {
 function createOrderStatusRequest(order) {
   const endpoint = orderStatusEndpoint();
   if (!endpoint) return Promise.reject(new Error("ORDER_ENDPOINT_MISSING"));
+  const transportOrder = compactOrderForTransport(order);
   return jsonpRequest(endpoint, {
     action: "createOrder",
-    order: JSON.stringify(order),
+    order: JSON.stringify(transportOrder),
   }, 18000);
+}
+
+function compactOrderForTransport(order) {
+  return {
+    orderId: order.orderId,
+    createdAt: order.createdAt,
+    status: order.status,
+    customerName: order.customerName,
+    phone: order.phone,
+    address: order.address,
+    note: order.note,
+    itemCount: order.itemCount,
+    totalCount: order.totalCount,
+    totalAmount: order.totalAmount,
+    amountText: order.amountText,
+    hasUnpriced: order.hasUnpriced,
+    anomalies: order.anomalies,
+    items: (order.items || []).map((item) => ({
+      b: item.barcode || "",
+      r: item.rawName || "",
+      n: item.name || "",
+      spec: item.specText || "",
+      pt: item.purchaseType || "unit",
+      q: item.quantity,
+      su: item.saleUnit || item.unitName || "件",
+      ups: item.unitsPerSale || 1,
+      uu: item.usedUnits,
+      un: item.unitName || "件",
+      sp: item.salePrice,
+      lt: item.lineTotal,
+    })),
+  };
 }
 
 function orderStatusEndpoint() {
