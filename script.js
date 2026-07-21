@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260721-4";
+const BUILD_VERSION = "20260721-5";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -100,7 +100,7 @@ function assetName(input) {
 
 function formatPrice(product) {
   if (isPriced(product.price)) {
-    return `${formatMoney(product.price)}${product.saleUnit ? `／${product.saleUnit}` : ""}`;
+    return formatMoney(product.price);
   }
   return product.priceText || "請詢價";
 }
@@ -152,6 +152,25 @@ function productSpecText(product) {
   const [, amount, unit] = matches[matches.length - 1];
   const normalizedUnit = /^(cc|ml|毫升)$/i.test(unit) ? unit.toLowerCase() : "g";
   return `${amount}${normalizedUnit}`;
+}
+
+function productCardSpecText(product) {
+  const unit = product.saleUnit || product.unitName || "件";
+  const packageTypeMap = {
+    泡麵: product.unitName === "碗" ? "碗裝" : "袋裝",
+    飲料: "瓶裝",
+    罐頭: "罐裝",
+    餅乾: "袋裝",
+    調味料: "瓶裝",
+    生活用品: "單件",
+    日用品: "單件",
+  };
+  const packageType = product.packageType || packageTypeMap[product.category] || "單件";
+  if (product.specText) {
+    const compactSpec = product.specText.replace(/單([^｜]+)販售/g, "1$1");
+    return compactSpec.includes("｜") ? compactSpec : `${packageType}｜${compactSpec}`;
+  }
+  return `${packageType}｜1${unit}`;
 }
 
 function normalizeProduct(product) {
@@ -278,7 +297,7 @@ function productCard(product) {
   const card = document.createElement("article");
   const availableSaleQty = maxPurchaseQty(product, "unit");
   const disabled = product.stock === "缺貨" || product.stockQty <= 0 || availableSaleQty <= 0;
-  const canBuyCase = !disabled && product.caseEnabled && maxPurchaseQty(product, "case") > 0;
+  const cardSpecText = productCardSpecText(product);
   const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
   const placeholder = `
     <div class="product-placeholder product-placeholder-${product.categoryKey}" aria-hidden="true">
@@ -303,18 +322,9 @@ function productCard(product) {
       <h3>${product.name}</h3>
       <div class="product-meta">
         <strong>${formatPrice(product)}</strong>
-        <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
-      <p class="stock-line">${product.specText ? `${product.specText}｜` : ""}可購買 ${availableSaleQty}${product.saleUnit}</p>
-      <p class="stock-line stock-raw-line">${product.salesNote ? `${product.salesNote}｜` : ""}原始庫存 ${product.stockQty}${product.unitName}</p>
-      <div class="product-actions">
-        <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `加入 1${product.saleUnit}`}</button>
-        ${
-          canBuyCase
-            ? `<button class="add-button case-button" type="button" data-add-type="case">整箱 ${product.caseQuantity}入</button>`
-            : ""
-        }
-      </div>
+      <p class="stock-line">${cardSpecText}</p>
+      <p class="stock-line stock-remaining-line ${availableSaleQty <= 3 ? "is-low-stock" : ""}">剩餘庫存：${availableSaleQty}${product.saleUnit}</p>
     </div>
     <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
   `;
