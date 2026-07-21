@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260721-3";
+const BUILD_VERSION = "20260721-4";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -100,7 +100,7 @@ function assetName(input) {
 
 function formatPrice(product) {
   if (isPriced(product.price)) {
-    return formatMoney(product.price);
+    return `${formatMoney(product.price)}${product.saleUnit ? `／${product.saleUnit}` : ""}`;
   }
   return product.priceText || "請詢價";
 }
@@ -177,8 +177,15 @@ function normalizeProduct(product) {
     image: product.image || "",
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
+    saleUnit: product.saleUnit || product.unitName || "件",
+    unitsPerSale: Math.max(Number(product.unitsPerSale || 1), 1),
+    packageType: product.packageType || "",
+    baseUnitPrice: normalizePriceValue(product.baseUnitPrice),
+    salePrice: price,
     specText: product.specText || productSpecText(product),
     salesNote: product.salesNote || "",
+    specReview: Boolean(product.specReview),
+    specReviewReason: product.specReviewReason || "",
     caseEnabled: hasCompleteCaseData,
     caseQuantity,
     casePrice,
@@ -269,7 +276,8 @@ function categoryFromHash() {
 
 function productCard(product) {
   const card = document.createElement("article");
-  const disabled = product.stock === "缺貨" || product.stockQty <= 0;
+  const availableSaleQty = maxPurchaseQty(product, "unit");
+  const disabled = product.stock === "缺貨" || product.stockQty <= 0 || availableSaleQty <= 0;
   const canBuyCase = !disabled && product.caseEnabled && maxPurchaseQty(product, "case") > 0;
   const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
   const placeholder = `
@@ -297,9 +305,10 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
         <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
-      <p class="stock-line">${product.salesNote ? `${product.salesNote}｜` : ""}${product.specText ? `規格 ${product.specText}｜` : ""}庫存 ${product.stockQty}${product.unitName}</p>
+      <p class="stock-line">${product.specText ? `${product.specText}｜` : ""}可購買 ${availableSaleQty}${product.saleUnit}</p>
+      <p class="stock-line stock-raw-line">${product.salesNote ? `${product.salesNote}｜` : ""}原始庫存 ${product.stockQty}${product.unitName}</p>
       <div class="product-actions">
-        <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `單${product.unitName}`}</button>
+        <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `加入 1${product.saleUnit}`}</button>
         ${
           canBuyCase
             ? `<button class="add-button case-button" type="button" data-add-type="case">整箱 ${product.caseQuantity}入</button>`
@@ -423,7 +432,7 @@ function parseCartKey(key) {
 }
 
 function purchaseUnitCount(product, purchaseType, qty) {
-  return purchaseType === "case" ? qty * (product.caseQuantity || 0) : qty;
+  return purchaseType === "case" ? qty * (product.caseQuantity || 0) : qty * (product.unitsPerSale || 1);
 }
 
 function cartUsedUnits(productId, excludedKey = "") {
@@ -443,7 +452,7 @@ function maxPurchaseQty(product, purchaseType, key = "") {
     if (!product.caseEnabled || !product.caseQuantity || !isPriced(product.casePrice)) return 0;
     return Math.floor(availableStock / product.caseQuantity);
   }
-  return availableStock;
+  return Math.floor(availableStock / (product.unitsPerSale || 1));
 }
 
 function lineTotal(product, purchaseType, qty) {
@@ -455,7 +464,7 @@ function lineTotal(product, purchaseType, qty) {
 
 function purchaseLabel(product, purchaseType) {
   if (purchaseType === "case") return `整箱 ${product.caseQuantity}入`;
-  return `單${product.unitName}`;
+  return `單${product.saleUnit || product.unitName}`;
 }
 
 function addToCart(id, purchaseType = "unit") {
@@ -550,7 +559,7 @@ function pruneCartUnavailableProducts() {
       ? product.caseQuantity
         ? Math.floor(product.stockQty / product.caseQuantity)
         : 0
-      : product.stockQty;
+      : Math.floor(product.stockQty / (product.unitsPerSale || 1));
     if (maxAllowed <= 0) {
       state.cart.delete(key);
     } else if (qty > maxAllowed) {
@@ -563,8 +572,9 @@ function renderCart() {
   cartItems.innerHTML = "";
   orderDetailList.innerHTML = "";
   const { items, itemCount, totalCount, hasUnpriced, amountText } = cartSummary();
-  cartCount.textContent = totalCount;
-  orderCount.textContent = `${totalCount} 件商品`;
+  const saleCount = items.reduce((sum, item) => sum + item.qty, 0);
+  cartCount.textContent = saleCount;
+  orderCount.textContent = `${saleCount} 組商品`;
 
   if (!items.length) {
     cartItems.innerHTML = '<p class="form-note">購物車目前是空的，先把想補貨的品項加進來。</p>';
@@ -584,17 +594,21 @@ function renderCart() {
       : isPriced(product.casePrice)
         ? `箱價 ${formatMoney(product.casePrice)}`
         : "";
-    const quantityText = unitMode ? `${qty}${product.unitName}` : `${qty}箱`;
+    const saleUnit = product.saleUnit || product.unitName;
+    const quantityText = unitMode ? `${qty}${saleUnit}` : `${qty}箱`;
     const canSwitchToCase = product.caseEnabled && maxPurchaseQty(product, "case", key) > 0;
+    const actualText = unitMode && product.unitsPerSale > 1
+      ? `<p class="quantity-label">實際揀貨：${usedUnits}${product.unitName}</p>`
+      : "";
     const row = document.createElement("div");
     row.className = "cart-item";
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.salesNote ? `｜${product.salesNote}` : ""}${product.specText ? `｜規格 ${product.specText}` : ""}｜庫存 ${product.stockQty}${product.unitName}</p>
+        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.specText ? `｜${product.specText}` : ""}｜可購買 ${maxPurchaseQty(product, "unit", key)}${saleUnit}</p>
         <div class="purchase-type" aria-label="購買方式">
           <span>購買方式</span>
-          <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${product.unitName}</button>
+          <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${saleUnit}</button>
           ${
             product.caseEnabled
               ? `<button type="button" class="${purchaseType === "case" ? "is-active" : ""}" ${purchaseType === "case" || !canSwitchToCase ? "disabled" : ""} data-purchase-type="case">整箱 ${product.caseQuantity}入</button>`
@@ -602,6 +616,7 @@ function renderCart() {
           }
         </div>
         <p class="quantity-label">購買數量：${quantityText}</p>
+        ${actualText}
         ${unitMode ? "" : `<p class="quantity-label">${qty}箱 × ${product.caseQuantity}${product.unitName}｜實際商品數量：${usedUnits}${product.unitName}</p>`}
         <p class="line-total">商品小計：${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</p>
       </div>
@@ -630,7 +645,7 @@ function renderCart() {
         <strong>${product.name}</strong>
         <span>${product.category}｜${unitPriceText} x ${quantityText}</span>
       </div>
-      <em>剩 ${Math.max(product.stockQty - cartUsedUnits(product.id), 0)}${product.unitName}</em>
+      <em>剩 ${Math.floor(Math.max(product.stockQty - cartUsedUnits(product.id), 0) / (product.unitsPerSale || 1))}${saleUnit}</em>
     `;
     orderDetailList.append(detail);
   });
@@ -640,7 +655,8 @@ function renderCart() {
   totalRow.innerHTML = `
     <div>
       <span>商品品項：${itemCount} 項</span>
-      <span>商品數量：${totalCount} 件</span>
+      <span>購買組數：${saleCount} 組</span>
+      <span>實際揀貨：${totalCount} 件</span>
       <span>目前金額：${amountText}</span>
       ${hasUnpriced ? '<small>⚠️ 本訂單含待定價商品，實際金額請以店家回覆為準。</small>' : ""}
     </div>
@@ -680,14 +696,23 @@ function buildOrderPayload(formData) {
   const anomalies = orderAnomalies({ name, phone, address, items, hasUnpriced });
   const orderItems = items.map(({ product, purchaseType, qty, usedUnits, lineTotal }) => ({
     productId: product.id,
+    barcode: product.barcode || "",
+    rawName: product.rawName || product.name,
+    displayName: product.displayName || product.name,
     name: product.name,
     category: product.category,
+    packageType: product.packageType || "",
+    specText: product.specText || "",
+    saleUnit: purchaseType === "case" ? "箱" : product.saleUnit || product.unitName,
+    unitsPerSale: purchaseType === "case" ? product.caseQuantity : product.unitsPerSale || 1,
     purchaseType,
     quantity: qty,
     unitName: product.unitName,
     usedUnits,
     caseQuantity: purchaseType === "case" ? product.caseQuantity : null,
     casePrice: purchaseType === "case" ? product.casePrice : null,
+    baseUnitPrice: product.baseUnitPrice,
+    salePrice: purchaseType === "case" ? product.casePrice : product.price,
     price: purchaseType === "case" ? product.casePrice : product.price,
     lineTotal,
     lineTotalText: lineTotal === null ? "請詢價" : formatMoney(lineTotal),
@@ -744,11 +769,14 @@ function orderMessage(order) {
 }
 
 function shortOrderItemSummary(items, itemCount, totalCount) {
-  if (items.length > 2) return `共 ${itemCount} 項／${totalCount} 件`;
+  const saleCount = items.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+  if (items.length > 2) return `共 ${itemCount} 項／${saleCount} 組`;
   return items.map((item) => {
     const unitName = item.unitName || "件";
     const quantityText =
-      item.purchaseType === "case" ? `${item.quantity}箱（${item.usedUnits}${unitName}）` : `${item.quantity}${unitName}`;
+      item.purchaseType === "case"
+        ? `${item.quantity}箱（${item.usedUnits}${unitName}）`
+        : `${item.quantity}${item.saleUnit || unitName}${item.usedUnits && item.usedUnits !== item.quantity ? `（${item.usedUnits}${unitName}）` : ""}`;
     return `${item.name} × ${quantityText}`;
   }).join("、") || "無商品明細";
 }
@@ -810,7 +838,9 @@ function renderSuccessDetail(formData, order) {
   const list = items
     .map(({ product, purchaseType, qty, usedUnits, lineTotal }) => {
       const quantityText =
-        purchaseType === "case" ? `${qty}箱（${usedUnits}${product.unitName}）` : `${qty}${product.unitName}`;
+        purchaseType === "case"
+          ? `${qty}箱（${usedUnits}${product.unitName}）`
+          : `${qty}${product.saleUnit || product.unitName}${usedUnits !== qty ? `（${usedUnits}${product.unitName}）` : ""}`;
       return `<li>${product.name} x ${quantityText}｜${lineTotal === null ? "請詢價" : formatMoney(lineTotal)}</li>`;
     })
     .join("");

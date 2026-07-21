@@ -1,6 +1,6 @@
 window.SHOP_CONFIG = {
-  currency: "TWD",
-  currencyLabel: "$",
+  currency: "USD",
+  currencyLabel: "USD ",
   telegram: {
     mode: "proxy",
     orderEndpoint: "https://script.google.com/macros/s/AKfycbxjV2WdkWufduFaKSTFS30ubUVsw9UaIkvcG44PdOg_Kt5uPDM37eSBduwNMLqR2qt5Xg/exec",
