@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260720-2";
+const BUILD_VERSION = "20260721-1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -138,6 +138,22 @@ function normalizePositiveNumber(value) {
   return number && number > 0 ? number : null;
 }
 
+function productSpecText(product) {
+  if (!["罐頭", "調味料"].includes(product.category)) return "";
+  const source = [product.rawName, product.displayName, product.name].filter(Boolean).join(" ");
+  const specOverrides = [
+    { pattern: /味王調理快餐.*紅燒牛腩/, spec: "200g" },
+    { pattern: /味王調理快餐.*筍絲[控焢]肉/, spec: "200g" },
+  ];
+  const override = specOverrides.find((item) => item.pattern.test(source));
+  if (override) return override.spec;
+  const matches = [...source.matchAll(/(\d+(?:\.\d+)?)\s*(g|G|公克|克|cc|CC|ml|ML|毫升)/g)];
+  if (!matches.length) return "";
+  const [, amount, unit] = matches[matches.length - 1];
+  const normalizedUnit = /^(cc|ml|毫升)$/i.test(unit) ? unit.toLowerCase() : "g";
+  return `${amount}${normalizedUnit}`;
+}
+
 function normalizeProduct(product) {
   const category = state.categories.find((item) => item.name === product.category);
   const stockQty = Number.isFinite(Number(product.stockQty)) ? Number(product.stockQty) : 0;
@@ -161,6 +177,7 @@ function normalizeProduct(product) {
     image: product.image || "",
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
+    specText: product.specText || productSpecText(product),
     caseEnabled: hasCompleteCaseData,
     caseQuantity,
     casePrice,
@@ -279,7 +296,7 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
         <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
-      <p class="stock-line">庫存 ${product.stockQty}${product.unitName}</p>
+      <p class="stock-line">${product.specText ? `規格 ${product.specText}｜` : ""}庫存 ${product.stockQty}${product.unitName}</p>
       <div class="product-actions">
         <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `單${product.unitName}`}</button>
         ${
@@ -573,7 +590,7 @@ function renderCart() {
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}｜庫存 ${product.stockQty}${product.unitName}</p>
+        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.specText ? `｜規格 ${product.specText}` : ""}｜庫存 ${product.stockQty}${product.unitName}</p>
         <div class="purchase-type" aria-label="購買方式">
           <span>購買方式</span>
           <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${product.unitName}</button>
