@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260721-1";
+const BUILD_VERSION = "20260721-2";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -178,6 +178,7 @@ function normalizeProduct(product) {
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
     specText: product.specText || productSpecText(product),
+    salesNote: product.salesNote || "",
     caseEnabled: hasCompleteCaseData,
     caseQuantity,
     casePrice,
@@ -296,7 +297,7 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
         <span class="${disabled ? "stock-out" : ""}">${product.stock}</span>
       </div>
-      <p class="stock-line">${product.specText ? `規格 ${product.specText}｜` : ""}庫存 ${product.stockQty}${product.unitName}</p>
+      <p class="stock-line">${product.salesNote ? `${product.salesNote}｜` : ""}${product.specText ? `規格 ${product.specText}｜` : ""}庫存 ${product.stockQty}${product.unitName}</p>
       <div class="product-actions">
         <button class="add-button" type="button" data-add-type="unit" ${disabled ? "disabled" : ""}>${disabled ? "暫時缺貨" : `單${product.unitName}`}</button>
         ${
@@ -590,7 +591,7 @@ function renderCart() {
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.specText ? `｜規格 ${product.specText}` : ""}｜庫存 ${product.stockQty}${product.unitName}</p>
+        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.salesNote ? `｜${product.salesNote}` : ""}${product.specText ? `｜規格 ${product.specText}` : ""}｜庫存 ${product.stockQty}${product.unitName}</p>
         <div class="purchase-type" aria-label="購買方式">
           <span>購買方式</span>
           <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${product.unitName}</button>

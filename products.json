@@ -2,7 +2,7 @@
   "source": "寮國商品成本定價與整批利潤_一入定價表-2.xlsx",
   "sourcePath": "/Users/laisiwei/Downloads/寮國商品成本定價與整批利潤_一入定價表-2.xlsx",
   "syncMode": "full-product-stock-price-check-20260720",
-  "notes": "全商品逐一比對 Excel 商品定價分頁；庫存使用 G 欄總入數，售價使用 R 欄實際一入售價 USD（可改）。同條碼商品改以條碼+品名避免漏更新或互相覆蓋。因 Excel 無獨立整箱售價欄位，整箱出售全部關閉。",
+  "notes": "全商品逐一比對 Excel 商品定價分頁；庫存使用 G 欄總入數，售價使用 R 欄實際一入售價 USD（可改）。同條碼商品改以條碼+品名避免漏更新或互相覆蓋。因 Excel 無獨立整箱售價欄位，整箱出售全部關閉。 泡麵類前台販售單位已統一為單包/單碗，不以袋裝或箱裝方式呈現。",
   "importSummary": {
     "sheetNames": [
       "商品定價"
@@ -676,14 +676,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-028.webp",
-      "unitName": "桶",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一阿桶麵紅椒牛肉.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-2.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885129700",
@@ -699,13 +700,14 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-029.webp",
-      "unitName": "桶",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一阿桶麵雞汁排骨.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/002_images-19.jpeg"
+      "imageSourceFile": "泡麵/002_images-19.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710088930682",
@@ -721,14 +723,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-030.webp",
-      "unitName": "桶",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一阿桶麵蒜香珍肉.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-9.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710088931863",
@@ -744,14 +747,15 @@
       "stockQty": 60,
       "orderQty": 2,
       "image": "images/products/noodles/product-031.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一蔥燒牛袋.svg",
       "imageStatus": "matched",
       "imageSourceFile": "統一蔥燒牛袋.jpg.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-4710088510457",
@@ -767,14 +771,15 @@
       "stockQty": 30,
       "orderQty": 1,
       "image": "images/products/noodles/product-032.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一調和米粉肉燥袋麵.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-5.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885101980",
@@ -797,7 +802,8 @@
       "fallbackImage": "images/products/泡麵/統一科學麵.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-6.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885119590",
@@ -813,14 +819,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-034.webp",
-      "unitName": "包",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一來一客川辣牛肉風味.svg",
       "imageStatus": "matched",
       "imageSourceFile": "統一來一客川辣牛肉風味.jpg.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885119800",
@@ -836,14 +843,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-035.webp",
-      "unitName": "包",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一來一客韓式泡菜風味.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-8.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885119110",
@@ -859,14 +867,15 @@
       "stockQty": 12,
       "orderQty": 1,
       "image": "images/products/noodles/product-036.webp",
-      "unitName": "包",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一來一客京燉肉骨風味.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-7.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710088511935",
@@ -882,14 +891,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-037.webp",
-      "unitName": "包",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一來一客鮮蝦魚板風味.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-10.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885117820",
@@ -905,14 +915,15 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-038.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥牛袋.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-11.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885122080",
@@ -934,7 +945,8 @@
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥牛碗.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/009_images-12.jpeg"
+      "imageSourceFile": "泡麵/009_images-12.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885117990",
@@ -950,13 +962,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-040.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥豬袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/008_images-13.jpeg"
+      "imageSourceFile": "泡麵/008_images-13.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885122460",
@@ -978,7 +991,8 @@
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐蔥豬碗.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/007_images-14.jpeg"
+      "imageSourceFile": "泡麵/007_images-14.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100889301870",
@@ -994,13 +1008,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-042.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐麻辣牛袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/006_images-15.jpeg"
+      "imageSourceFile": "泡麵/006_images-15.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885120860",
@@ -1022,7 +1037,8 @@
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一滿漢大餐麻辣牛碗.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/005_images-16.jpeg"
+      "imageSourceFile": "泡麵/005_images-16.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100885152470",
@@ -1038,13 +1054,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-044.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一日式豚骨拉麵袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/004_images-17.jpeg"
+      "imageSourceFile": "泡麵/004_images-17.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100889319310",
@@ -1060,14 +1077,15 @@
       "stockQty": 90,
       "orderQty": 3,
       "image": "images/products/noodles/product-045.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一肉骨茶袋.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-12.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100889320130",
@@ -1090,7 +1108,8 @@
       "fallbackImage": "images/products/泡麵/統一肉骨茶碗.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-13.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710088931924",
@@ -1106,14 +1125,15 @@
       "stockQty": 90,
       "orderQty": 3,
       "image": "images/products/noodles/product-047.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一肉燥麵袋.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-14.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100889319930",
@@ -1136,7 +1156,8 @@
       "fallbackImage": "images/products/泡麵/統一肉燥麵碗.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-15.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710088931276",
@@ -1159,7 +1180,8 @@
       "fallbackImage": "images/products/泡麵/統一巷口乾麵麻醬.svg",
       "imageStatus": "matched",
       "imageSourceFile": "000001_1738805713.jpg.webp",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47100885143940",
@@ -1175,13 +1197,14 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-050.webp",
-      "unitName": "桶",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一阿桶麵韓式泡菜.svg",
       "imageStatus": "review_confirmed",
-      "imageSourceFile": "泡麵/010_images-21.jpeg"
+      "imageSourceFile": "泡麵/010_images-21.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47100889343690",
@@ -1197,14 +1220,15 @@
       "stockQty": 24,
       "orderQty": 2,
       "image": "images/products/noodles/product-051.webp",
-      "unitName": "桶",
+      "unitName": "碗",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/統一阿桶麵生猛海鮮.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-16.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47101990391060",
@@ -1220,14 +1244,15 @@
       "stockQty": 90,
       "orderQty": 3,
       "image": "images/products/noodles/product-052.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力大乾麵地獄辣椒麵袋.svg",
       "imageStatus": "matched",
       "imageSourceFile": "712085c9749b4289afcb74748183c8f0.jpg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101990307760",
@@ -1250,7 +1275,8 @@
       "fallbackImage": "images/products/泡麵/維力大乾麵紅油擔擔碗麵.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-17.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47101991141170",
@@ -1266,14 +1292,15 @@
       "stockQty": 12,
       "orderQty": 1,
       "image": "images/products/noodles/product-054.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度贊袋麻辣牛肉鍋麵.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-18.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-4710199017210",
@@ -1289,13 +1316,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-055.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度讚紅燒牛袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/017_images-30.jpeg"
+      "imageSourceFile": "泡麵/017_images-30.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101990153220",
@@ -1317,7 +1345,8 @@
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度讚紅燒牛碗.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/018_images-29.jpeg"
+      "imageSourceFile": "泡麵/018_images-29.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710199017210",
@@ -1333,13 +1362,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-057.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度讚爌肉袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/017_images-30.jpeg"
+      "imageSourceFile": "泡麵/017_images-30.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101990777190",
@@ -1361,7 +1391,8 @@
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度讚老甕牛肉碗.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/016_images-31.jpeg"
+      "imageSourceFile": "泡麵/016_images-31.jpeg",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-47101990156360",
@@ -1384,7 +1415,8 @@
       "fallbackImage": "images/products/泡麵/維力炸醬麵碗.svg",
       "imageStatus": "matched",
       "imageSourceFile": "images-19.jpeg",
-      "imageImportedAt": "2026-07-07"
+      "imageImportedAt": "2026-07-07",
+      "salesNote": "單碗販售"
     },
     {
       "id": "barcode-4710199014721",
@@ -1400,13 +1432,14 @@
       "stockQty": 150,
       "orderQty": 5,
       "image": "images/products/noodles/product-060.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力炸醬麵袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/014_images-32.jpeg"
+      "imageSourceFile": "泡麵/014_images-32.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-4710199114117",
@@ -1422,13 +1455,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-061.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/維力一度讚麻辣牛肉袋.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/013_images-33.jpeg"
+      "imageSourceFile": "泡麵/013_images-33.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101100000240",
@@ -1444,13 +1478,14 @@
       "stockQty": 90,
       "orderQty": 3,
       "image": "images/products/noodles/product-062.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 30,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/味味排骨雞袋麵.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/012_images-34.jpeg"
+      "imageSourceFile": "泡麵/012_images-34.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101102318860",
@@ -1466,13 +1501,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-063.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/味味一品極品紅燒牛肉袋麵.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/011_images-35.jpeg"
+      "imageSourceFile": "泡麵/011_images-35.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-47101102265920",
@@ -1488,13 +1524,14 @@
       "stockQty": 36,
       "orderQty": 3,
       "image": "images/products/noodles/product-064.webp",
-      "unitName": "袋",
+      "unitName": "包",
       "caseEnabled": false,
       "caseQuantity": 12,
       "casePrice": null,
       "fallbackImage": "images/products/泡麵/味味一品爌肉袋麵.svg",
       "imageStatus": "matched",
-      "imageSourceFile": "泡麵/015_images-36.jpeg"
+      "imageSourceFile": "泡麵/015_images-36.jpeg",
+      "salesNote": "單包販售"
     },
     {
       "id": "barcode-4710626159537",
