@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260722-v2";
+const BUILD_VERSION = "20260722-v3";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -395,19 +395,28 @@ function renderActiveTabs() {
 }
 
 function filteredProducts() {
-  return state.products.filter((product) => {
-    const matchCategory = state.category === "全部" || product.category === state.category;
-    const matchQuery =
-      !state.query ||
-      product.name.includes(state.query) ||
-      (product.displayName || "").includes(state.query) ||
-      (product.rawName || "").includes(state.query) ||
-      (product.company || "").includes(state.query) ||
-      (product.barcode || "").includes(state.query) ||
-      product.category.includes(state.query) ||
-      product.stock.includes(state.query);
-    return matchCategory && matchQuery;
-  });
+  const categoryOrder = new Map(state.categories.map((category, index) => [category.name, index]));
+  return state.products
+    .filter((product) => {
+      const matchCategory = state.category === "全部" || product.category === state.category;
+      const matchQuery =
+        !state.query ||
+        product.name.includes(state.query) ||
+        (product.displayName || "").includes(state.query) ||
+        (product.rawName || "").includes(state.query) ||
+        (product.company || "").includes(state.query) ||
+        (product.barcode || "").includes(state.query) ||
+        product.category.includes(state.query) ||
+        product.stock.includes(state.query);
+      return matchCategory && matchQuery;
+    })
+    .sort((a, b) => {
+      const categoryDifference = (categoryOrder.get(a.category) ?? 999) - (categoryOrder.get(b.category) ?? 999);
+      if (categoryDifference !== 0) return categoryDifference;
+      const priceA = isPriced(a.price) ? a.price : Number.POSITIVE_INFINITY;
+      const priceB = isPriced(b.price) ? b.price : Number.POSITIVE_INFINITY;
+      return priceA - priceB || a.name.localeCompare(b.name, "zh-Hant");
+    });
 }
 
 function renderProducts() {
