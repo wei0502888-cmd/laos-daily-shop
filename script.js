@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260722-1";
+const BUILD_VERSION = "20260722-v2";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -176,7 +176,11 @@ function productCardSpecText(product) {
 function normalizeProduct(product) {
   const category = state.categories.find((item) => item.name === product.category);
   const stockQty = Number.isFinite(Number(product.stockQty)) ? Number(product.stockQty) : 0;
-  const price = normalizePriceValue(product.price);
+  const unitsPerSale = Math.max(Number(product.unitsPerSale || 1), 1);
+  const unitPrice = normalizePriceValue(product.baseUnitPrice ?? product.price);
+  const displayPrice = unitPrice === null
+    ? null
+    : Math.round((unitPrice * unitsPerSale + Number.EPSILON) * 100) / 100;
   const caseQuantity = normalizePositiveNumber(product.caseQuantity);
   const casePrice = normalizePositiveNumber(product.casePrice);
   const hasCompleteCaseData = Boolean(product.caseEnabled && caseQuantity && casePrice && stockQty >= caseQuantity);
@@ -186,8 +190,8 @@ function normalizeProduct(product) {
     rawName: product.rawName || product.name,
     displayName: product.displayName || product.name,
     name: product.displayName || product.name,
-    price,
-    priceText: price === null ? product.priceText || "待定價" : "",
+    price: displayPrice,
+    priceText: displayPrice === null ? product.priceText || "待定價" : "",
     tone: category?.tone || "#f0b95a",
     categoryKey: categoryKeyMap[product.category] || "daily",
     mark: iconMap[product.category] || "品",
@@ -197,10 +201,10 @@ function normalizeProduct(product) {
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
     saleUnit: product.saleUnit || product.unitName || "件",
-    unitsPerSale: Math.max(Number(product.unitsPerSale || 1), 1),
+    unitsPerSale,
     packageType: product.packageType || "",
-    baseUnitPrice: normalizePriceValue(product.baseUnitPrice),
-    salePrice: price,
+    baseUnitPrice: unitPrice,
+    salePrice: displayPrice,
     specText: product.specText || productSpecText(product),
     salesNote: product.salesNote || "",
     specReview: Boolean(product.specReview),

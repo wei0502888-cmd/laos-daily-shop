@@ -1,0 +1,1129 @@
+{
+  "priceChanges": [
+    {
+      "barcode": "4710088931863",
+      "name": "統一蔥燒牛袋5*6",
+      "oldPrice": 3.5,
+      "newPrice": 21
+    },
+    {
+      "barcode": "4710088510457",
+      "name": "統一調和米粉肉燥袋麵6*5",
+      "oldPrice": 3.5,
+      "newPrice": 21
+    },
+    {
+      "barcode": "4710088510198",
+      "name": "統一科學麵5*8",
+      "oldPrice": 2,
+      "newPrice": 10
+    },
+    {
+      "barcode": "4710088511782",
+      "name": "統一滿漢大餐蔥牛袋*3*4",
+      "oldPrice": 9,
+      "newPrice": 54
+    },
+    {
+      "barcode": "4710088512208",
+      "name": "統一滿漢大餐蔥牛碗*6",
+      "oldPrice": 10,
+      "newPrice": 30
+    },
+    {
+      "barcode": "4710088511799",
+      "name": "統一滿漢大餐蔥豬袋*3*4",
+      "oldPrice": 9,
+      "newPrice": 54
+    },
+    {
+      "barcode": "4710088512246",
+      "name": "統一滿漢大餐蔥豬碗*6",
+      "oldPrice": 10,
+      "newPrice": 30
+    },
+    {
+      "barcode": "4710088930187",
+      "name": "統一滿漢大餐麻辣牛袋*3*4",
+      "oldPrice": 9,
+      "newPrice": 54
+    },
+    {
+      "barcode": "4710088512086",
+      "name": "統一滿漢大餐麻辣牛碗*6",
+      "oldPrice": 10,
+      "newPrice": 30
+    },
+    {
+      "barcode": "4710088515247",
+      "name": "統一日式豚骨拉麵袋",
+      "oldPrice": 9,
+      "newPrice": 54
+    },
+    {
+      "barcode": "4710088931931",
+      "name": "統一肉骨茶袋*5*6",
+      "oldPrice": 3.5,
+      "newPrice": 21
+    },
+    {
+      "barcode": "4710088932013",
+      "name": "統一肉骨茶碗*12",
+      "oldPrice": 4,
+      "newPrice": 12
+    },
+    {
+      "barcode": "4710088931924",
+      "name": "統一肉燥麵袋*5*6",
+      "oldPrice": 3.5,
+      "newPrice": 21
+    },
+    {
+      "barcode": "4710088931993",
+      "name": "統一肉燥麵碗*12",
+      "oldPrice": 4,
+      "newPrice": 12
+    },
+    {
+      "barcode": "4710199039106",
+      "name": "維力大乾麵地獄辣椒麵(袋)",
+      "oldPrice": 3.5,
+      "newPrice": 21
+    },
+    {
+      "barcode": "4710199030776",
+      "name": "維力大乾麵紅油擔擔碗麵",
+      "oldPrice": 6.5,
+      "newPrice": 19.5
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度贊袋-麻辣牛肉鍋麵",
+      "oldPrice": 9,
+      "newPrice": 54
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚紅燒牛袋3*4",
+      "oldPrice": 8.5,
+      "newPrice": 51
+    },
+    {
+      "barcode": "4710199015322",
+      "name": "維力一度讚紅燒牛碗*12",
+      "oldPrice": 9,
+      "newPrice": 27
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚爌肉袋3*4",
+      "oldPrice": 8.5,
+      "newPrice": 51
+    },
+    {
+      "barcode": "4710199077719",
+      "name": "維力一度讚老甕牛肉碗*12",
+      "oldPrice": 9,
+      "newPrice": 27
+    },
+    {
+      "barcode": "4710199015636",
+      "name": "維力炸醬麵(碗)",
+      "oldPrice": 4,
+      "newPrice": 12
+    },
+    {
+      "barcode": "4710199014721",
+      "name": "維力炸醬麵袋5*6",
+      "oldPrice": 3,
+      "newPrice": 18
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度讚麻辣牛肉袋3*4",
+      "oldPrice": 8.5,
+      "newPrice": 51
+    },
+    {
+      "barcode": "4710110000024",
+      "name": "味味A排骨雞袋麵5*6",
+      "oldPrice": 3,
+      "newPrice": 18
+    },
+    {
+      "barcode": "4710110231886",
+      "name": "味味一品極品紅燒牛肉袋麵3*4",
+      "oldPrice": 8.5,
+      "newPrice": 51
+    },
+    {
+      "barcode": "4710110226592",
+      "name": "味味一品爌肉袋麵3*4",
+      "oldPrice": 8.5,
+      "newPrice": 51
+    }
+  ],
+  "specChanges": [
+    {
+      "barcode": "4710088931863",
+      "name": "統一蔥燒牛袋5*6",
+      "oldSpec": "袋裝｜5包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 5,
+      "newUnitsPerSale": 6,
+      "oldStock": 60,
+      "totalUnits": 60,
+      "saleStock": 10
+    },
+    {
+      "barcode": "4710088510457",
+      "name": "統一調和米粉肉燥袋麵6*5",
+      "oldSpec": "袋裝｜6包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 6,
+      "newUnitsPerSale": 6,
+      "oldStock": 30,
+      "totalUnits": 30,
+      "saleStock": 5
+    },
+    {
+      "barcode": "4710088511782",
+      "name": "統一滿漢大餐蔥牛袋*3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710088512208",
+      "name": "統一滿漢大餐蔥牛碗*6",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 6,
+      "totalUnits": 6,
+      "saleStock": 2
+    },
+    {
+      "barcode": "4710088511799",
+      "name": "統一滿漢大餐蔥豬袋*3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710088512246",
+      "name": "統一滿漢大餐蔥豬碗*6",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 6,
+      "totalUnits": 6,
+      "saleStock": 2
+    },
+    {
+      "barcode": "4710088930187",
+      "name": "統一滿漢大餐麻辣牛袋*3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710088512086",
+      "name": "統一滿漢大餐麻辣牛碗*6",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 6,
+      "totalUnits": 6,
+      "saleStock": 2
+    },
+    {
+      "barcode": "4710088515247",
+      "name": "統一日式豚骨拉麵袋",
+      "oldSpec": "袋裝｜規格待確認",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710088931931",
+      "name": "統一肉骨茶袋*5*6",
+      "oldSpec": "袋裝｜5包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 5,
+      "newUnitsPerSale": 6,
+      "oldStock": 90,
+      "totalUnits": 90,
+      "saleStock": 15
+    },
+    {
+      "barcode": "4710088932013",
+      "name": "統一肉骨茶碗*12",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 4
+    },
+    {
+      "barcode": "4710088931924",
+      "name": "統一肉燥麵袋*5*6",
+      "oldSpec": "袋裝｜5包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 5,
+      "newUnitsPerSale": 6,
+      "oldStock": 90,
+      "totalUnits": 90,
+      "saleStock": 15
+    },
+    {
+      "barcode": "4710088931993",
+      "name": "統一肉燥麵碗*12",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 4
+    },
+    {
+      "barcode": "4710199039106",
+      "name": "維力大乾麵地獄辣椒麵(袋)",
+      "oldSpec": "袋裝｜規格待確認",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 6,
+      "oldStock": 90,
+      "totalUnits": 90,
+      "saleStock": 15
+    },
+    {
+      "barcode": "4710199030776",
+      "name": "維力大乾麵紅油擔擔碗麵",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 12
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度贊袋-麻辣牛肉鍋麵",
+      "oldSpec": "袋裝｜規格待確認",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 6,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 2
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚紅燒牛袋3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710199015322",
+      "name": "維力一度讚紅燒牛碗*12",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 4
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚爌肉袋3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710199077719",
+      "name": "維力一度讚老甕牛肉碗*12",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 4
+    },
+    {
+      "barcode": "4710199015636",
+      "name": "維力炸醬麵(碗)",
+      "oldSpec": "碗裝｜單碗販售",
+      "newSpec": "碗裝｜3碗／組",
+      "oldUnitsPerSale": 1,
+      "newUnitsPerSale": 3,
+      "oldStock": 12,
+      "totalUnits": 12,
+      "saleStock": 4
+    },
+    {
+      "barcode": "4710199014721",
+      "name": "維力炸醬麵袋5*6",
+      "oldSpec": "袋裝｜5包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 5,
+      "newUnitsPerSale": 6,
+      "oldStock": 150,
+      "totalUnits": 150,
+      "saleStock": 25
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度讚麻辣牛肉袋3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710110000024",
+      "name": "味味A排骨雞袋麵5*6",
+      "oldSpec": "袋裝｜5包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 5,
+      "newUnitsPerSale": 6,
+      "oldStock": 90,
+      "totalUnits": 90,
+      "saleStock": 15
+    },
+    {
+      "barcode": "4710110231886",
+      "name": "味味一品極品紅燒牛肉袋麵3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    },
+    {
+      "barcode": "4710110226592",
+      "name": "味味一品爌肉袋麵3*4",
+      "oldSpec": "袋裝｜3包／袋",
+      "newSpec": "袋裝｜6包／組",
+      "oldUnitsPerSale": 3,
+      "newUnitsPerSale": 6,
+      "oldStock": 36,
+      "totalUnits": 36,
+      "saleStock": 6
+    }
+  ],
+  "imageChanges": [
+    {
+      "barcode": "4710015114857",
+      "name": "乖乖奶油椰子*12",
+      "oldImage": "images/products/snacks/product-001.webp",
+      "newImage": "images/products/4710015114857.webp"
+    },
+    {
+      "barcode": "4710015115991",
+      "name": "乖乖巧克力*12",
+      "oldImage": "images/products/snacks/product-002.webp",
+      "newImage": "images/products/4710015115991.webp"
+    },
+    {
+      "barcode": "4710176121145",
+      "name": "華元波特多/蚵仔煎*34g*10",
+      "oldImage": "images/products/snacks/product-003.webp",
+      "newImage": "images/products/4710176121145.webp"
+    },
+    {
+      "barcode": "14710176039461",
+      "name": "華元鹹蔬餅50g*10",
+      "oldImage": "images/products/snacks/product-004.webp",
+      "newImage": "images/products/14710176039461.webp"
+    },
+    {
+      "barcode": "4710176011040",
+      "name": "華元真魷味红烧口味*50g*10",
+      "oldImage": "images/products/snacks/product-005.webp",
+      "newImage": "images/products/4710176011040.webp"
+    },
+    {
+      "barcode": "062241",
+      "name": "卡迪那德州薯條*38g*12",
+      "oldImage": "images/products/snacks/product-006.webp",
+      "newImage": "images/products/062241.webp"
+    },
+    {
+      "barcode": "063022",
+      "name": "卡迪那滿天星32g*12",
+      "oldImage": "images/products/snacks/product-007.webp",
+      "newImage": "images/products/063022.webp"
+    },
+    {
+      "barcode": "060476",
+      "name": "聯華可樂果-原味48g*12",
+      "oldImage": "images/products/snacks/product-008.webp",
+      "newImage": "images/products/060476.webp"
+    },
+    {
+      "barcode": "060554",
+      "name": "聯華可樂果-辣味48g*12",
+      "oldImage": "images/products/snacks/product-009.webp",
+      "newImage": "images/products/060554.webp"
+    },
+    {
+      "barcode": "4710126021013",
+      "name": "義美小泡芙-草莓57g",
+      "oldImage": "images/products/snacks/product-010.webp",
+      "newImage": "images/products/4710126021013.webp"
+    },
+    {
+      "barcode": "4710126021020",
+      "name": "義美小泡芙-牛奶57g",
+      "oldImage": "images/products/snacks/product-011.webp",
+      "newImage": "images/products/4710126021020.webp"
+    },
+    {
+      "barcode": "4710126021006",
+      "name": "義美小泡芙-巧克力57g",
+      "oldImage": "images/products/snacks/product-012.webp",
+      "newImage": "images/products/4710126021006.webp"
+    },
+    {
+      "barcode": "4710126012080",
+      "name": "義美原味蛋捲*12",
+      "oldImage": "images/products/snacks/product-013.webp",
+      "newImage": "images/products/4710126012080.webp"
+    },
+    {
+      "barcode": "4710626110125",
+      "name": "愛之味脆瓜180g",
+      "oldImage": "images/products/canned/product-014.webp",
+      "newImage": "images/products/4710626110125.webp"
+    },
+    {
+      "barcode": "4710626111429",
+      "name": "愛之味土豆麵筋170g",
+      "oldImage": "images/products/canned/product-015.webp",
+      "newImage": "images/products/4710626111429.webp"
+    },
+    {
+      "barcode": "4710626111320",
+      "name": "愛之味玉筍120g",
+      "oldImage": "images/products/canned/product-016.webp",
+      "newImage": "images/products/4710626111320.webp"
+    },
+    {
+      "barcode": "4710095987440",
+      "name": "泰山八寶粥380g",
+      "oldImage": "images/products/canned/product-020.webp",
+      "newImage": "images/products/4710095987440.webp"
+    },
+    {
+      "barcode": "4710095958044",
+      "name": "泰山花生仁湯320g*24",
+      "oldImage": "images/products/canned/product-021.webp",
+      "newImage": "images/products/4710095958044.webp"
+    },
+    {
+      "barcode": "4710095937049",
+      "name": "泰山仙草蜜330g*24",
+      "oldImage": "images/products/canned/product-022.webp",
+      "newImage": "images/products/4710095937049.webp"
+    },
+    {
+      "barcode": "4710008286219",
+      "name": "味王調理快餐-紅燒牛腩*24盒",
+      "oldImage": "images/products/canned/product-024.webp",
+      "newImage": "images/products/4710008286219.webp"
+    },
+    {
+      "barcode": "4710008286271",
+      "name": "味王調理快餐-筍絲控肉*24盒",
+      "oldImage": "images/products/canned/product-025.webp",
+      "newImage": "images/products/4710008286271.webp"
+    },
+    {
+      "barcode": "4712140000142",
+      "name": "玉英剝皮辣椒450g",
+      "oldImage": "images/products/canned/product-027.webp",
+      "newImage": "images/products/4712140000142.webp"
+    },
+    {
+      "barcode": "4710088512963",
+      "name": "統一阿Q桶麵-紅椒牛肉*12",
+      "oldImage": "images/products/noodles/product-028.webp",
+      "newImage": "images/products/4710088512963.webp"
+    },
+    {
+      "barcode": "4710088512970",
+      "name": "統一阿Q桶麵-雞汁排骨*12",
+      "oldImage": "images/products/noodles/product-029.webp",
+      "newImage": "images/products/4710088512970.webp"
+    },
+    {
+      "barcode": "4710088930682",
+      "name": "統一阿Q桶麵-蒜香珍肉*12",
+      "oldImage": "images/products/noodles/product-030.webp",
+      "newImage": "images/products/4710088930682.webp"
+    },
+    {
+      "barcode": "4710088931863",
+      "name": "統一蔥燒牛袋5*6",
+      "oldImage": "images/products/noodles/product-031.webp",
+      "newImage": "images/products/4710088931863.webp"
+    },
+    {
+      "barcode": "4710088510457",
+      "name": "統一調和米粉肉燥袋麵6*5",
+      "oldImage": "images/products/noodles/product-032.webp",
+      "newImage": "images/products/4710088510457.webp"
+    },
+    {
+      "barcode": "4710088510198",
+      "name": "統一科學麵5*8",
+      "oldImage": "images/products/noodles/product-033.webp",
+      "newImage": "images/products/4710088510198.webp"
+    },
+    {
+      "barcode": "4710088511959",
+      "name": "統一來一客川辣牛肉風味",
+      "oldImage": "images/products/noodles/product-034.webp",
+      "newImage": "images/products/4710088511959.webp"
+    },
+    {
+      "barcode": "4710088511980",
+      "name": "統一來一客韓式泡菜風味",
+      "oldImage": "images/products/noodles/product-035.webp",
+      "newImage": "images/products/4710088511980.webp"
+    },
+    {
+      "barcode": "4710088511911",
+      "name": "統一來一客京燉肉骨風味",
+      "oldImage": "images/products/noodles/product-036.webp",
+      "newImage": "images/products/4710088511911.webp"
+    },
+    {
+      "barcode": "4710088511935",
+      "name": "統一來一客鮮蝦魚板風味",
+      "oldImage": "images/products/noodles/product-037.webp",
+      "newImage": "images/products/4710088511935.webp"
+    },
+    {
+      "barcode": "4710088511782",
+      "name": "統一滿漢大餐蔥牛袋*3*4",
+      "oldImage": "images/products/noodles/product-038.webp",
+      "newImage": "images/products/4710088511782.webp"
+    },
+    {
+      "barcode": "4710088512208",
+      "name": "統一滿漢大餐蔥牛碗*6",
+      "oldImage": "images/products/noodles/product-039.webp",
+      "newImage": "images/products/4710088512208.webp"
+    },
+    {
+      "barcode": "4710088511799",
+      "name": "統一滿漢大餐蔥豬袋*3*4",
+      "oldImage": "images/products/noodles/product-040.webp",
+      "newImage": "images/products/4710088511799.webp"
+    },
+    {
+      "barcode": "4710088512246",
+      "name": "統一滿漢大餐蔥豬碗*6",
+      "oldImage": "images/products/noodles/product-041.webp",
+      "newImage": "images/products/4710088512246.webp"
+    },
+    {
+      "barcode": "4710088930187",
+      "name": "統一滿漢大餐麻辣牛袋*3*4",
+      "oldImage": "images/products/noodles/product-042.webp",
+      "newImage": "images/products/4710088930187.webp"
+    },
+    {
+      "barcode": "4710088512086",
+      "name": "統一滿漢大餐麻辣牛碗*6",
+      "oldImage": "images/products/noodles/product-043.webp",
+      "newImage": "images/products/4710088512086.webp"
+    },
+    {
+      "barcode": "4710088515247",
+      "name": "統一日式豚骨拉麵袋",
+      "oldImage": "images/products/noodles/product-044.webp",
+      "newImage": "images/products/4710088515247.webp"
+    },
+    {
+      "barcode": "4710088931931",
+      "name": "統一肉骨茶袋*5*6",
+      "oldImage": "images/products/noodles/product-045.webp",
+      "newImage": "images/products/4710088931931.webp"
+    },
+    {
+      "barcode": "4710088932013",
+      "name": "統一肉骨茶碗*12",
+      "oldImage": "images/products/noodles/product-046.webp",
+      "newImage": "images/products/4710088932013.webp"
+    },
+    {
+      "barcode": "4710088931924",
+      "name": "統一肉燥麵袋*5*6",
+      "oldImage": "images/products/noodles/product-047.webp",
+      "newImage": "images/products/4710088931924.webp"
+    },
+    {
+      "barcode": "4710088931993",
+      "name": "統一肉燥麵碗*12",
+      "oldImage": "images/products/noodles/product-048.webp",
+      "newImage": "images/products/4710088931993.webp"
+    },
+    {
+      "barcode": "4710088931276",
+      "name": "統一巷口乾麵(麻醬)4包入*6",
+      "oldImage": "images/products/noodles/product-049.webp",
+      "newImage": "images/products/4710088931276.webp"
+    },
+    {
+      "barcode": "4710088514394",
+      "name": "統一阿Q桶麵-韓式泡菜*12",
+      "oldImage": "images/products/noodles/product-050.webp",
+      "newImage": "images/products/4710088514394.webp"
+    },
+    {
+      "barcode": "4710088934369",
+      "name": "統一阿Q桶麵-生猛海鮮*12",
+      "oldImage": "images/products/noodles/product-051.webp",
+      "newImage": "images/products/4710088934369.webp"
+    },
+    {
+      "barcode": "4710199039106",
+      "name": "維力大乾麵地獄辣椒麵(袋)",
+      "oldImage": "images/products/noodles/product-052.webp",
+      "newImage": "images/products/4710199039106.webp"
+    },
+    {
+      "barcode": "4710199030776",
+      "name": "維力大乾麵紅油擔擔碗麵",
+      "oldImage": "images/products/noodles/product-053.webp",
+      "newImage": "images/products/4710199030776.webp"
+    },
+    {
+      "barcode": "4710199015322",
+      "name": "維力一度讚紅燒牛碗*12",
+      "oldImage": "images/products/noodles/product-056.webp",
+      "newImage": "images/products/4710199015322.webp"
+    },
+    {
+      "barcode": "4710199077719",
+      "name": "維力一度讚老甕牛肉碗*12",
+      "oldImage": "images/products/noodles/product-058.webp",
+      "newImage": "images/products/4710199077719.webp"
+    },
+    {
+      "barcode": "4710199015636",
+      "name": "維力炸醬麵(碗)",
+      "oldImage": "images/products/noodles/product-059.webp",
+      "newImage": "images/products/4710199015636.webp"
+    },
+    {
+      "barcode": "4710199014721",
+      "name": "維力炸醬麵袋5*6",
+      "oldImage": "images/products/noodles/product-060.webp",
+      "newImage": "images/products/4710199014721.webp"
+    },
+    {
+      "barcode": "4710110000024",
+      "name": "味味A排骨雞袋麵5*6",
+      "oldImage": "images/products/noodles/product-062.webp",
+      "newImage": "images/products/4710110000024.webp"
+    },
+    {
+      "barcode": "4710110231886",
+      "name": "味味一品極品紅燒牛肉袋麵3*4",
+      "oldImage": "images/products/noodles/product-063.webp",
+      "newImage": "images/products/4710110231886.webp"
+    },
+    {
+      "barcode": "4710110226592",
+      "name": "味味一品爌肉袋麵3*4",
+      "oldImage": "images/products/noodles/product-064.webp",
+      "newImage": "images/products/4710110226592.webp"
+    },
+    {
+      "barcode": "4710626159537",
+      "name": "愛之味分解茶",
+      "oldImage": "images/products/drinks/product-065.webp",
+      "newImage": "images/products/4710626159537.webp"
+    },
+    {
+      "barcode": "4710626567530",
+      "name": "愛之味-麥仔茶300ml*24",
+      "oldImage": "images/products/drinks/product-066.webp",
+      "newImage": "images/products/4710626567530.webp"
+    },
+    {
+      "barcode": "4711160003676",
+      "name": "保力達蠻牛200g*24",
+      "oldImage": "images/products/drinks/product-068.webp",
+      "newImage": "images/products/4711160003676.webp"
+    },
+    {
+      "barcode": "4710128023923",
+      "name": "蘋果西打350ml",
+      "oldImage": "images/products/drinks/product-069.webp",
+      "newImage": "images/products/4710128023923.webp"
+    },
+    {
+      "barcode": "4710911022669",
+      "name": "古道-百香綠茶300ml",
+      "oldImage": "images/products/drinks/product-070.webp",
+      "newImage": "images/products/4710911022669.webp"
+    },
+    {
+      "barcode": "4710911022683",
+      "name": "古道-梅子綠茶300ml",
+      "oldImage": "images/products/drinks/product-071.webp",
+      "newImage": "images/products/4710911022683.webp"
+    },
+    {
+      "barcode": "4710105157597",
+      "name": "光泉冷泡茶-頂香清茶(無糖)",
+      "oldImage": "images/products/drinks/product-072.webp",
+      "newImage": "images/products/4710105157597.webp"
+    },
+    {
+      "barcode": "4710154258665",
+      "name": "黑松果汁C系列300ml*24-百香果",
+      "oldImage": "images/products/drinks/product-073.webp",
+      "newImage": "images/products/4710154258665.webp"
+    },
+    {
+      "barcode": "4710154258634",
+      "name": "黑松果汁C系列300ml*24-柳橙",
+      "oldImage": "images/products/drinks/product-074.webp",
+      "newImage": "images/products/4710154258634.webp"
+    },
+    {
+      "barcode": "4710154258627",
+      "name": "黑松果汁C系列300ml*24-蘋果",
+      "oldImage": "images/products/drinks/product-075.webp",
+      "newImage": "images/products/4710154258627.webp"
+    },
+    {
+      "barcode": "4710154258641",
+      "name": "黑松果汁C系列300ml*24-葡萄",
+      "oldImage": "images/products/drinks/product-076.webp",
+      "newImage": "images/products/4710154258641.webp"
+    },
+    {
+      "barcode": "4710154420277",
+      "name": "黑松沙士330ml",
+      "oldImage": "images/products/drinks/product-077.webp",
+      "newImage": "images/products/4710154420277.webp"
+    },
+    {
+      "barcode": "4710154220310",
+      "name": "黑松沙士加鹽(330ml)",
+      "oldImage": "images/products/drinks/product-078.webp",
+      "newImage": "images/products/4710154220310.webp"
+    },
+    {
+      "barcode": "4710587184906",
+      "name": "紅牌速纖300ml*24",
+      "oldImage": "images/products/drinks/product-080.webp",
+      "newImage": "images/products/4710587184906.webp"
+    },
+    {
+      "barcode": "4711162987059",
+      "name": "匯竑阿薩姆原味奶茶300ml*24",
+      "oldImage": "images/products/drinks/product-081.webp",
+      "newImage": "images/products/4711162987059.webp"
+    },
+    {
+      "barcode": "4710085120246",
+      "name": "金車-伯朗咖啡(240ml)",
+      "oldImage": "images/products/drinks/product-082.webp",
+      "newImage": "images/products/4710085120246.webp"
+    },
+    {
+      "barcode": "4710946521199",
+      "name": "津津蘆筍汁245ml*24鐵罐",
+      "oldImage": "images/products/drinks/product-083.webp",
+      "newImage": "images/products/4710946521199.webp"
+    },
+    {
+      "barcode": "4710068976747",
+      "name": "開喜烏龍茶(有糖)300ml*24",
+      "oldImage": "images/products/drinks/product-084.webp",
+      "newImage": "images/products/4710068976747.webp"
+    },
+    {
+      "barcode": "4710094015335",
+      "name": "立頓草莓300ml*24",
+      "oldImage": "images/products/drinks/product-085.webp",
+      "newImage": "images/products/4710094015335.webp"
+    },
+    {
+      "barcode": "4710094097348",
+      "name": "立頓原味奶茶300ml*24",
+      "oldImage": "images/products/drinks/product-086.webp",
+      "newImage": "images/products/4710094097348.webp"
+    },
+    {
+      "barcode": "4710254023613",
+      "name": "立頓沁香奶綠300ml*24",
+      "oldImage": "images/products/drinks/product-087.webp",
+      "newImage": "images/products/4710254023613.webp"
+    },
+    {
+      "barcode": "4710079930531",
+      "name": "生活泡沫紅茶300ml*24",
+      "oldImage": "images/products/drinks/product-088.webp",
+      "newImage": "images/products/4710079930531.webp"
+    },
+    {
+      "barcode": "4710079920548",
+      "name": "生活泡沫綠茶300ml*24",
+      "oldImage": "images/products/drinks/product-089.webp",
+      "newImage": "images/products/4710079920548.webp"
+    },
+    {
+      "barcode": "4710079920555",
+      "name": "生活泡沫奶茶300ml*24",
+      "oldImage": "images/products/drinks/product-090.webp",
+      "newImage": "images/products/4710079920555.webp"
+    },
+    {
+      "barcode": "4710079920661",
+      "name": "生活泡沫花茶300ml*24",
+      "oldImage": "images/products/drinks/product-091.webp",
+      "newImage": "images/products/4710079920661.webp"
+    },
+    {
+      "barcode": "4711271012116",
+      "name": "台鹽-鹼性離子水600ml",
+      "oldImage": "images/products/drinks/product-092.webp",
+      "newImage": "images/products/4711271012116.webp"
+    },
+    {
+      "barcode": "4710088730152",
+      "name": "統一茶裏王日式綠茶*24",
+      "oldImage": "images/products/drinks/product-093.webp",
+      "newImage": "images/products/4710088730152.webp"
+    },
+    {
+      "barcode": "4710088730145",
+      "name": "統一茶裏王台式綠茶*24",
+      "oldImage": "images/products/drinks/product-094.webp",
+      "newImage": "images/products/4710088730145.webp"
+    },
+    {
+      "barcode": "4710088570819",
+      "name": "統一咖啡廣場300ml",
+      "oldImage": "images/products/drinks/product-095.webp",
+      "newImage": "images/products/4710088570819.webp"
+    },
+    {
+      "barcode": "4710088522054",
+      "name": "統一麥香紅茶300ml*24",
+      "oldImage": "images/products/drinks/product-096.webp",
+      "newImage": "images/products/4710088522054.webp"
+    },
+    {
+      "barcode": "4710088735362",
+      "name": "統一麥香綠茶300ml*24",
+      "oldImage": "images/products/drinks/product-097.webp",
+      "newImage": "images/products/4710088735362.webp"
+    },
+    {
+      "barcode": "4710088522061",
+      "name": "統一麥香奶茶300ml*24",
+      "oldImage": "images/products/drinks/product-098.webp",
+      "newImage": "images/products/4710088522061.webp"
+    },
+    {
+      "barcode": "4710088920263",
+      "name": "統一蜜豆奶(雞蛋) 250ml*24",
+      "oldImage": "images/products/drinks/product-099.webp",
+      "newImage": "images/products/4710088920263.webp"
+    },
+    {
+      "barcode": "4710421029097",
+      "name": "維他露P330ml*24",
+      "oldImage": "images/products/drinks/product-100.webp",
+      "newImage": "images/products/4710421029097.webp"
+    },
+    {
+      "barcode": "4710421074202",
+      "name": "維他露每朝藏熟紅茶(650ml)",
+      "oldImage": "images/products/drinks/product-101.webp",
+      "newImage": "images/products/4710421074202.webp"
+    },
+    {
+      "barcode": "4710421160011",
+      "name": "維他露每朝健康綠茶(650ml)",
+      "oldImage": "images/products/drinks/product-102.webp",
+      "newImage": "images/products/4710421160011.webp"
+    },
+    {
+      "barcode": "4710063316210",
+      "name": "味全貝納頌咖啡鋁箔375ml*24",
+      "oldImage": "images/products/drinks/product-103.webp",
+      "newImage": "images/products/4710063316210.webp"
+    },
+    {
+      "barcode": "4710018152719",
+      "name": "原萃綠茶",
+      "oldImage": "images/products/drinks/product-104.webp",
+      "newImage": "images/products/4710018152719.webp"
+    }
+  ],
+  "missingImageRows": [
+    {
+      "barcode": "",
+      "name": "綠巨人珍玉米粒易340G",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "萬家香素蠔油300CC",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "牛頭牌沙茶醬127g",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "三興小茄汁鯖魚210G",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "小磨坊白胡椒250G",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度贊袋-麻辣牛肉鍋麵",
+      "reason": "同一條碼對應多個商品，無法建立唯一條碼圖片；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚紅燒牛袋3*4",
+      "reason": "同一條碼對應多個商品，無法建立唯一條碼圖片；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚爌肉袋3*4",
+      "reason": "目前與紅燒牛袋共用同一張圖片，為避免錯圖已停止顯示；需補正確爌肉袋圖片與條碼"
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度讚麻辣牛肉袋3*4",
+      "reason": "同一條碼對應多個商品，無法建立唯一條碼圖片；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "可爾必思330ml",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    },
+    {
+      "barcode": "",
+      "name": "黑松FIN補給飲料330ml",
+      "reason": "Excel 條碼空白，無法建立 images/products/{barcode}.webp；暫時保留既有已配對圖片"
+    }
+  ],
+  "manualReview": [
+    {
+      "barcode": "",
+      "name": "綠巨人珍玉米粒易340G",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "",
+      "name": "萬家香素蠔油300CC",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "",
+      "name": "牛頭牌沙茶醬127g",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "",
+      "name": "三興小茄汁鯖魚210G",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "",
+      "name": "小磨坊白胡椒250G",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度贊袋-麻辣牛肉鍋麵",
+      "reason": "重複條碼，需人工確認正確條碼"
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚紅燒牛袋3*4",
+      "reason": "重複條碼，需人工確認正確條碼"
+    },
+    {
+      "barcode": "4710199017210",
+      "name": "維力一度讚爌肉袋3*4",
+      "reason": "疑似錯圖且條碼與紅燒牛袋重複"
+    },
+    {
+      "barcode": "4710199114117",
+      "name": "維力一度讚麻辣牛肉袋3*4",
+      "reason": "重複條碼，需人工確認正確條碼"
+    },
+    {
+      "barcode": "",
+      "name": "可爾必思330ml",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    },
+    {
+      "barcode": "",
+      "name": "黑松FIN補給飲料330ml",
+      "reason": "缺少條碼，圖片無法改為條碼命名"
+    }
+  ],
+  "unmatched": []
+}
