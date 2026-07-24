@@ -1,0 +1,173 @@
+{
+  "summary": {
+    "source": "寮國商品成本定價與整批利潤_正式版_全商品2.5倍-2.xlsx",
+    "sheet": "商品定價",
+    "category": "餅乾",
+    "priceColumn": "S 採用一入售價 USD",
+    "totalExcelProducts": 13,
+    "totalStoreProducts": 13,
+    "matchedProducts": 13,
+    "updatedProducts": 11,
+    "unchangedProducts": 2,
+    "unmatchedProducts": 0,
+    "updatedAt": "2026-07-24"
+  },
+  "details": [
+    {
+      "barcode": "4710015114857",
+      "productName": "乖乖奶油椰子",
+      "excelName": "乖乖奶油椰子*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 4.0,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 4.0,
+      "status": "價格相同"
+    },
+    {
+      "barcode": "4710015115991",
+      "productName": "乖乖巧克力",
+      "excelName": "乖乖巧克力*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 4.0,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 4.0,
+      "status": "價格相同"
+    },
+    {
+      "barcode": "4710176121145",
+      "productName": "華元波特多 蚵仔煎",
+      "excelName": "華元波特多/蚵仔煎*34g*10",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.0,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.0,
+      "status": "已更新"
+    },
+    {
+      "barcode": "14710176039461",
+      "productName": "華元鹹蔬餅",
+      "excelName": "華元鹹蔬餅50g*10",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "4710176011040",
+      "productName": "華元真魷味红烧口味",
+      "excelName": "華元真魷味红烧口味*50g*10",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "062241",
+      "productName": "卡迪那德州薯條",
+      "excelName": "卡迪那德州薯條*38g*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "063022",
+      "productName": "卡迪那滿天星",
+      "excelName": "卡迪那滿天星32g*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "060476",
+      "productName": "聯華可樂果 原味",
+      "excelName": "聯華可樂果-原味48g*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "060554",
+      "productName": "聯華可樂果 辣味",
+      "excelName": "聯華可樂果-辣味48g*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 4.0,
+      "newBaseUnitPrice": 3.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 4.0,
+      "newSalePrice": 3.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "4710126021013",
+      "productName": "義美小泡芙 草莓",
+      "excelName": "義美小泡芙-草莓57g",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 7.0,
+      "newBaseUnitPrice": 6.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 7.0,
+      "newSalePrice": 6.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "4710126021020",
+      "productName": "義美小泡芙 牛奶",
+      "excelName": "義美小泡芙-牛奶57g",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 7.0,
+      "newBaseUnitPrice": 6.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 7.0,
+      "newSalePrice": 6.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "4710126021006",
+      "productName": "義美小泡芙 巧克力",
+      "excelName": "義美小泡芙-巧克力57g",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 7.0,
+      "newBaseUnitPrice": 6.5,
+      "unitsPerSale": 1,
+      "oldSalePrice": 7.0,
+      "newSalePrice": 6.5,
+      "status": "已更新"
+    },
+    {
+      "barcode": "4710126012080",
+      "productName": "義美原味蛋捲",
+      "excelName": "義美原味蛋捲*12",
+      "matchMethod": "條碼",
+      "oldBaseUnitPrice": 8.0,
+      "newBaseUnitPrice": 7.0,
+      "unitsPerSale": 1,
+      "oldSalePrice": 8.0,
+      "newSalePrice": 7.0,
+      "status": "已更新"
+    }
+  ]
+}
