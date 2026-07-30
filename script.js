@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260724-cookie-v1";
+const BUILD_VERSION = "20260730-stock-private-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -328,7 +328,6 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
       </div>
       <p class="stock-line">${cardSpecText}</p>
-      <p class="stock-line stock-remaining-line ${availableSaleQty <= 3 ? "is-low-stock" : ""}">剩餘庫存：${availableSaleQty}${product.saleUnit}</p>
     </div>
     <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
   `;
@@ -535,7 +534,7 @@ function changeQty(key, delta) {
   } else if (product && next <= maxPurchaseQty(product, purchaseType, key)) {
     state.cart.set(key, next);
   } else {
-    alert(`目前庫存不足，最多可購買 ${maxPurchaseQty(product, purchaseType, key)} ${purchaseType === "case" ? "箱" : product.unitName}。`);
+    alert("目前可購買數量不足，請調整購買數量或聯繫客服。");
   }
   renderCart();
 }
@@ -628,7 +627,7 @@ function renderCart() {
     row.innerHTML = `
       <div>
         <strong>${product.name}</strong>
-        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.specText ? `｜${product.specText}` : ""}｜可購買 ${maxPurchaseQty(product, "unit", key)}${saleUnit}</p>
+        <p class="form-note">${product.category}｜${unitMode ? unitPriceText : `單件 ${formatPrice(product)}`}${product.specText ? `｜${product.specText}` : ""}</p>
         <div class="purchase-type" aria-label="購買方式">
           <span>購買方式</span>
           <button type="button" class="${unitMode ? "is-active" : ""}" ${unitMode ? "disabled" : ""} data-purchase-type="unit">單${saleUnit}</button>
