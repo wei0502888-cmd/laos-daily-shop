@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260803-noodle-image-fixes-v4";
+const BUILD_VERSION = "20260803-telegram-name-v5";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -65,6 +65,7 @@ const cartDrawer = document.querySelector("[data-cart-drawer]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
 const form = document.querySelector("[data-order-form]");
+const telegramNameInput = form?.querySelector('[name="name"]');
 const orderSuccess = document.querySelector("[data-order-success]");
 const orderCount = document.querySelector("[data-order-count]");
 const orderDetailList = document.querySelector("[data-order-detail-list]");
@@ -776,7 +777,7 @@ function orderMessage(order) {
     `金額：${amountText}`,
     `商品：${itemSummary}`,
     "",
-    `客戶：${name}`,
+    `Telegram 名稱：${name}`,
     `電話：${phone}`,
     `地址：${address}`,
     "",
@@ -809,7 +810,8 @@ function shortOrderAnomalySummary(anomalies, hasUnpriced) {
   const items = [...anomalies];
   if (hasUnpriced) items.push("商品待定價");
   return [...new Set(items.map((item) => {
-    if (item.includes("姓名")) return "姓名未填";
+    if (item.includes("Telegram 名稱格式")) return "Telegram 名稱格式異常";
+    if (item.includes("Telegram 名稱") || item.includes("姓名")) return "Telegram 名稱未填";
     if (item.includes("電話格式")) return "電話格式異常";
     if (item.includes("電話")) return "電話未填";
     if (item.includes("地址")) return "地址未填";
@@ -841,7 +843,11 @@ function formatOrderTime(date) {
 
 function orderAnomalies({ name, phone, address, items, hasUnpriced }) {
   const anomalies = [];
-  if (!name) anomalies.push("客戶姓名未填寫");
+  if (!name) {
+    anomalies.push("Telegram 名稱未填寫");
+  } else if (!isValidTelegramName(name)) {
+    anomalies.push("Telegram 名稱格式異常");
+  }
   if (!phone) {
     anomalies.push("電話未填寫");
   } else if (!/^\+?[0-9][0-9\s()\-]{6,}$/.test(phone)) {
@@ -1046,6 +1052,7 @@ function renderOrderLookupResult(data) {
       </div>
       ${renderOrderProgress(order.status || "已收到訂單")}
       <dl>
+        <div><dt>Telegram 名稱</dt><dd>${escapeHtml(order.customerName || "-")}</dd></div>
         <div><dt>下單時間</dt><dd>${escapeHtml(order.createdAt || "-")}</dd></div>
         <div><dt>更新時間</dt><dd>${escapeHtml(order.updatedAt || "-")}</dd></div>
         <div><dt>商品明細</dt><dd>${escapeHtml(order.items || "-").replaceAll("\n", "<br>")}</dd></div>
@@ -1113,10 +1120,31 @@ search.addEventListener("input", (event) => {
 
 window.addEventListener("resize", updateStickyMetrics);
 
+telegramNameInput?.addEventListener("invalid", () => {
+  if (!telegramNameInput.value.trim()) {
+    telegramNameInput.setCustomValidity("請填寫 Telegram 名稱，方便客服確認訂單與付款資訊。");
+  }
+});
+
+telegramNameInput?.addEventListener("input", () => {
+  telegramNameInput.setCustomValidity("");
+});
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (state.cart.size === 0) {
     alert("請先加入至少一項商品。");
+    return;
+  }
+  const telegramName = String(telegramNameInput?.value || "").trim();
+  if (!telegramName) {
+    alert("請填寫 Telegram 名稱，方便客服確認訂單與付款資訊。");
+    telegramNameInput?.focus();
+    return;
+  }
+  if (!isValidTelegramName(telegramName)) {
+    alert("請填寫 Telegram 顯示名稱或 @帳號。");
+    telegramNameInput?.focus();
     return;
   }
   const submitButton = form.querySelector("button[type='submit']");
@@ -1140,6 +1168,10 @@ form.addEventListener("submit", async (event) => {
     submitButton.textContent = "送出訂單";
   }
 });
+
+function isValidTelegramName(value) {
+  return /^[\p{Script=Han}A-Za-z0-9@ ]+$/u.test(String(value || "").trim());
+}
 
 if (orderLookupForm) {
   orderLookupForm.addEventListener("submit", async (event) => {
