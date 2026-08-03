@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260730-stock-private-v1";
+const BUILD_VERSION = "20260803-shopping-flow-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -667,7 +667,6 @@ function renderCart() {
         <strong>${product.name}</strong>
         <span>${product.category}｜${unitPriceText} x ${quantityText}</span>
       </div>
-      <em>剩 ${Math.floor(Math.max(product.stockQty - cartUsedUnits(product.id), 0) / (product.unitsPerSale || 1))}${saleUnit}</em>
     `;
     orderDetailList.append(detail);
   });
@@ -882,9 +881,9 @@ function renderSuccessDetail(formData, order) {
       <p>合計：${amountText}</p>
     </div>
     <div class="success-section">
-      <strong>${config.payment?.title || "匯款 / U 帳號"}</strong>
-      <p>${config.payment?.account || "請洽專人提供 U 帳號"}</p>
-      <small>${config.payment?.note || "確認付款後安排出貨"}</small>
+      <strong>${config.payment?.title || "付款與訂單確認"}</strong>
+      <p>${config.payment?.account || "請先聯絡官方 Telegram 客服確認訂單，客服將提供正式付款資訊。"}</p>
+      <small>${config.payment?.note || "完成付款並回傳付款證明後，客服確認款項並安排出貨。"}</small>
     </div>
     <div class="success-section">
       <strong>收件資料</strong>
@@ -895,9 +894,9 @@ function renderSuccessDetail(formData, order) {
 }
 
 function applyPaymentConfig() {
-  paymentTitle.textContent = config.payment?.title || "匯款 / U 帳號";
-  paymentAccount.textContent = config.payment?.account || "請洽專人提供 U 帳號";
-  paymentNote.textContent = config.payment?.note || "確認付款後安排出貨";
+  paymentTitle.textContent = config.payment?.title || "付款與訂單確認";
+  paymentAccount.textContent = config.payment?.account || "請先聯絡官方 Telegram 客服確認訂單，客服將提供正式付款資訊。";
+  paymentNote.textContent = config.payment?.note || "完成付款並回傳付款證明後，客服確認款項並安排出貨。";
 }
 
 async function sendOrder(order) {

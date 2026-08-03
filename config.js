@@ -7,8 +7,8 @@ window.SHOP_CONFIG = {
   },
   orderStatusEndpoint: "https://script.google.com/macros/s/AKfycbxjV2WdkWufduFaKSTFS30ubUVsw9UaIkvcG44PdOg_Kt5uPDM37eSBduwNMLqR2qt5Xg/exec",
   payment: {
-    title: "匯款 / U 帳號",
-    account: "請洽專人提供 U 帳號",
-    note: "確認付款後安排出貨",
+    title: "付款與訂單確認",
+    account: "訂單送出後，請先聯絡官方 Telegram 客服確認商品與應付金額。",
+    note: "完成付款並回傳付款證明後，客服確認款項並安排出貨。",
   },
 };
