@@ -64,6 +64,7 @@ button {
 }
 
 .telegram-sticky-wrap {
+  display: none;
   position: sticky;
   top: var(--telegram-sticky-top, 66px);
   z-index: 4;
@@ -128,14 +129,6 @@ button {
   display: none;
 }
 
-.telegram-sticky-note {
-  min-width: 0;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
 .telegram-sticky-button {
   display: inline-flex;
   flex: 0 0 auto;
@@ -164,8 +157,9 @@ button {
   outline-offset: 2px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 860px) {
   .telegram-sticky-wrap {
+    display: block;
     padding: 5px 10px;
   }
 
@@ -178,15 +172,6 @@ button {
 
   .telegram-sticky-info {
     gap: 7px;
-  }
-
-  .telegram-label-full,
-  .telegram-sticky-note {
-    display: none;
-  }
-
-  .telegram-label-short {
-    display: inline;
   }
 
   .telegram-sticky-label {
@@ -258,6 +243,81 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+.telegram-header-cta {
+  display: inline-flex;
+  flex: 0 1 300px;
+  align-items: center;
+  gap: 9px;
+  width: clamp(260px, 26vw, 300px);
+  height: 42px;
+  padding: 4px 5px 4px 11px;
+  border: 1px solid rgba(61, 107, 84, 0.2);
+  border-radius: 15px;
+  background: rgba(238, 242, 235, 0.96);
+  box-shadow: 0 5px 14px rgba(35, 67, 52, 0.06);
+}
+
+.telegram-header-icon {
+  flex: 0 0 auto;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.telegram-header-copy {
+  display: grid;
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.05;
+}
+
+.telegram-header-copy strong {
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.telegram-header-copy a {
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 950;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.telegram-header-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  height: 34px;
+  padding: 0 11px;
+  border-radius: 11px;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+  transition: background 0.16s ease, transform 0.16s ease;
+}
+
+.telegram-header-button:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.telegram-header-button:focus-visible,
+.telegram-header-copy a:focus-visible {
+  outline: 3px solid rgba(198, 154, 73, 0.48);
+  outline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+  .telegram-header-cta {
+    display: none;
+  }
 }
 
 .order-lookup-pill,
