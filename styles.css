@@ -63,6 +63,159 @@ button {
   backdrop-filter: blur(16px);
 }
 
+.telegram-sticky-wrap {
+  position: sticky;
+  top: var(--telegram-sticky-top, 66px);
+  z-index: 4;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 6px 16px;
+  background: rgba(245, 246, 243, 0.94);
+  backdrop-filter: blur(16px);
+}
+
+.telegram-sticky-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 50px;
+  padding: 6px 8px 6px 14px;
+  border: 1px solid rgba(61, 107, 84, 0.2);
+  border-radius: 16px;
+  background: rgba(238, 242, 235, 0.98);
+  box-shadow: 0 6px 18px rgba(35, 67, 52, 0.07);
+}
+
+.telegram-sticky-info {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.telegram-sticky-icon {
+  flex: 0 0 auto;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.telegram-sticky-label {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.telegram-sticky-label strong {
+  color: var(--green-dark);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.telegram-sticky-label a {
+  color: var(--green-dark);
+  font-size: 16px;
+  font-weight: 950;
+  text-decoration: underline;
+  text-decoration-color: rgba(61, 107, 84, 0.28);
+  text-underline-offset: 3px;
+}
+
+.telegram-label-short {
+  display: none;
+}
+
+.telegram-sticky-note {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.telegram-sticky-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 94px;
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 13px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+  box-shadow: 0 8px 16px rgba(31, 92, 67, 0.15);
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.telegram-sticky-button:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.telegram-sticky-button:focus-visible,
+.telegram-sticky-label a:focus-visible {
+  outline: 3px solid rgba(198, 154, 73, 0.48);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .telegram-sticky-wrap {
+    padding: 5px 10px;
+  }
+
+  .telegram-sticky-bar {
+    gap: 8px;
+    min-height: 50px;
+    padding: 5px 6px 5px 10px;
+    border-radius: 14px;
+  }
+
+  .telegram-sticky-info {
+    gap: 7px;
+  }
+
+  .telegram-label-full,
+  .telegram-sticky-note {
+    display: none;
+  }
+
+  .telegram-label-short {
+    display: inline;
+  }
+
+  .telegram-sticky-label {
+    display: grid;
+    gap: 0;
+    line-height: 1.15;
+  }
+
+  .telegram-sticky-label strong {
+    font-size: 11px;
+  }
+
+  .telegram-sticky-label a {
+    font-size: 14px;
+  }
+
+  .telegram-sticky-button {
+    min-width: 86px;
+    min-height: 38px;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .telegram-sticky-icon {
+    display: none;
+  }
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -2090,7 +2243,7 @@ textarea,
 .category-section {
   position: sticky;
   top: var(--sticky-category-top, 66px);
-  z-index: 4;
+  z-index: 3;
   margin-inline: -16px;
   padding: 12px 16px 14px;
   background: rgba(245, 246, 243, 0.94);

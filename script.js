@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260803-shopping-flow-v1";
+const BUILD_VERSION = "20260803-telegram-sticky-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -256,14 +256,17 @@ function scrollToProductSection() {
 
 function currentScrollOffset() {
   const topbarHeight = document.querySelector(".topbar")?.getBoundingClientRect().height || 0;
+  const telegramHeight = document.querySelector(".telegram-sticky-wrap")?.getBoundingClientRect().height || 0;
   const categoryHeight = document.querySelector(".category-section")?.getBoundingClientRect().height || 0;
-  return Math.ceil(topbarHeight + categoryHeight + 14);
+  return Math.ceil(topbarHeight + telegramHeight + categoryHeight + 14);
 }
 
 function updateStickyMetrics() {
   const topbarHeight = Math.ceil(document.querySelector(".topbar")?.getBoundingClientRect().height || 0);
+  const telegramHeight = Math.ceil(document.querySelector(".telegram-sticky-wrap")?.getBoundingClientRect().height || 0);
   const scrollOffset = currentScrollOffset();
-  document.documentElement.style.setProperty("--sticky-category-top", `${topbarHeight}px`);
+  document.documentElement.style.setProperty("--telegram-sticky-top", `${topbarHeight}px`);
+  document.documentElement.style.setProperty("--sticky-category-top", `${topbarHeight + telegramHeight}px`);
   document.documentElement.style.setProperty("--product-scroll-margin", `${scrollOffset}px`);
 }
 
