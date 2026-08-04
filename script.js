@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260803-telegram-name-v5";
+const BUILD_VERSION = "20260804-home-product-order-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -397,6 +397,40 @@ function renderActiveTabs() {
   });
 }
 
+const drinkPackageOrderRules = [
+  {
+    order: 0,
+    pattern: /鋁箔|麥香|光泉|義美|蜜豆奶|古道|黑松果汁|阿薩姆|立頓|生活泡沫|咖啡廣場|貝納頌/,
+  },
+  {
+    order: 1,
+    pattern: /鋁罐|鐵罐|可樂|雪碧|FIN|補給飲料|舒跑|維他露(?!每朝)|黑松沙士|蘋果西打|蠻牛|伯朗咖啡|津津蘆筍汁/,
+  },
+  {
+    order: 2,
+    pattern: /寶特瓶|原萃|每朝|御茶園|開喜|台鹽|茶裏王|分解茶|麥仔茶|速纖|鹼性離子水/,
+  },
+];
+
+function productDisplayOrder(product) {
+  const productText = [product.name, product.displayName, product.rawName, product.packageType]
+    .filter(Boolean)
+    .join(" ");
+
+  if (product.category === "飲料") {
+    return drinkPackageOrderRules.find((rule) => rule.pattern.test(productText))?.order ?? 6;
+  }
+
+  if (product.category === "泡麵") {
+    if (/碗裝|桶裝/.test(productText) || ["碗", "桶"].includes(product.unitName)) return 3;
+    if (/袋裝/.test(productText) || product.unitName === "包") return 4;
+    return 6;
+  }
+
+  if (product.category === "罐頭") return 5;
+  return 6;
+}
+
 function filteredProducts() {
   const categoryOrder = new Map(state.categories.map((category, index) => [category.name, index]));
   return state.products
@@ -416,6 +450,8 @@ function filteredProducts() {
     .sort((a, b) => {
       const categoryDifference = (categoryOrder.get(a.category) ?? 999) - (categoryOrder.get(b.category) ?? 999);
       if (categoryDifference !== 0) return categoryDifference;
+      const displayOrderDifference = productDisplayOrder(a) - productDisplayOrder(b);
+      if (displayOrderDifference !== 0) return displayOrderDifference;
       const priceA = isPriced(a.price) ? a.price : Number.POSITIVE_INFINITY;
       const priceB = isPriced(b.price) ? b.price : Number.POSITIVE_INFINITY;
       return priceA - priceB || a.name.localeCompare(b.name, "zh-Hant");
