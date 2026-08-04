@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260804-home-product-order-v1";
+const BUILD_VERSION = "20260804-product-visibility-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -1124,7 +1124,9 @@ async function loadShopData() {
     const data = await response.json();
     state.categories = data.categories || [];
     state.hotNames = data.hotProducts || [];
-    state.products = (data.products || []).map(normalizeProduct).filter((product) => product.stockQty > 0);
+    state.products = (data.products || [])
+      .map(normalizeProduct)
+      .filter((product) => product.isActive !== false && product.stockQty > 0);
     renderTabs();
     renderHotProducts();
     renderNewProducts();
