@@ -720,9 +720,12 @@ function pickingItemsToText_(items) {
       : formatUsd_(item.salePrice);
     const spec = item.specText || item.packageType || "一般商品";
     const saleUnit = item.purchaseType === "case" ? "箱" : (item.saleUnit || item.unitName || "件");
+    const itemTitle = spec === "3碗／組"
+      ? item.name + "（" + spec + "）"
+      : item.name;
     return [
-      (index + 1) + ". " + item.name,
-      "   " + spec,
+      (index + 1) + ". " + itemTitle,
+      ...(spec === "3碗／組" ? [] : ["   " + spec]),
       "   數量：" + item.quantity + saleUnit,
       "   實際揀貨：" + item.usedUnits + (item.unitName || "件"),
       "   單價：" + unitPrice,

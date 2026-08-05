@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260804-product-visibility-v1";
+const BUILD_VERSION = "20260805-three-cup-products-v6";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -169,6 +169,7 @@ function productCardSpecText(product) {
   const packageType = product.packageType || packageTypeMap[product.category] || "單件";
   if (product.specText) {
     const compactSpec = product.specText.replace(/單([^｜]+)販售/g, "1$1");
+    if (compactSpec === "3碗／組") return compactSpec;
     return compactSpec.includes("｜") ? compactSpec : `${packageType}｜${compactSpec}`;
   }
   return `${packageType}｜1${unit}`;
@@ -838,7 +839,8 @@ function shortOrderItemSummary(items, itemCount, totalCount) {
       item.purchaseType === "case"
         ? `${item.quantity}箱（${item.usedUnits}${unitName}）`
         : `${item.quantity}${item.saleUnit || unitName}${item.usedUnits && item.usedUnits !== item.quantity ? `（${item.usedUnits}${unitName}）` : ""}`;
-    return `${item.name} × ${quantityText}`;
+    const specText = item.specText === "3碗／組" ? `（${item.specText}）` : "";
+    return `${item.name}${specText} × ${quantityText}`;
   }).join("、") || "無商品明細";
 }
 
