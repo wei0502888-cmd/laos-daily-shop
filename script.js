@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260817-drink-case-purchase-v10";
+const BUILD_VERSION = "20260817-mobile-shop-v12";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -79,6 +79,10 @@ const productSection = document.querySelector(".all-products-section");
 const productsTitle = document.querySelector("#products-title");
 const orderLookupForm = document.querySelector("[data-order-lookup-form]");
 const orderLookupResult = document.querySelector("[data-order-lookup-result]");
+const mobileCartDock = document.querySelector("[data-mobile-cart-dock]");
+const mobileCartCount = document.querySelector("[data-mobile-cart-count]");
+const mobileCartAmount = document.querySelector("[data-mobile-cart-amount]");
+const mobileOpenCart = document.querySelector("[data-mobile-open-cart]");
 
 let toastTimer;
 
@@ -651,6 +655,7 @@ function renderCart() {
   orderCount.textContent = `${saleCount} 組商品`;
 
   if (!items.length) {
+    if (mobileCartDock) mobileCartDock.hidden = true;
     cartItems.innerHTML = '<p class="form-note">購物車目前是空的，先把想補貨的品項加進來。</p>';
     orderDetailList.innerHTML = '<p class="form-note">尚未選擇商品。</p>';
     if (checkoutTotal) {
@@ -658,6 +663,10 @@ function renderCart() {
     }
     return;
   }
+
+  if (mobileCartDock) mobileCartDock.hidden = false;
+  if (mobileCartCount) mobileCartCount.textContent = `購物車 ${itemCount} 項`;
+  if (mobileCartAmount) mobileCartAmount.textContent = amountText;
 
   items.forEach(({ key, product, purchaseType, qty, usedUnits, lineTotal }) => {
     const unitMode = purchaseType === "unit";
@@ -747,6 +756,7 @@ function renderCart() {
 function openCart() {
   cartDrawer.classList.add("is-open");
   cartDrawer.setAttribute("aria-hidden", "false");
+  document.body.classList.add("cart-is-open");
   if (state.cart.size > 0) {
     form.hidden = false;
     orderSuccess.hidden = true;
@@ -756,6 +766,7 @@ function openCart() {
 function closeCart() {
   cartDrawer.classList.remove("is-open");
   cartDrawer.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("cart-is-open");
 }
 
 function buildOrderPayload(formData) {
@@ -1159,6 +1170,7 @@ async function loadShopData() {
 }
 
 document.querySelector("[data-open-cart]").addEventListener("click", openCart);
+mobileOpenCart?.addEventListener("click", openCart);
 document.querySelector("[data-close-cart]").addEventListener("click", closeCart);
 cartDrawer.addEventListener("click", (event) => {
   if (event.target === cartDrawer) closeCart();

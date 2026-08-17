@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="build-version" content="20260817-social-preview-v11" />
+    <meta name="build-version" content="20260817-mobile-shop-v12" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>LAOS DAILY SHOP｜寮國台灣生活補給站</title>
     <meta
@@ -33,9 +33,9 @@
       content="在寮國也能輕鬆購買熟悉的台灣味。選購台灣泡麵、飲料、零食與日常用品。"
     />
     <meta name="twitter:image" content="https://wei0502888-cmd.github.io/laos-daily-shop/hero-lifestyle.png?v=20260817" />
-    <link rel="stylesheet" href="./styles.css?v=20260817-drink-case-purchase-v10" />
+    <link rel="stylesheet" href="./styles.css?v=20260817-mobile-shop-v12" />
   </head>
-  <body data-build-version="20260817-drink-case-purchase-v10">
+  <body data-build-version="20260817-mobile-shop-v12">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="LAOS DAILY SHOP 首頁">
         <span class="brand-mark">LDS</span>
@@ -167,6 +167,11 @@
         </div>
       </section>
 
+      <aside class="mobile-order-guide" aria-label="手機版訂購方式">
+        <strong>如何訂購？</strong>
+        <span>點「＋」加入商品 → 點下方「查看購物車」→ 填寫資料並送出訂單。</span>
+      </aside>
+
       <section class="section-block all-products-section" aria-labelledby="products-title">
         <div class="section-heading">
           <div>
@@ -250,6 +255,7 @@
           <h2 id="cart-title">購物車</h2>
           <button type="button" data-close-cart aria-label="關閉購物車">關閉</button>
         </div>
+        <p class="cart-order-guide">確認商品後，請往下填寫 Telegram 名稱、電話與地址，再按「送出訂單」。</p>
         <div class="cart-items" data-cart-items></div>
         <form class="checkout-form" data-order-form>
           <h3>下單資料</h3>
@@ -340,7 +346,15 @@
       </div>
     </aside>
 
-    <script src="./config.js?v=20260817-drink-case-purchase-v10"></script>
-    <script src="./script.js?v=20260817-drink-case-purchase-v10"></script>
+    <div class="mobile-cart-dock" data-mobile-cart-dock hidden>
+      <div class="mobile-cart-dock-summary">
+        <small data-mobile-cart-count>購物車 0 項</small>
+        <strong data-mobile-cart-amount>USD 0</strong>
+      </div>
+      <button type="button" data-mobile-open-cart>查看購物車 →</button>
+    </div>
+
+    <script src="./config.js?v=20260817-mobile-shop-v12"></script>
+    <script src="./script.js?v=20260817-mobile-shop-v12"></script>
   </body>
 </html>
