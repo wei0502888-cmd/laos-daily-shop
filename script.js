@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260806-generated-three-pack-images-v9";
+const BUILD_VERSION = "20260817-drink-case-purchase-v10";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const iconMap = {
@@ -319,7 +319,15 @@ function productCard(product) {
   const productVisual = imageList.length
     ? `<img src="${imageList[0]}" data-src-list='${JSON.stringify([...imageList, ...fallbackList])}' alt="${product.name} 商品圖" loading="lazy" />`
     : placeholder;
-  card.className = "product-card";
+  const casePurchaseActions = product.caseEnabled
+    ? `
+      <div class="product-actions product-purchase-actions" aria-label="${product.name} 購買方式">
+        <button class="add-button unit-button" type="button" data-add-type="unit">單${product.saleUnit || product.unitName}</button>
+        <button class="add-button case-button" type="button" data-add-type="case">整箱 ${product.caseQuantity}入</button>
+      </div>
+    `
+    : "";
+  card.className = `product-card${product.caseEnabled ? " has-case-options" : ""}`;
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="badge-row">${badges}</div>
@@ -333,8 +341,9 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
       </div>
       <p class="stock-line">${cardSpecText}</p>
+      ${casePurchaseActions}
     </div>
-    <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
+    ${product.caseEnabled ? "" : `<button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>`}
   `;
   const image = card.querySelector("img");
   if (image) {
@@ -364,12 +373,14 @@ function productCard(product) {
     });
   });
   const quickAdd = card.querySelector("[data-quick-add]");
-  quickAdd.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (addToCart(product.id, "unit")) {
-      showAddedFeedback(quickAdd);
-    }
-  });
+  if (quickAdd) {
+    quickAdd.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (addToCart(product.id, "unit")) {
+        showAddedFeedback(quickAdd);
+      }
+    });
+  }
   return card;
 }
 
