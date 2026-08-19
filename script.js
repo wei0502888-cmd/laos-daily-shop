@@ -3,8 +3,28 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260817-mobile-shop-v12";
+const BUILD_VERSION = "20260804-product-visibility-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
+
+const analyticsState = {
+  enabled: false,
+};
+
+function initializeAnalytics() {
+  const measurementId = String(config.analytics?.measurementId || "").trim();
+  if (!/^G-[A-Z0-9]+$/i.test(measurementId)) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", measurementId, { send_page_view: true });
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  document.head.append(script);
+  analyticsState.enabled = true;
+}
 
 const iconMap = {
   台灣泡麵補給: "麵",
@@ -79,10 +99,6 @@ const productSection = document.querySelector(".all-products-section");
 const productsTitle = document.querySelector("#products-title");
 const orderLookupForm = document.querySelector("[data-order-lookup-form]");
 const orderLookupResult = document.querySelector("[data-order-lookup-result]");
-const mobileCartDock = document.querySelector("[data-mobile-cart-dock]");
-const mobileCartCount = document.querySelector("[data-mobile-cart-count]");
-const mobileCartAmount = document.querySelector("[data-mobile-cart-amount]");
-const mobileOpenCart = document.querySelector("[data-mobile-open-cart]");
 
 let toastTimer;
 
@@ -173,7 +189,6 @@ function productCardSpecText(product) {
   const packageType = product.packageType || packageTypeMap[product.category] || "單件";
   if (product.specText) {
     const compactSpec = product.specText.replace(/單([^｜]+)販售/g, "1$1");
-    if (compactSpec === "3碗／組") return compactSpec;
     return compactSpec.includes("｜") ? compactSpec : `${packageType}｜${compactSpec}`;
   }
   return `${packageType}｜1${unit}`;
@@ -323,15 +338,7 @@ function productCard(product) {
   const productVisual = imageList.length
     ? `<img src="${imageList[0]}" data-src-list='${JSON.stringify([...imageList, ...fallbackList])}' alt="${product.name} 商品圖" loading="lazy" />`
     : placeholder;
-  const casePurchaseActions = product.caseEnabled
-    ? `
-      <div class="product-actions product-purchase-actions" aria-label="${product.name} 購買方式">
-        <button class="add-button unit-button" type="button" data-add-type="unit">單${product.saleUnit || product.unitName}</button>
-        <button class="add-button case-button" type="button" data-add-type="case">整箱 ${product.caseQuantity}入</button>
-      </div>
-    `
-    : "";
-  card.className = `product-card${product.caseEnabled ? " has-case-options" : ""}`;
+  card.className = "product-card";
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="badge-row">${badges}</div>
@@ -345,9 +352,8 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
       </div>
       <p class="stock-line">${cardSpecText}</p>
-      ${casePurchaseActions}
     </div>
-    ${product.caseEnabled ? "" : `<button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>`}
+    <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
   `;
   const image = card.querySelector("img");
   if (image) {
@@ -377,14 +383,12 @@ function productCard(product) {
     });
   });
   const quickAdd = card.querySelector("[data-quick-add]");
-  if (quickAdd) {
-    quickAdd.addEventListener("click", (event) => {
-      event.stopPropagation();
-      if (addToCart(product.id, "unit")) {
-        showAddedFeedback(quickAdd);
-      }
-    });
-  }
+  quickAdd.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (addToCart(product.id, "unit")) {
+      showAddedFeedback(quickAdd);
+    }
+  });
   return card;
 }
 
@@ -655,7 +659,6 @@ function renderCart() {
   orderCount.textContent = `${saleCount} 組商品`;
 
   if (!items.length) {
-    if (mobileCartDock) mobileCartDock.hidden = true;
     cartItems.innerHTML = '<p class="form-note">購物車目前是空的，先把想補貨的品項加進來。</p>';
     orderDetailList.innerHTML = '<p class="form-note">尚未選擇商品。</p>';
     if (checkoutTotal) {
@@ -663,10 +666,6 @@ function renderCart() {
     }
     return;
   }
-
-  if (mobileCartDock) mobileCartDock.hidden = false;
-  if (mobileCartCount) mobileCartCount.textContent = `購物車 ${itemCount} 項`;
-  if (mobileCartAmount) mobileCartAmount.textContent = amountText;
 
   items.forEach(({ key, product, purchaseType, qty, usedUnits, lineTotal }) => {
     const unitMode = purchaseType === "unit";
@@ -756,7 +755,6 @@ function renderCart() {
 function openCart() {
   cartDrawer.classList.add("is-open");
   cartDrawer.setAttribute("aria-hidden", "false");
-  document.body.classList.add("cart-is-open");
   if (state.cart.size > 0) {
     form.hidden = false;
     orderSuccess.hidden = true;
@@ -766,7 +764,6 @@ function openCart() {
 function closeCart() {
   cartDrawer.classList.remove("is-open");
   cartDrawer.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("cart-is-open");
 }
 
 function buildOrderPayload(formData) {
@@ -861,8 +858,7 @@ function shortOrderItemSummary(items, itemCount, totalCount) {
       item.purchaseType === "case"
         ? `${item.quantity}箱（${item.usedUnits}${unitName}）`
         : `${item.quantity}${item.saleUnit || unitName}${item.usedUnits && item.usedUnits !== item.quantity ? `（${item.usedUnits}${unitName}）` : ""}`;
-    const specText = item.specText === "3碗／組" ? `（${item.specText}）` : "";
-    return `${item.name}${specText} × ${quantityText}`;
+    return `${item.name} × ${quantityText}`;
   }).join("、") || "無商品明細";
 }
 
@@ -1170,7 +1166,6 @@ async function loadShopData() {
 }
 
 document.querySelector("[data-open-cart]").addEventListener("click", openCart);
-mobileOpenCart?.addEventListener("click", openCart);
 document.querySelector("[data-close-cart]").addEventListener("click", closeCart);
 cartDrawer.addEventListener("click", (event) => {
   if (event.target === cartDrawer) closeCart();
@@ -1295,5 +1290,6 @@ document.addEventListener(
 );
 
 applyPaymentConfig();
+initializeAnalytics();
 clearLegacyCaches();
 loadShopData();

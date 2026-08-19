@@ -1,6 +1,11 @@
 window.SHOP_CONFIG = {
   currency: "USD",
   currencyLabel: "USD ",
+  analytics: {
+    // GA4 Measurement ID is public by design (example: G-XXXXXXXXXX).
+    // Keep GA4 Property ID and all private credentials in Apps Script Properties.
+    measurementId: "G-HYXVSGGZBC",
+  },
   telegram: {
     mode: "proxy",
     orderEndpoint: "https://script.google.com/macros/s/AKfycbxjV2WdkWufduFaKSTFS30ubUVsw9UaIkvcG44PdOg_Kt5uPDM37eSBduwNMLqR2qt5Xg/exec",
