@@ -84,6 +84,10 @@ const emptyState = document.querySelector("[data-empty-state]");
 const cartDrawer = document.querySelector("[data-cart-drawer]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
+const cartButtons = document.querySelectorAll("[data-open-cart]");
+const mobileCartDock = document.querySelector("[data-mobile-cart-dock]");
+const mobileCartLabel = document.querySelector("[data-mobile-cart-label]");
+const mobileCartAmount = document.querySelector("[data-mobile-cart-amount]");
 const form = document.querySelector("[data-order-form]");
 const telegramNameInput = form?.querySelector('[name="name"]');
 const orderSuccess = document.querySelector("[data-order-success]");
@@ -338,7 +342,21 @@ function productCard(product) {
   const productVisual = imageList.length
     ? `<img src="${imageList[0]}" data-src-list='${JSON.stringify([...imageList, ...fallbackList])}' alt="${product.name} 商品圖" loading="lazy" />`
     : placeholder;
-  card.className = "product-card";
+  const casePurchaseActions = product.category === "飲料" && product.caseEnabled
+    ? `
+      <div class="product-actions product-purchase-actions" aria-label="${product.name} 販售方式">
+        <button class="add-button unit-button" type="button" data-add-type="unit" aria-label="單${product.saleUnit || product.unitName}加入購物車">
+          <span>單${product.saleUnit || product.unitName}</span>
+          <small>${formatMoney(product.price)}</small>
+        </button>
+        <button class="add-button case-button" type="button" data-add-type="case" aria-label="整箱 ${product.caseQuantity}${product.unitName}加入購物車">
+          <span>整箱｜${product.caseQuantity}${product.unitName}/箱</span>
+          <small>${formatMoney(product.casePrice)}</small>
+        </button>
+      </div>
+    `
+    : "";
+  card.className = `product-card${casePurchaseActions ? " has-case-options" : ""}`;
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="badge-row">${badges}</div>
@@ -352,8 +370,9 @@ function productCard(product) {
         <strong>${formatPrice(product)}</strong>
       </div>
       <p class="stock-line">${cardSpecText}</p>
+      ${casePurchaseActions}
     </div>
-    <button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>
+    ${casePurchaseActions ? "" : `<button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>`}
   `;
   const image = card.querySelector("img");
   if (image) {
@@ -383,12 +402,14 @@ function productCard(product) {
     });
   });
   const quickAdd = card.querySelector("[data-quick-add]");
-  quickAdd.addEventListener("click", (event) => {
-    event.stopPropagation();
-    if (addToCart(product.id, "unit")) {
-      showAddedFeedback(quickAdd);
-    }
-  });
+  if (quickAdd) {
+    quickAdd.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (addToCart(product.id, "unit")) {
+        showAddedFeedback(quickAdd);
+      }
+    });
+  }
   return card;
 }
 
@@ -575,13 +596,13 @@ function showToast(message = "已加入購物車") {
 }
 
 function showAddedFeedback(button) {
-  const originalText = button.textContent;
+  const originalContent = button.innerHTML;
   button.classList.add("is-added");
   button.textContent = "✓";
   showToast("已加入購物車");
   setTimeout(() => {
     button.classList.remove("is-added");
-    button.textContent = originalText;
+    button.innerHTML = originalContent;
   }, 650);
 }
 
@@ -656,6 +677,19 @@ function renderCart() {
   const { items, itemCount, totalCount, hasUnpriced, amountText } = cartSummary();
   const saleCount = items.reduce((sum, item) => sum + item.qty, 0);
   cartCount.textContent = saleCount;
+  cartButtons.forEach((button) => {
+    button.setAttribute("aria-label", `開啟購物車，目前 ${saleCount} 項商品`);
+  });
+  if (mobileCartLabel && mobileCartAmount) {
+    mobileCartLabel.textContent = saleCount > 0 ? `購物車 ${saleCount} 項` : "購物車尚無商品";
+    mobileCartAmount.textContent = saleCount > 0
+      ? hasUnpriced
+        ? "金額待確認"
+        : amountText
+      : "可以先查看購物車";
+    const dockButton = mobileCartDock?.querySelector("button");
+    if (dockButton) dockButton.textContent = saleCount > 0 ? "查看購物車 →" : "查看購物車";
+  }
   orderCount.textContent = `${saleCount} 組商品`;
 
   if (!items.length) {
@@ -754,6 +788,7 @@ function renderCart() {
 
 function openCart() {
   cartDrawer.classList.add("is-open");
+  document.body.classList.add("cart-is-open");
   cartDrawer.setAttribute("aria-hidden", "false");
   if (state.cart.size > 0) {
     form.hidden = false;
@@ -763,6 +798,7 @@ function openCart() {
 
 function closeCart() {
   cartDrawer.classList.remove("is-open");
+  document.body.classList.remove("cart-is-open");
   cartDrawer.setAttribute("aria-hidden", "true");
 }
 
@@ -1165,7 +1201,7 @@ async function loadShopData() {
   }
 }
 
-document.querySelector("[data-open-cart]").addEventListener("click", openCart);
+cartButtons.forEach((button) => button.addEventListener("click", openCart));
 document.querySelector("[data-close-cart]").addEventListener("click", closeCart);
 cartDrawer.addEventListener("click", (event) => {
   if (event.target === cartDrawer) closeCart();

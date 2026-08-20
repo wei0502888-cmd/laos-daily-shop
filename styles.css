@@ -2227,11 +2227,24 @@ textarea,
 
 .product-purchase-actions .add-button {
   min-width: 0;
-  min-height: 38px;
+  min-height: 52px;
   padding: 0 8px;
   border-radius: 12px;
   font-size: 12px;
-  white-space: nowrap;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.product-purchase-actions .add-button span,
+.product-purchase-actions .add-button small {
+  display: block;
+}
+
+.product-purchase-actions .add-button small {
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 850;
+  opacity: 0.86;
 }
 
 .product-purchase-actions .unit-button {
@@ -3016,19 +3029,35 @@ textarea,
   }
 
   .cart-pill {
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 104px;
+    min-height: 44px;
     justify-content: center;
-    padding: 0 7px;
+    gap: 5px;
+    padding: 0 9px;
+    border-radius: 999px;
+    background: var(--green);
+    color: #fff;
   }
 
   .cart-pill > span {
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .cart-pill > span > span {
+    display: inline;
   }
 
   .cart-pill strong {
-    min-width: 25px;
-    height: 25px;
+    min-width: 23px;
+    height: 23px;
+    background: #fff;
+    color: var(--green-dark);
   }
 
   .telegram-sticky-wrap {
@@ -3243,9 +3272,13 @@ textarea,
   }
 
   .product-purchase-actions .add-button {
-    min-height: 40px;
+    min-height: 50px;
     padding: 0 4px;
     font-size: 10px;
+  }
+
+  .product-purchase-actions .add-button small {
+    font-size: 9px;
   }
 
   .mobile-cart-dock {
@@ -3445,17 +3478,49 @@ textarea,
 }
 
 @media (max-width: 370px) {
+  .topbar {
+    gap: 5px;
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+
+  .brand {
+    gap: 5px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    font-size: 12px;
+  }
+
   .brand small {
     display: none;
   }
 
   .brand strong {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .order-lookup-pill {
-    padding: 0 8px;
-    font-size: 10px;
+    min-height: 36px;
+    padding: 0 6px;
+    font-size: 9px;
+  }
+
+  .topbar-actions {
+    gap: 4px;
+  }
+
+  .cart-pill {
+    min-width: 96px;
+    min-height: 42px;
+    padding: 0 7px;
+  }
+
+  .cart-pill > span {
+    font-size: 11px;
   }
 
   .product-body {

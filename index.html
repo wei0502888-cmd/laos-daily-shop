@@ -31,8 +31,8 @@
           <a class="telegram-header-button" href="https://t.me/Taiwan8541" target="_blank" rel="noopener noreferrer">立即加入</a>
         </div>
         <a class="order-lookup-pill" href="#order-lookup">查詢訂單</a>
-        <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車">
-          <span>購物車</span>
+        <button class="cart-pill" type="button" data-open-cart aria-label="開啟購物車，目前 0 項商品">
+          <span><span aria-hidden="true">🛒</span> 購物車</span>
           <strong data-cart-count>0</strong>
         </button>
       </div>
@@ -221,12 +221,21 @@
 
     <div class="shop-toast" data-toast hidden>已加入購物車</div>
 
+    <div class="mobile-cart-dock" data-mobile-cart-dock>
+      <div class="mobile-cart-dock-summary" aria-live="polite">
+        <small data-mobile-cart-label>購物車尚無商品</small>
+        <strong data-mobile-cart-amount>可以先查看購物車</strong>
+      </div>
+      <button type="button" data-open-cart>查看購物車</button>
+    </div>
+
     <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
       <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
         <div class="cart-header">
           <h2 id="cart-title">購物車</h2>
           <button type="button" data-close-cart aria-label="關閉購物車">關閉</button>
         </div>
+        <p class="cart-order-guide">確認商品後，請往下填寫 Telegram 名稱、電話與地址，再按「送出訂單」。</p>
         <div class="cart-items" data-cart-items></div>
         <form class="checkout-form" data-order-form>
           <h3>下單資料</h3>
