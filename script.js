@@ -3,7 +3,7 @@ const config = window.SHOP_CONFIG || {
   telegram: { mode: "proxy", orderEndpoint: "" },
 };
 
-const BUILD_VERSION = "20260804-product-visibility-v1";
+const BUILD_VERSION = "20260906-pricing-soldout-v1";
 const IMAGE_PATH_PREFIXES = ["", "./", "老撾商城_商品圖正式導入版_0707/"];
 
 const analyticsState = {
@@ -222,6 +222,7 @@ function normalizeProduct(product) {
     mark: iconMap[product.category] || "品",
     stockQty,
     stock: stockQty <= 0 ? "缺貨" : product.stock || "現貨",
+    soldOut: Boolean(product.soldOut),
     image: product.image || "",
     fallbackImage: product.fallbackImage || "",
     unitName: product.unitName || "件",
@@ -328,9 +329,13 @@ function categoryFromHash() {
 function productCard(product) {
   const card = document.createElement("article");
   const availableSaleQty = maxPurchaseQty(product, "unit");
-  const disabled = product.stock === "缺貨" || product.stockQty <= 0 || availableSaleQty <= 0;
+  const disabled = product.soldOut || product.stock === "缺貨" || product.stockQty <= 0 || availableSaleQty <= 0;
   const cardSpecText = productCardSpecText(product);
-  const badges = [product.isHot ? '<span class="badge">HOT</span>' : "", product.isNew ? '<span class="badge badge-new">NEW</span>' : ""].join("");
+  const badges = [
+    product.soldOut ? '<span class="badge badge-sold-out">售完</span>' : "",
+    product.isHot ? '<span class="badge">HOT</span>' : "",
+    product.isNew ? '<span class="badge badge-new">NEW</span>' : "",
+  ].join("");
   const placeholder = `
     <div class="product-placeholder product-placeholder-${product.categoryKey}" aria-hidden="true">
       <span>${product.mark}</span>
@@ -356,7 +361,7 @@ function productCard(product) {
       </div>
     `
     : "";
-  card.className = `product-card${casePurchaseActions ? " has-case-options" : ""}`;
+  card.className = `product-card${casePurchaseActions ? " has-case-options" : ""}${product.soldOut ? " is-sold-out" : ""}`;
   card.style.setProperty("--card-color", product.tone);
   card.innerHTML = `
     <div class="badge-row">${badges}</div>
@@ -372,7 +377,7 @@ function productCard(product) {
       <p class="stock-line">${cardSpecText}</p>
       ${casePurchaseActions}
     </div>
-    ${casePurchaseActions ? "" : `<button class="quick-add-button" type="button" data-quick-add aria-label="加入 ${product.name} 到購物車" ${disabled ? "disabled" : ""}>＋</button>`}
+    ${casePurchaseActions ? "" : `<button class="quick-add-button" type="button" data-quick-add aria-label="${product.soldOut ? `${product.name} 已售完` : `加入 ${product.name} 到購物車`}" ${disabled ? "disabled" : ""}>${product.soldOut ? "已售完" : "＋"}</button>`}
   `;
   const image = card.querySelector("img");
   if (image) {
@@ -550,6 +555,7 @@ function cartUsedUnits(productId, excludedKey = "") {
 }
 
 function maxPurchaseQty(product, purchaseType, key = "") {
+  if (product.soldOut) return 0;
   const availableStock = Math.max(product.stockQty - cartUsedUnits(product.id, key), 0);
   if (purchaseType === "case") {
     if (!product.caseEnabled || !product.caseQuantity || !isPriced(product.casePrice)) return 0;
@@ -572,7 +578,7 @@ function purchaseLabel(product, purchaseType) {
 
 function addToCart(id, purchaseType = "unit") {
   const product = state.products.find((item) => item.id === id);
-  if (!product || product.stock === "缺貨") return false;
+  if (!product || product.soldOut || product.stock === "缺貨") return false;
   if (purchaseType === "case" && (!product.caseEnabled || !isPriced(product.casePrice))) return false;
   const key = cartKey(id, purchaseType);
   const currentQty = state.cart.get(key) || 0;
@@ -654,7 +660,7 @@ function pruneCartUnavailableProducts() {
   state.cart.forEach((qty, key) => {
     const { productId, purchaseType } = parseCartKey(key);
     const product = state.products.find((item) => item.id === productId);
-    if (!product || product.stockQty <= 0 || product.stock === "缺貨") {
+    if (!product || product.soldOut || product.stockQty <= 0 || product.stock === "缺貨") {
       state.cart.delete(key);
       return;
     }
@@ -1226,6 +1232,7 @@ telegramNameInput?.addEventListener("input", () => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  pruneCartUnavailableProducts();
   if (state.cart.size === 0) {
     alert("請先加入至少一項商品。");
     return;

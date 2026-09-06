@@ -615,6 +615,10 @@ p {
   background: var(--gold);
 }
 
+.badge-sold-out {
+  background: var(--red);
+}
+
 .product-art {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -2310,6 +2314,18 @@ textarea,
   background: #bec4bd;
   color: #fff;
   box-shadow: none;
+}
+
+.product-card.is-sold-out .product-art img {
+  opacity: 0.72;
+}
+
+.product-card.is-sold-out .quick-add-button {
+  width: auto;
+  min-width: 76px;
+  padding: 0 14px;
+  font-size: 13px;
+  cursor: not-allowed;
 }
 
 .product-card {
