@@ -81,6 +81,7 @@ const newList = document.querySelector("[data-new-list]");
 const tabs = document.querySelector("[data-category-tabs]");
 const search = document.querySelector("#product-search");
 const emptyState = document.querySelector("[data-empty-state]");
+const retryProductsButton = document.querySelector("[data-retry-products]");
 const cartDrawer = document.querySelector("[data-cart-drawer]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
@@ -1179,9 +1180,14 @@ function renderOrderProgress(status) {
 }
 
 async function loadShopData() {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), 10000);
   try {
     updateStickyMetrics();
-    const response = await fetch(`./products.json?v=${BUILD_VERSION}`, { cache: "no-store" });
+    const response = await fetch(`./products.json?v=${BUILD_VERSION}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
     if (!response.ok) throw new Error("Cannot load products.json");
     const data = await response.json();
     state.categories = data.categories || [];
@@ -1200,12 +1206,24 @@ async function loadShopData() {
     } else {
       updateProductSectionAnchor();
     }
+    if (retryProductsButton) retryProductsButton.hidden = true;
   } catch (error) {
     productGrid.innerHTML = "";
     emptyState.hidden = false;
-    emptyState.textContent = "商品資料載入失敗，請檢查 products.json。";
+    emptyState.textContent = error?.name === "AbortError"
+      ? "網路連線較慢，請重新載入商品。"
+      : "商品資料載入失敗，請重新載入商品。";
+    if (retryProductsButton) retryProductsButton.hidden = false;
+  } finally {
+    window.clearTimeout(timeoutId);
   }
 }
+
+retryProductsButton?.addEventListener("click", () => {
+  retryProductsButton.hidden = true;
+  emptyState.hidden = true;
+  loadShopData();
+});
 
 cartButtons.forEach((button) => button.addEventListener("click", openCart));
 document.querySelector("[data-close-cart]").addEventListener("click", closeCart);
